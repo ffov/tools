@@ -1,2 +1,4 @@
 
-# Repo für Tools, Scripte und sonstiges Zeug
+# Das Repository fÃ¼r Tools, Scripte und sonstiges Zeug
+
+In diesem Repositorium (Repo) sammeln wir alle Dateien, die in keine der anderen Repos passen.
