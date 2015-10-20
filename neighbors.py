@@ -320,6 +320,6 @@ for line in info:
         print(text+':')
         if not args.x:
             print(text+':', file=f)
-    print(line[1])
+    print(line[1].encode('utf8'))
     if not args.x:
         print(line[1].encode('utf8'), file=f)
