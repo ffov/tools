@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # neighbor.py
-# Version 0.6.1
 # by Michael Suelmann <suelmann@gmx.de>
 
 # Python2-Skript zum Anzeigen von benachbarten Freifunk-Knoten
