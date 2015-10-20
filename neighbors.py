@@ -25,6 +25,9 @@
 
 from __future__ import print_function
 
+import sys
+sys.setrecursionlimit(10000)
+
 # Configuration
 
 map_url = 'https://freifunk-muensterland.de/map/data/nodes.json'
