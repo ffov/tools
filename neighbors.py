@@ -1,10 +1,10 @@
-#!/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 # neighbor.py
-# Version 0.6
+# Version 0.6.1
 # by Michael Suelmann <suelmann@gmx.de>
 
-# Skript zum Anzeigen von benachbarten Freifunk-Knoten
+# Python2-Skript zum Anzeigen von benachbarten Freifunk-Knoten
 #
 # Das Skript geht von einem Start-Knoten (per MAC oder IPv6 angebbar) aus und
 # sucht rekursiv Knoten, die von den schon gesammelten Knoten gemäß den Geo-
