@@ -8,7 +8,7 @@
 #
 # Das Skript geht von einem Start-Knoten (per MAC oder IPv6 angebbar) aus und
 # sucht rekursiv Knoten, die von den schon gesammelten Knoten gemäß den Geo-
-# Koordinaten einen maximalen Abstand (kann per -s gesetzt werden) entfernt
+# Koordinaten einen maximalen Abstand (kann per -d gesetzt werden) entfernt
 # sind (per add_neighbors() aus nodes.json), oder die über Mesh miteinander
 # verbunden sind (per add_links() aus graph.json). Letzteres kann optional
 # auch über die Status-Seite der Router erfolgen, wobei dies aber nicht 100%
@@ -19,7 +19,7 @@
 # "batctl tr" auf einem Freifunk-Knoten, die deaktiviert und sehr langsam ist.
 #
 # Am Ende werden die Daten auf der Konsole und in eine Datei ausgegen. Mit -x
-# kann man die Dateiausgabe unterdrücken. Mit -n Kann man die Ausgabe passend
+# kann man die Dateiausgabe unterdrücken. Mit -n kann man die Ausgabe passend
 # für einen nginx-Include ausgeben.
 
 
@@ -178,7 +178,7 @@ def add_links(node):
     """
     if node in links:
         for lnode in links[node]:
-            if lnode != 'gw' and not lnode in nodes:
+            if lnode and lnode != 'gw' and not lnode in nodes:
                 nodes.add(lnode)
                 add_links(lnode)
                 add_connected(lnode)
