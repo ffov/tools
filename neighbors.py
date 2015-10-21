@@ -24,9 +24,6 @@
 
 from __future__ import print_function
 
-import sys
-sys.setrecursionlimit(10000)
-
 # Configuration
 
 map_url = 'https://freifunk-muensterland.de/map/data/nodes.json'
@@ -45,6 +42,7 @@ try:
 except:
     from urllib.request import urlopen, URLError
 
+sys.setrecursionlimit(10000)
 FNULL = open(os.devnull, 'w')
 
 def get_global_ip(ip_list):
@@ -99,6 +97,8 @@ def get_info(node):
         dist = distance(location,node_data['location'])
     except KeyError:
         pass
+    if not 'addresses' in node_data['network']:
+        return(-2,('# ' if args.n else '')+node)
     if use_batctl:
         hops = get_hops(node_data['network']['mac'])
     else:
@@ -304,7 +304,9 @@ hops = 99
 for line in info:
     if line[0] < hops:
         hops = line[0]
-        if hops == -1:
+        if hops == -2:
+            text = 'Gateways und Services'
+        elif hops == -1:
             if args.n:
                 text = 'Zum Auswertungszeitpunkt nicht erreichbare Knoten'
             else:
