@@ -27,10 +27,23 @@ class Merger:
             try:
                 file = open(dir+"/nodes.json","r")
             except:
-                sys.exit('Could not open '+dir+"/nodes.json")
+                print('Could not open '+dir+"/nodes.json")
+                break
             nodes = json.load(file)
+            if not nodes:
+                break
+            for node in nodes['nodes']:
+                if 'nodeinfo' in node and 'owner' in node['nodeinfo']:
+                    del node['nodeinfo']['owner']
             if self.nodes:
-                self.nodes['nodes'].update(nodes['nodes'])
+                for node in nodes['nodes'].keys():
+                    try:
+                        if self.nodes['nodes'][node]['flags']['online']:
+                            break
+                    except KeyError:
+                        pass
+                    self.nodes['nodes'][node] = nodes['nodes'][node]
+                #self.nodes['nodes'].update(nodes['nodes'])
             else:
                 self.nodes = nodes
 
@@ -39,8 +52,11 @@ class Merger:
             try:
                 file = open(dir+"/graph.json","r")
             except:
-                sys.exit('Could not open '+dir+"/nodes.json")
+                print('Could not open '+dir+"/nodes.json")
+                break
             graph = json.load(file)
+            if not graph:
+                break
             if self.graph:
                 node_count = len(self.graph['batadv']['nodes'])
                 for link in graph['batadv']['links']:
