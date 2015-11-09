@@ -3,7 +3,7 @@
 # neighbor.py
 # by Michael Suelmann <suelmann@gmx.de>
 
-# Python3-Skript zum zum Zusammenfügen von Kartendaten verschiedener Freifunk-
+# Python3-Skript zum Zusammenfügen von Kartendaten verschiedener Freifunk-
 # Domänen.
 
 # Aufruf: merge_map_data.py -o Zielverzeichnis Quellverzeichnis1 ... QuellverzeichnisN
