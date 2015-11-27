@@ -5,8 +5,8 @@ Dieses Script wertet eine gegebene nodes.json Datei aus und ordnet die Knoten na
 ### Requirements
 Das Script wurde unter Python 2.7 getestet, wie es unter Python 3 läuft, kann ich nicht sagen.
 Folgende Python Pakete sind erforderlich und sollten via `pip install` installiert werden. Von einer Installation über `apt-get` o. Ä. ist abzuraten, da hier z. B. das Geocoding-Modul so weit veraltet ist, dass benötigte Features noch nicht enthalten sind.
-- [geopy]{https://geopy.readthedocs.org/en/1.10.0/}
-- [blitzdb]{https://blitzdb.readthedocs.org/en/latest/}
+- [geopy](https://geopy.readthedocs.org/en/1.10.0/)
+- [blitzdb](https://blitzdb.readthedocs.org/en/latest/)
 
 ### Bedienung
 Im einfachsten Fall muss einfach nur die `geo.py` ausgeführt werden.
@@ -23,5 +23,5 @@ Der Nominatim-Geocoder hat die Reglementierung, dass maximal ein Request pro Sek
 - Konfiguration über Aufruf-Argumente realisieren
 - Weitere Ausgabeformate
 
----- 
-2015 - Simon Wüllhorst - CC-BY-SA 3.0
+---
+2015 - Simon Wüllhorst - CC-BY-SA 4.0
