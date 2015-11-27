@@ -1,6 +1,6 @@
 ## geo_info - Geografische Zuordnung der Knoten
 ### Beschreibung
-Dieses Script wertet eine gegebene nodes.json Datei aus und ordnet die Knoten nach Abfrage der Nominatim-Geocoder-API Administrativen Relationen zu. Das geschieht hierarchisch, soweit ausreichend Daten über Nominatim/OSM zur Verfügung stehen.
+Dieses Script wertet eine gegebene nodes.json Datei aus und ordnet die Knoten nach Abfrage der Nominatim-Geocoder-API administrativen Relationen (etwa Landes-, Kreis-, und Gemeindegrenzen sowie darunter liegende Verwaltungseinheiten) zu. Das geschieht hierarchisch, soweit ausreichend Daten über Nominatim/OSM zur Verfügung stehen.
 
 ### Requirements
 Das Script wurde unter Python 2.7 getestet, wie es unter Python 3 läuft, kann ich nicht sagen.
