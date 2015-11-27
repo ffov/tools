@@ -1,0 +1,1 @@
+{"autocommit": false, "serializer_class": "json", "store_class": "transactional", "index_class": "transactional", "indexes": {"geoassign": {"pk": {"id": "85ad0a3f82b84cbda0e94c7b7784907f", "key": "pk"}}}, "index_store_class": "basic", "version": "0.2.12"}
