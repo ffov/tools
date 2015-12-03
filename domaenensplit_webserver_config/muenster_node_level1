@@ -1,0 +1,99 @@
+geo $switch {
+	default	0;
+	#Schlossgarten-Cafe-03
+	2a03:2260:115:0:ea94:f6ff:fe6d:26fc	1;
+	#Heidhorn-Freifunk-Outdoor-1
+	2a03:2260:115:0:6a72:51ff:fe2e:e40d	1;
+	#Sportschuetzen-Hiltrup-Outdoor
+	2a03:2260:115:0:6a72:51ff:fe2c:e33c	1;
+	#Gazelle_03
+	2a03:2260:115:0:ea94:f6ff:fe29:da12	1;
+	#kgbvax-m2-c
+	2a03:2260:115:0:26a4:3cff:fef0:b9ae	1;
+	#Dialogo-Praxis-fuer-Logopaedie-Pico
+	2a03:2260:115:0:6a72:51ff:fe2c:e653	1;
+	#warpzone-unifi-1
+	2a03:2260:115:0:26a4:3cff:fedf:a10e	1;
+	#haus-a-buero
+	2a03:2260:115:0:eade:27ff:fed6:1506	1;
+	#Banane-03
+	2a03:2260:115:0:ea94:f6ff:fe6d:cda	1;
+	#Heidhorn-Freifunk-Etage-1.1
+	2a03:2260:115:0:618:d6ff:fead:9dcc	1;
+	#freifunk-kolpingjugend-ms-2
+	2a03:2260:115:0:c66e:1fff:fea2:2fb4	1;
+	#Heidhorn-Freifunk-Etage-3.1
+	2a03:2260:115:0:618:d6ff:fead:9dc9	1;
+	#Caritas-Nienberge-04
+	2a03:2260:115:0:62e3:27ff:fe59:fd3a	1;
+	#Caritas-Nienberge-08
+	2a03:2260:115:0:62e3:27ff:fe59:fdda	1;
+	#Gazelle_04
+	2a03:2260:115:0:618:d6ff:fe35:4722	1;
+	#FanLin-CoOp-Bleker-IT
+	2a03:2260:115:0:6a72:51ff:fe20:6213	1;
+	#Tommy-und-Jerry
+	2a03:2260:115:0:eade:27ff:fead:908e	1;
+	#Zum_Ausspann_03
+	2a03:2260:115:0:6a72:51ff:fe2e:253d	1;
+	#Commander1024-2
+	2a03:2260:115:0:12fe:edff:fe7d:8c9e	1;
+	#MV-Verlag-2
+	2a03:2260:115:0:ea94:f6ff:fe6d:40a8	1;
+	#Caritas-Nienberge-02
+	2a03:2260:115:0:62e3:27ff:fe59:ff20	1;
+	#Zum_Ausspann_02
+	2a03:2260:115:0:16cc:20ff:fea4:866a	1;
+	#Heidhorn-Freifunk-Etage-2.1
+	2a03:2260:115:0:618:d6ff:fead:9f3f	1;
+	#Heidhorn-Freifunk-Etage-3.2
+	2a03:2260:115:0:618:d6ff:fead:9f3e	1;
+	#Banane-02
+	2a03:2260:115:0:ea94:f6ff:fe63:d02	1;
+	#SputnikHalle
+	2a03:2260:115:0:618:d6ff:fe6d:54a	1;
+	#Freifunk-Aasee-LaVela
+	2a03:2260:115:0:c66e:1fff:fee8:116e	1;
+	#Freifunk_CSt-2
+	2a03:2260:115:0:ea94:f6ff:fe2a:d458	1;
+	#freifunk0815
+	2a03:2260:115:0:ea94:f6ff:fe78:87e2	1;
+	#FeinkostJauch
+	2a03:2260:115:0:eade:27ff:fed5:e31e	1;
+	#kulturbahnhof-hiltrup-02
+	2a03:2260:115:0:618:d6ff:fecb:5993	1;
+	#Restaurant-Pamina
+	2a03:2260:115:0:618:d6ff:fee7:1747	1;
+	#Heidhorn-Freifunk-Etage-1.2
+	2a03:2260:115:0:618:d6ff:fead:9ccc	1;
+	#Heidhorn-Freifunk-Etage-2.2
+	2a03:2260:115:0:618:d6ff:fead:9c62	1;
+	#Caritas-Nienberge-05
+	2a03:2260:115:0:c6e9:84ff:feb5:ca9c	1;
+	#Caritas-Nienberge-06
+	2a03:2260:115:0:62e3:27ff:fe59:fca8	1;
+	#SputnikCafe
+	2a03:2260:115:0:618:d6ff:fe0b:a795	1;
+	#ffms0815
+	2a03:2260:115:0:16cc:20ff:fe5a:59ac	1;
+	#Pflegebuero-Schmidt
+	2a03:2260:115:0:32b5:c2ff:fed9:de1c	1;
+	#ffms0815pstation
+	2a03:2260:115:0:de9f:dbff:fe62:5847	1;
+	#Caritas-Nienberge-03
+	2a03:2260:115:0:62e3:27ff:fe59:fbe8	1;
+	#00Q_Campus-Nienberge_271
+	2a03:2260:115:0:c66e:1fff:feca:156c	1;
+	#FanLin-ZhongLou
+	2a03:2260:115:0:26a4:3cff:fe92:be8d	1;
+	#Jp-Cut
+	2a03:2260:115:0:ea94:f6ff:fe0c:a604	1;
+	#LaPaloma
+	2a03:2260:115:0:6a72:51ff:fe10:a66c	1;
+	#freifunk-Bunker
+	2a03:2260:115:0:6a72:51ff:fe0c:4145	1;
+	#TankstelleAlbachten2
+	2a03:2260:115:0:ea94:f6ff:fe4f:fdb6	1;
+	#Commander1024-worker
+	2a03:2260:115:0:219:99ff:fe5f:b364	1;
+}

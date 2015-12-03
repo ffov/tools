@@ -1,0 +1,85 @@
+geo $switch {
+	default	0;
+	#Anemonenweg.LH
+	2a03:2260:115:0:6a72:51ff:fe28:f903	1;
+	#FanLin-Merfeld02-Freifunk
+	2a03:2260:115:0:eade:27ff:fe58:a880	1;
+	#ffcoe-herbern-01
+	2a03:2260:115:0:c66e:1fff:fe31:6f66	1;
+	#HotelzurPost5
+	2a03:2260:115:0:32b5:c2ff:fe3e:8298	1;
+	#HotelzurPost2
+	2a03:2260:115:0:32b5:c2ff:fe3e:80b0	1;
+	#Backwiaerk-1-1
+	2a03:2260:115:0:6a72:51ff:fe2e:99e1	1;
+	#MusikschuleMuensterland2
+	2a03:2260:115:0:32b5:c2ff:fecb:4106	1;
+	#ZEDReisen2
+	2a03:2260:115:0:32b5:c2ff:feee:1fc0	1;
+	#FanLin-Rorup17-Freifunk
+	2a03:2260:115:0:ea94:f6ff:fe0c:d66e	1;
+	#ffcoe-herbern-08
+	2a03:2260:115:0:ea94:f6ff:fe4f:b4c2	1;
+	#HaarmodenAktuell
+	2a03:2260:115:0:32b5:c2ff:fe3e:88cc	1;
+	#freifunk-duelmen-004
+	2a03:2260:115:0:c66e:1fff:fe70:12c8	1;
+	#Freifunk-Duelmen-SB13-2
+	2a03:2260:115:0:62e3:27ff:fe59:fc36	1;
+	#ffcoe-herbern-07
+	2a03:2260:115:0:ea94:f6ff:fe4f:b49a	1;
+	#FanLin-Rorup05-Freifunk
+	2a03:2260:115:0:c66e:1fff:fee6:9870	1;
+	#LH-Markt3-3
+	2a03:2260:115:0:6a72:51ff:fe2e:9978	1;
+	#Forum_LH_2
+	2a03:2260:115:0:62e3:27ff:fe76:b71a	1;
+	#rorup.net.GemeindehausPark
+	2a03:2260:115:0:6a72:51ff:fe30:87c4	1;
+	#freifunk-OttiStrontianitfeld1
+	2a03:2260:115:0:c66e:1fff:fec7:87c	1;
+	#ZurMuehle.LH2
+	2a03:2260:115:0:32b5:c2ff:fe22:aa64	1;
+	#ffcoe-herbern-09
+	2a03:2260:115:0:c66e:1fff:fe8c:b786	1;
+	#Luedinghausen_Marketing1
+	2a03:2260:115:0:6a72:51ff:fe2e:e379	1;
+	#Freifunk
+	2a03:2260:115:0:32b5:c2ff:feda:1e00	1;
+	#Freifunk-Duelmen-SPD-003
+	2a03:2260:115:0:6a72:51ff:fe2e:bb75	1;
+	#ff-coe-corellia
+	2a03:2260:115:0:c6e9:84ff:fe99:a9fe	1;
+	#HotelzurPost1
+	2a03:2260:115:0:32b5:c2ff:fe3e:804e	1;
+	#freifunk14cc20c01abc
+	2a03:2260:115:0:16cc:20ff:fec0:1abc	1;
+	#freifunk-OttiStrontianitfeld2
+	2a03:2260:115:0:c66e:1fff:fec7:3d48	1;
+	#freifunk-duelmen-002
+	2a03:2260:115:0:12fe:edff:fea0:d3c	1;
+	#Limbergen2
+	2a03:2260:115:0:6a72:51ff:fe20:d9cc	1;
+	#HotelzurPost3
+	2a03:2260:115:0:32b5:c2ff:fe3e:80ac	1;
+	#rorup.net.BuergerhausKirchplatz
+	2a03:2260:115:0:6a72:51ff:fe28:ae4c	1;
+	#FanLin-Boesensell03-PonyhofKaffee-Freifunk
+	2a03:2260:115:0:16cc:20ff:fe6f:a39a	1;
+	#FanLin-Rorup07-Freifunk
+	2a03:2260:115:0:c66e:1fff:fe2c:444	1;
+	#FanLin-Rorup09-Freifunk
+	2a03:2260:115:0:16cc:20ff:fe6f:e2b6	1;
+	#freifunk-duelmen-003
+	2a03:2260:115:0:c24a:ff:fe53:bea2	1;
+	#LH-Markt2-2
+	2a03:2260:115:0:6a72:51ff:fe2e:981e	1;
+	#Cafe-Reitstall-2
+	2a03:2260:115:0:32b5:c2ff:fe22:ac5a	1;
+	#LH-Markt1-1
+	2a03:2260:115:0:6a72:51ff:fe2e:99dc	1;
+	#FanLin-Rorup08-Freifunk
+	2a03:2260:115:0:c66e:1fff:fee6:97a4	1;
+	#Cafe-Terjung-2
+	2a03:2260:115:0:32b5:c2ff:feee:7692	1;
+}

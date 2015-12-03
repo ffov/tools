@@ -1,0 +1,13 @@
+geo $switch {
+	default	0;
+	#FanLin-HuoJian
+	2a03:2260:115:0:6a72:51ff:fe08:86fc	1;
+	#cafe-med-aussen
+	2a03:2260:115:0:6a72:51ff:fe20:ab80	1;
+	#kgbvax-m2-f-nnw
+	2a03:2260:115:0:6a72:51ff:fe24:e29e	1;
+	#00Q_Campus-Nienberge_X1
+	2a03:2260:115:0:c66e:1fff:febd:44e	1;
+	#Caritas-Nienberge-07
+	2a03:2260:115:0:62e3:27ff:fe59:fff2	1;
+}

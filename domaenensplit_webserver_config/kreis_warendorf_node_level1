@@ -1,0 +1,33 @@
+geo $switch {
+	default	0;
+	#ff-Hoelscher-Raeume-Traeume-Sendenhorst
+	2a03:2260:115:0:16cc:20ff:fecd:4f7c	1;
+	#ffwaf-Sportschuetzen-Sendenhorst1
+	2a03:2260:115:0:16cc:20ff:fecd:4f44	1;
+	#ff_westb_GS26
+	2a03:2260:115:0:c6e9:84ff:fef0:8f5c	1;
+	#ff_gw-albersloh_01
+	2a03:2260:115:0:32b5:c2ff:feed:f7c8	1;
+	#ffwaf-eloh-Kaldewey-IT-Solutions-003
+	2a03:2260:115:0:32b5:c2ff:fec6:935a	1;
+	#Kiepenkerl-Immobilien-Shop-Sendenhorst
+	2a03:2260:115:0:32b5:c2ff:fe22:3506	1;
+	#ffwaf-Freifunk-Burguillos
+	2a03:2260:115:0:c66e:1fff:fe7a:adfe	1;
+	#funk_ins_glueck_3
+	2a03:2260:115:0:32b5:c2ff:feed:2eba	1;
+	#ff-Piratenpartei-Sendenhorst
+	2a03:2260:115:0:62e3:27ff:fe82:1704	1;
+	#funk_ins_glueck_4
+	2a03:2260:115:0:c6e9:84ff:fefc:f3ee	1;
+	#ffzurpost001
+	2a03:2260:115:0:46d9:e7ff:fe43:9b2f	1;
+	#ffwaf-bruenebrede41
+	2a03:2260:115:0:32b5:c2ff:fecb:8468	1;
+	#ffwaf-eloh-Kaldewey-IT-Solutions-002
+	2a03:2260:115:0:16cc:20ff:fe6e:fa2c	1;
+	#Freifunk-BfA2
+	2a03:2260:115:0:c66e:1fff:feb2:879c	1;
+	#Kiepenkerl-Immobilien
+	2a03:2260:115:0:6a72:51ff:fe2e:e31e	1;
+}
