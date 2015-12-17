@@ -2,7 +2,7 @@
 for i in /proc/sys/net/ipv4/conf/bat*; do
     num=${i#*bat}
     mkdir -p /var/www/html/data${num}
-    /usr/src/ffmap-backend/backend.py -d /var/www/html/data${num} -m bat${num}:/run/alfred${num}.sock 
+    /usr/src/ffmap-backend/backend.py -d /var/www/html/data${num} -m bat${num}:/run/alfred.$(printf %02d ${num}).sock 
 done
 mkdir -p /var/www/html/data_waf
 wget http://ffwaf-srv2.freifunk-muensterland.net/o/nodes.json -O /var/www/html/data_waf/nodes.json
