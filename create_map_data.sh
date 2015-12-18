@@ -16,6 +16,25 @@ mkdir -p /var/www/html/data
 for i in /var/www/html/data?*; do
     suf=${i#*data}
     if [ ! -e /var/www/html/map${suf} ]; then
-        mkdir /var/www/html/map${suf} && cd /var/www/html/map${suf} && ln -s ../map/* . && rm config.json && sed -e "s#/data/#/data$suf/#" <../map/config.json >config.json
+        mkdir /var/www/html/map${suf} && cd /var/www/html/map${suf} && ln -s ../map/* . && rm config.json && sed -e "s#/data/#/data$suf/#" -e "s#Münsterland#Münsterland - Domäne ${suf}#" <../map/config.json >config.json
+        cat <<EOF > /var/www/html/index.html
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Freifunk Münsterland</title>
+</head>
+<body>
+<h1>Freifunk Münsterland - Karten</h1>
+<p><a href="map/">Gesamtkarte</a></p>
+EOF
+	for j in /var/www/html/data?*; do
+	    suf2=${j#*data}
+	    name=$(echo $suf2 | sed -e s/_waf/Warendorf/)
+	    echo "<p><a href=\"map$suf2/\">Domäne $name</a></p>" >> /var/www/html/index.html
+        done
+        cat <<EOF >> /var/www/html/index.html
+</body>
+</html>
+EOF
     fi
 done
