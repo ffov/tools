@@ -1,113 +1,55 @@
 geo $switch {
 	default	0;
-	#freifunk-EngelApo-Alucardo
-	2a03:2260:115:0:c66e:1fff:feae:235a	1;
-	#freifunk-rinkerode-002
-	2a03:2260:115:0:c66e:1fff:fe2d:3db8	1;
-	#ffwaf-eloh-habrock
-	2a03:2260:115:0:32b5:c2ff:fe80:f748	1;
-	#freifunk-Sendenhorst01
-	2a03:2260:115:0:c66e:1fff:fed1:85ce	1;
-	#ffwaf-Oelde-Nord-001
-	2a03:2260:115:0:32b5:c2ff:fe81:2b50	1;
-	#freifunk-Ostbevern1
-	2a03:2260:115:0:ea94:f6ff:fe78:cb08	1;
-	#freifunk-rinkerode-001
-	2a03:2260:115:0:32b5:c2ff:feee:2fd0	1;
-	#Ferienwohnung_An_den_Linden
-	2a03:2260:115:0:c66e:1fff:fec7:b92	1;
-	#freifunk_hotel-restaurant-geschermann
-	2a03:2260:115:0:32b5:c2ff:fe6f:53a	1;
-	#ffwaf-zurboerse
-	2a03:2260:115:0:c66e:1fff:feb6:6204	1;
-	#Stadtteilbuero
-	2a03:2260:115:0:c66e:1fff:fe2d:3d86	1;
-	#ffwaf-natobunker1
-	2a03:2260:115:0:c66e:1fff:fed1:3094	1;
-	#ffwaf-Markus-Alker
-	2a03:2260:115:0:32b5:c2ff:fec2:a05a	1;
-	#ffwaf-HillmannTraining
-	2a03:2260:115:0:62e3:27ff:fe5f:e8a8	1;
-	#ff_westb_ZurBever
-	2a03:2260:115:0:c6e9:84ff:fef0:a738	1;
-	#ffwaf-verlosung1-37
-	2a03:2260:115:0:16cc:20ff:fe62:f84a	1;
-	#ffwaf-fensterberg
-	2a03:2260:115:0:c66e:1fff:feb3:9c70	1;
-	#ff-BIG-AMERICAN-FOOD-Sendenhorst
-	2a03:2260:115:0:c66e:1fff:feb2:87a2	1;
-	#1AhlenerFreiFunk_by_TVWeingarten
-	2a03:2260:115:0:ea94:f6ff:fe2a:3d8	1;
-	#ff_hotel_gasthof_zur_post_01
-	2a03:2260:115:0:32b5:c2ff:fe6e:f734	1;
-	#funk_ins_glueck_2
-	2a03:2260:115:0:32b5:c2ff:feed:1392	1;
-	#AmKnapp
-	2a03:2260:115:0:c66e:1fff:fe87:6a88	1;
-	#ffwaf-walgernweg1
-	2a03:2260:115:0:ea94:f6ff:fe42:96de	1;
-	#Freifunk_Vechtel
-	2a03:2260:115:0:16cc:20ff:feb2:d972	1;
-	#ffwaf-siggi
-	2a03:2260:115:0:32b5:c2ff:fe81:2734	1;
-	#ffwaf-eloh-agnesstr-2
-	2a03:2260:115:0:c66e:1fff:fee7:edcc	1;
-	#Freifunk-Nordstern
-	2a03:2260:115:0:62e3:27ff:fe81:9372	1;
-	#ffwaf-Schuhfabrik
-	2a03:2260:115:0:16cc:20ff:fe3b:1a36	1;
-	#Ferienwohnung_Nachtigallengrund
-	2a03:2260:115:0:32b5:c2ff:feb1:54ca	1;
-	#ffwaf-Piratenpartei-Sendenhorst
-	2a03:2260:115:0:16cc:20ff:fecd:4f9a	1;
-	#Freifunk-001-BfA
-	2a03:2260:115:0:32b5:c2ff:fe6f:4f6	1;
-	#ffwaf-beckum-sued-1
-	2a03:2260:115:0:32b5:c2ff:fe7b:60c9	1;
-	#ffwaf-eloh-008
-	2a03:2260:115:0:c66e:1fff:fe82:109c	1;
-	#ff_AHLENER_Westen001_MFE
-	2a03:2260:115:0:32b5:c2ff:fedf:c480	1;
-	#ff_gw-albersloh_02
-	2a03:2260:115:0:c66e:1fff:fea1:1ee6	1;
-	#freifunkc4e984b5eb5a
-	2a03:2260:115:0:c6e9:84ff:feb5:eb5a	1;
-	#Kiepenkerl-Immobilien-Shop-Sendenhorst_01
-	2a03:2260:115:0:c66e:1fff:fea1:1ec4	1;
-	#Antep_Sofrasi
-	2a03:2260:115:0:c66e:1fff:fee7:ad18	1;
-	#ffms-EngelNB-uplink
-	2a03:2260:115:0:c6e9:84ff:fee3:71ea	1;
-	#ff-SozialZentrum-Fels-Albersloh
-	2a03:2260:115:0:16cc:20ff:fee1:59a2	1;
-	#ffwaf-Figaro
-	2a03:2260:115:0:c66e:1fff:fed0:c084	1;
-	#ffwaf-eloh-edvmischke
-	2a03:2260:115:0:c66e:1fff:fe08:aeb5	1;
-	#ffwaf-Kleikamp1
-	2a03:2260:115:0:16cc:20ff:fe62:f71c	1;
-	#Freifunk003
-	2a03:2260:115:0:c66e:1fff:fea2:465c	1;
-	#ffwaf-Kunterbunt3
-	2a03:2260:115:0:c66e:1fff:fe2c:5c58	1;
-	#Drensteinfurt-Heimstaettenweg
-	2a03:2260:115:0:eade:27ff:fe58:7e44	1;
-	#Freifunk-BfA1
-	2a03:2260:115:0:c66e:1fff:feb2:878a	1;
-	#freifunk_kiepenkerl-immo_albersloh
-	2a03:2260:115:0:16cc:20ff:fe4d:105c	1;
-	#ffwaf-eloh-Kaldewey-IT-Solutions-001
-	2a03:2260:115:0:16cc:20ff:fe97:f6c4	1;
-	#ffwaf-Freifunk-Appartment-Kuehl
-	2a03:2260:115:0:16cc:20ff:fecd:4f72	1;
-	#ffwaf-grueneGS
-	2a03:2260:115:0:16cc:20ff:fee1:423e	1;
-	#funk_ins_glueck
-	2a03:2260:115:0:32b5:c2ff:feed:13a6	1;
-	#ffwaf-ml1
-	2a03:2260:115:0:16cc:20ff:fe62:ef3c	1;
-	#ffwaf-eloh-schleebergstr-29
-	2a03:2260:115:0:12fe:edff:feac:2b22	1;
-	#ffwaf-wilhelmsplatz8
-	2a03:2260:115:0:16cc:20ff:fe62:efac	1;
+	2a03:2260:115:0:32b5:c2ff:fe81:2734	1;	 #ffwaf-siggi
+	2a03:2260:115:0:16cc:20ff:fe3b:1a36	1;	 #ffwaf-Schuhfabrik
+	2a03:2260:115:0:c66e:1fff:feb2:87a2	1;	 #ff-BIG-AMERICAN-FOOD-Sendenhorst
+	2a03:2260:115:0:c66e:1fff:fe2d:3db8	1;	 #freifunk-rinkerode-002
+	2a03:2260:115:0:c66e:1fff:feb3:9c70	1;	 #ffwaf-fensterberg
+	2a03:2260:115:0:c66e:1fff:fed1:3094	1;	 #ffwaf-natobunker1
+	2a03:2260:115:0:16cc:20ff:fecd:4f9a	1;	 #ffwaf-Piratenpartei-Sendenhorst
+	2a03:2260:115:0:32b5:c2ff:feed:d976	1;	 #fewo-nocke
+	2a03:2260:115:0:16cc:20ff:fe97:f6c4	1;	 #ffwaf-eloh-Kaldewey-IT-Solutions-001
+	2a03:2260:115:0:16cc:20ff:fe62:efae	1;	 #ffwaf-fonfara1
+	2a03:2260:115:0:c66e:1fff:fee7:ad18	1;	 #Antep_Sofrasi
+	2a03:2260:115:0:c66e:1fff:fed0:c084	1;	 #ffwaf-Figaro
+	2a03:2260:115:0:16cc:20ff:fee1:423e	1;	 #ffwaf-grueneGS
+	2a03:2260:115:0:32b5:c2ff:fe6f:53a	1;	 #freifunk_hotel-restaurant-geschermann
+	2a03:2260:115:0:c66e:1fff:fe87:6a88	1;	 #AmKnapp
+	2a03:2260:115:0:32b5:c2ff:fe7b:60c9	1;	 #ffwaf-beckum-sued-1
+	2a03:2260:115:0:32b5:c2ff:fe80:f748	1;	 #ffwaf-eloh-habrock
+	2a03:2260:115:0:32b5:c2ff:fe6f:4f6	1;	 #Freifunk-001-BfA
+	2a03:2260:115:0:32b5:c2ff:fe6e:f734	1;	 #ff_hotel_gasthof_zur_post_01
+	2a03:2260:115:0:c66e:1fff:fed1:85ce	1;	 #freifunk-Sendenhorst01
+	2a03:2260:115:0:ea94:f6ff:fe2a:3d8	1;	 #1AhlenerFreiFunk_by_TVWeingarten
+	2a03:2260:115:0:16cc:20ff:fecd:4f72	1;	 #ffwaf-Freifunk-Appartment-Kuehl
+	2a03:2260:115:0:c66e:1fff:fea2:465c	1;	 #Freifunk003
+	2a03:2260:115:0:12fe:edff:feac:2b22	1;	 #ffwaf-eloh-schleebergstr-29
+	2a03:2260:115:0:32b5:c2ff:feb1:54ca	1;	 #Ferienwohnung_Nachtigallengrund
+	2a03:2260:115:0:32b5:c2ff:fe81:2b50	1;	 #ffwaf-Oelde-Nord-001
+	2a03:2260:115:0:c66e:1fff:feb2:878a	1;	 #Freifunk-BfA1
+	2a03:2260:115:0:ea94:f6ff:fe42:96de	1;	 #ffwaf-walgernweg1
+	2a03:2260:115:0:32b5:c2ff:feee:2fd0	1;	 #freifunk-rinkerode-001
+	2a03:2260:115:0:16cc:20ff:fe62:f71c	1;	 #ffwaf-Kleikamp1
+	2a03:2260:115:0:16cc:20ff:fe62:efac	1;	 #ffwaf-wilhelmsplatz8
+	2a03:2260:115:0:16cc:20ff:fecd:4f7c	1;	 #ff-Hoelscher-Raeume-Traeume-Sendenhorst
+	2a03:2260:115:0:c66e:1fff:fea1:1ec4	1;	 #Kiepenkerl-Immobilien-Shop-Sendenhorst_01
+	2a03:2260:115:0:32b5:c2ff:fe81:4656	1;	 #ffwaf-enniger-kapellenstr-01
+	2a03:2260:115:0:c66e:1fff:fea1:1ee6	1;	 #ff_gw-albersloh_02
+	2a03:2260:115:0:16cc:20ff:fe62:f748	1;	 #ffwaf-barkskamp
+	2a03:2260:115:0:c66e:1fff:feb6:6204	1;	 #ffwaf-zurboerse
+	2a03:2260:115:0:16cc:20ff:fe62:f7f8	1;	 #ffwaf-verlosung1-19
+	2a03:2260:115:0:c6e9:84ff:feb5:eb5a	1;	 #freifunkc4e984b5eb5a
+	2a03:2260:115:0:62e3:27ff:fe57:8aa8	1;	 #ffwaf-Oelde-Goe-1
+	2a03:2260:115:0:62e3:27ff:fe5f:e8a8	1;	 #ffwaf-HillmannTraining
+	2a03:2260:115:0:16cc:20ff:fee1:59a2	1;	 #ff-SozialZentrum-Fels-Albersloh
+	2a03:2260:115:0:c66e:1fff:fe2d:3d86	1;	 #Stadtteilbuero
+	2a03:2260:115:0:16cc:20ff:feb2:d972	1;	 #Freifunk_Vechtel
+	2a03:2260:115:0:c66e:1fff:fe82:109c	1;	 #ffwaf-eloh-008
+	2a03:2260:115:0:62e3:27ff:fe81:9372	1;	 #Freifunk-Nordstern
+	2a03:2260:115:0:c6e9:84ff:fee3:71ea	1;	 #ffms-EngelNB-uplink
+	2a03:2260:115:0:32b5:c2ff:fedf:c480	1;	 #ff_AHLENER_Westen001_MFE
+	2a03:2260:115:0:c66e:1fff:fe08:aeb5	1;	 #ffwaf-eloh-edvmischke
+	2a03:2260:115:0:32b5:c2ff:fec2:a05a	1;	 #ffwaf-Markus-Alker
+	2a03:2260:115:0:eade:27ff:fe58:7e44	1;	 #Drensteinfurt-Heimstaettenweg
+	2a03:2260:115:0:ea94:f6ff:fe78:cb08	1;	 #freifunk-Ostbevern1
 }

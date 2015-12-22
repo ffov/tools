@@ -1,0 +1,6 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:c66e:1fff:feb6:27b0	1;	 #Haag.Christian.Lebensmittel-Feinkost
+	2a03:2260:115:0:c6e9:84ff:feb5:cb7e	1;	 #Bittner_GmbH_und_Co_KG
+	2a03:2260:115:0:32b5:c2ff:fe81:5820	1;	 #boakenstiege01
+}

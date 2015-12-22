@@ -1,21 +1,7 @@
 geo $switch {
 	default	0;
-	#Freifunk-Duelmen-SPD-001
-	2a03:2260:115:0:62e3:27ff:fe59:ffc0	1;
-	#ff-coe-gorath
-	2a03:2260:115:0:32b5:c2ff:feb0:5206	1;
-	#HotelzurPost4
-	2a03:2260:115:0:32b5:c2ff:fe3e:82b6	1;
-	#ff-coe-yavin
-	2a03:2260:115:0:62e3:27ff:fe53:470	1;
-	#Cafe-Terjung-3
-	2a03:2260:115:0:6a72:51ff:fe2e:9883	1;
-	#FanLin-Rorup04-Freifunk
-	2a03:2260:115:0:c66e:1fff:fee7:d4ca	1;
-	#rorup.net.1111
-	2a03:2260:115:0:16cc:20ff:fe6f:a354	1;
-	#HotelzurPost6
-	2a03:2260:115:0:32b5:c2ff:fe3e:831e	1;
-	#ff-coe-lok
-	2a03:2260:115:0:62e3:27ff:feb7:a008	1;
+	2a03:2260:115:0:62e3:27ff:fe5a:86	1;	 #FFMS-Rorup-34
+	2a03:2260:115:0:6a72:51ff:fe2e:9883	1;	 #Cafe-Terjung-3
+	2a03:2260:115:0:16cc:20ff:fe6f:a354	1;	 #rorup.net.1111
+	2a03:2260:115:0:32b5:c2ff:fe3e:831e	1;	 #HotelzurPost6
 }

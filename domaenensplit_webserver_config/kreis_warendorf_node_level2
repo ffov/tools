@@ -1,5 +1,0 @@
-geo $switch {
-	default	0;
-	#ff-Sportschuetzen-Sendenhorst
-	2a03:2260:115:0:62e3:27ff:fe82:16f4	1;
-}

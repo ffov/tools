@@ -1,189 +1,98 @@
 geo $switch {
 	default	0;
-	#Dat_Huesken
-	2a03:2260:115:0:16cc:20ff:fe97:f84a	1;
-	#freifunk64700252f284
-	2a03:2260:115:0:6670:2ff:fe52:f284	1;
-	#freifunk30b5c20e82a6
-	2a03:2260:115:0:32b5:c2ff:fe0e:82a6	1;
-	#Freifunk-Duelmen-SPD-007
-	2a03:2260:115:0:62e3:27ff:fe59:fc0e	1;
-	#freifunk30b5c26f0a0e
-	2a03:2260:115:0:32b5:c2ff:fe6f:a0e	1;
-	#freifunk60e3272a569a
-	2a03:2260:115:0:62e3:27ff:fe2a:569a	1;
-	#FanLin-Duelmen01-Freifunk
-	2a03:2260:115:0:c66e:1fff:fe2b:ff3a	1;
-	#FanLin-Rorup18-Freifunk
-	2a03:2260:115:0:eade:27ff:fef3:f72	1;
-	#Cafe-Terjung-1
-	2a03:2260:115:0:32b5:c2ff:fe3e:833c	1;
-	#freifunk30b5c26f07b4
-	2a03:2260:115:0:32b5:c2ff:fe6f:7b4	1;
-	#Freifunk-Duelmen-PM5c
-	2a03:2260:115:0:c6e9:84ff:feb5:cb44	1;
-	#WerbeagenturKaltegartner
-	2a03:2260:115:0:32b5:c2ff:fee2:f5de	1;
-	#freifunk-OttiStrontianitfeld
-	2a03:2260:115:0:c66e:1fff:fede:e922	1;
-	#LH-Markt3
-	2a03:2260:115:0:32b5:c2ff:fe3e:877c	1;
-	#CafeSchmitfranz
-	2a03:2260:115:0:32b5:c2ff:fe3e:8314	1;
-	#FanLin-Rorup06-Freifunk
-	2a03:2260:115:0:c66e:1fff:fef6:5398	1;
-	#Juwelier_Busche
-	2a03:2260:115:0:32b5:c2ff:fe22:a386	1;
-	#freifunk-duelmen-001
-	2a03:2260:115:0:eade:27ff:feb7:6e30	1;
-	#manni
-	2a03:2260:115:0:c66e:1fff:fea2:436e	1;
-	#freifunk30b5c26f08bc
-	2a03:2260:115:0:32b5:c2ff:fe6f:8bc	1;
-	#Freifunk-Duelmen-SB13
-	2a03:2260:115:0:62e3:27ff:fe59:fe5c	1;
-	#freifunk30b5c2e30a84
-	2a03:2260:115:0:32b5:c2ff:fee3:a84	1;
-	#ZEDReisen
-	2a03:2260:115:0:16cc:20ff:fecd:3d2c	1;
-	#ffcoe-herbern-02
-	2a03:2260:115:0:c66e:1fff:fe31:6f42	1;
-	#Willi
-	2a03:2260:115:0:ea94:f6ff:febf:72a6	1;
-	#Freifunk-Duelmen-404
-	2a03:2260:115:0:32b5:c2ff:feed:85b6	1;
-	#freifunk-gbk
-	2a03:2260:115:0:32b5:c2ff:fe81:5f18	1;
-	#VoBa-Luedinghausen-Olfen-4
-	2a03:2260:115:0:16cc:20ff:fe4d:1384	1;
-	#Freifunk-Otti-Heitkamp1
-	2a03:2260:115:0:32b5:c2ff:feed:4174	1;
-	#ffcoe-herbern-04
-	2a03:2260:115:0:ea94:f6ff:fe4f:b3b2	1;
-	#freifunk_holzplatz
-	2a03:2260:115:0:62e3:27ff:fec6:e17e	1;
-	#PassengersFriendBarbian
-	2a03:2260:115:0:16cc:20ff:fe97:d23e	1;
-	#Schapdetten_BulletM2
-	2a03:2260:115:0:6a72:51ff:fe40:9285	1;
-	#FanLin-Merfeld01-Freifunk
-	2a03:2260:115:0:eade:27ff:fe2f:e7a6	1;
-	#Freifunk-Fortuna1
-	2a03:2260:115:0:32b5:c2ff:fe3e:81b4	1;
-	#freifunk-coesfeld0003
-	2a03:2260:115:0:ea94:f6ff:fe29:f6d0	1;
-	#freifunk-paterkamp4
-	2a03:2260:115:0:62e3:27ff:fe76:adc6	1;
-	#ZurMuehle.LH
-	2a03:2260:115:0:32b5:c2ff:feda:6fa	1;
-	#rorup.net.1277
-	2a03:2260:115:0:c66e:1fff:feae:2680	1;
-	#ffcoe001-mf
-	2a03:2260:115:0:ea94:f6ff:fe69:b6e4	1;
-	#ffcoe003-akb
-	2a03:2260:115:0:16cc:20ff:fe5e:715c	1;
-	#freifunk-Pastor-Rueck-Str
-	2a03:2260:115:0:16cc:20ff:fe70:b730	1;
-	#FFMS-Havixbeck-01
-	2a03:2260:115:0:16cc:20ff:fe6f:def0	1;
-	#FanLin-Rorup02-Freifunk
-	2a03:2260:115:0:c66e:1fff:fe2c:510	1;
-	#Freifunk-Duelmen-SPD-006
-	2a03:2260:115:0:62e3:27ff:fe59:ffbc	1;
-	#rorup.net.1113
-	2a03:2260:115:0:16cc:20ff:fe6f:fab8	1;
-	#rorup.net.0006
-	2a03:2260:115:0:16cc:20ff:fe6f:e39c	1;
-	#VoBa-Luedinghausen-Olfen-1
-	2a03:2260:115:0:16cc:20ff:fec0:18a2	1;
-	#freifunk-duelmen2
-	2a03:2260:115:0:eade:27ff:fed5:e2fe	1;
-	#Freifunk_Fortuna2
-	2a03:2260:115:0:32b5:c2ff:feee:6126	1;
-	#freifunk-WML-Lernwelten
-	2a03:2260:115:0:62e3:27ff:fe9f:56b6	1;
-	#Freifunkhoeven2
-	2a03:2260:115:0:c6e9:84ff:feb5:eab6	1;
-	#Holtwick-0001
-	2a03:2260:115:0:16cc:20ff:fe70:b6ea	1;
-	#freifunk_SchmiedeNetz
-	2a03:2260:115:0:32b5:c2ff:fec2:75ae	1;
-	#Neuhaus-08
-	2a03:2260:115:0:c6e9:84ff:fef3:3b4a	1;
-	#rorup.net.0005
-	2a03:2260:115:0:16cc:20ff:fe6f:a2d2	1;
-	#Freifunk-ACAT
-	2a03:2260:115:0:16cc:20ff:fe4d:1356	1;
-	#Freifunk
-	2a03:2260:115:0:32b5:c2ff:feda:1ce4	1;
-	#AlterGartenweg1Duelmen
-	2a03:2260:115:0:62e3:27ff:fe5a:6e	1;
-	#LH-Markt2
-	2a03:2260:115:0:32b5:c2ff:fe3e:823c	1;
-	#rorup.net.1277
-	2a03:2260:115:0:c66e:1fff:feae:2680	1;
-	#ffcoe-herbern-03
-	2a03:2260:115:0:c66e:1fff:fe31:6f18	1;
-	#Freifunk-Buldern-RR83
-	2a03:2260:115:0:62e3:27ff:fe59:fe36	1;
-	#freifunk30b5c26f0a38
-	2a03:2260:115:0:32b5:c2ff:fe6f:a38	1;
-	#freifunk30b5c20ec974
-	2a03:2260:115:0:32b5:c2ff:fe0e:c974	1;
-	#ffms-lh-mozartstr-01
-	2a03:2260:115:0:32b5:c2ff:fe52:8d28	1;
-	#Freifunk-Duelmen-VB15
-	2a03:2260:115:0:56e6:fcff:fea5:d36	1;
-	#LH-Markt1
-	2a03:2260:115:0:32b5:c2ff:fe3e:822a	1;
-	#FanLin-Rorup01-Freifunk
-	2a03:2260:115:0:ea94:f6ff:fe2a:3c0	1;
-	#FanLin-Rorup14-Freifunk
-	2a03:2260:115:0:16cc:20ff:fe6f:e08c	1;
-	#Freifunk-WML-Hoffmann-Ladenbau
-	2a03:2260:115:0:c6e9:84ff:fec8:4cd0	1;
-	#freifunk30b5c26f0918
-	2a03:2260:115:0:32b5:c2ff:fe6f:918	1;
-	#Backwiaerk-1
-	2a03:2260:115:0:16cc:20ff:fec0:1500	1;
-	#rorup.net.FanLin.1002
-	2a03:2260:115:0:16cc:20ff:fe6f:a31e	1;
-	#HotelzurPost
-	2a03:2260:115:0:32b5:c2ff:fe3e:831a	1;
-	#Azaleenstrasse.LH
-	2a03:2260:115:0:16cc:20ff:fec6:aebf	1;
-	#FanLin-Rorup16-Freifunk
-	2a03:2260:115:0:16cc:20ff:fe6f:e35e	1;
-	#Allee3a
-	2a03:2260:115:0:6a72:51ff:fe20:5cbd	1;
-	#FanLin-Boesensell02-Ponyhof-Freifunk
-	2a03:2260:115:0:c66e:1fff:fee6:9814	1;
-	#rorup.net.GemeindehausUplink
-	2a03:2260:115:0:16cc:20ff:fe97:f6fc	1;
-	#ff-coe-dantooine
-	2a03:2260:115:0:62e3:27ff:fe53:1706	1;
-	#Freifunk
-	2a03:2260:115:0:32b5:c2ff:fec8:8b3a	1;
-	#VoBa-Luedinghausen-Olfen-2
-	2a03:2260:115:0:32b5:c2ff:fee2:f7da	1;
-	#FanLin-Rorup03-Freifunk
-	2a03:2260:115:0:c66e:1fff:fe2c:3f4	1;
-	#Limbergen
-	2a03:2260:115:0:a2f3:c1ff:fe05:69c8	1;
-	#Forum_LH
-	2a03:2260:115:0:32b5:c2ff:fe3e:817a	1;
-	#Freifunk-Duelmen-FRSTR50
-	2a03:2260:115:0:32b5:c2ff:feb0:5156	1;
-	#Cafe-Reitstall-1
-	2a03:2260:115:0:32b5:c2ff:fe3e:87de	1;
-	#freehotspot-dsk-duelmen
-	2a03:2260:115:0:eade:27ff:fed5:ddd6	1;
-	#RadioLanger
-	2a03:2260:115:0:16cc:20ff:fe97:d3a6	1;
-	#Schapdetten_Uplink_Schenkingstr
-	2a03:2260:115:0:32b5:c2ff:fe22:e890	1;
-	#VoBa-Luedinghausen-Olfen-3
-	2a03:2260:115:0:16cc:20ff:fe4d:1392	1;
-	#MusikschuleMuensterland
-	2a03:2260:115:0:32b5:c2ff:fe3e:86e4	1;
+	2a03:2260:115:0:ea94:f6ff:fe4f:b498	1;	 #rorup.net.1115
+	2a03:2260:115:0:c66e:1fff:fef6:5398	1;	 #FFMS-Rorup-06
+	2a03:2260:115:0:ea94:f6ff:fe2a:3c0	1;	 #FFMS-Rorup-01
+	2a03:2260:115:0:32b5:c2ff:feb0:5156	1;	 #Freifunk-Duelmen-FRSTR50
+	2a03:2260:115:0:62e3:27ff:fe59:fe5c	1;	 #Freifunk-Duelmen-SB13
+	2a03:2260:115:0:ea94:f6ff:fe4f:b3b2	1;	 #ffcoe-herbern-04
+	2a03:2260:115:0:32b5:c2ff:feee:6126	1;	 #Freifunk_Fortuna2
+	2a03:2260:115:0:16cc:20ff:fe97:f6fc	1;	 #rorup.net.GemeindehausUplink
+	2a03:2260:115:0:c66e:1fff:fec7:cf4	1;	 #ffcoe100cw
+	2a03:2260:115:0:ea94:f6ff:fe29:8198	1;	 #ffcoe002-mf
+	2a03:2260:115:0:eade:27ff:fe2f:e7a6	1;	 #FanLin-Merfeld01-Freifunk
+	2a03:2260:115:0:16cc:20ff:fe4d:1392	1;	 #VoBa-Luedinghausen-Olfen-3
+	2a03:2260:115:0:eade:27ff:fed5:e2fe	1;	 #freifunk-duelmen2
+	2a03:2260:115:0:16cc:20ff:fe6f:e08c	1;	 #FFMS-Rorup-14
+	2a03:2260:115:0:32b5:c2ff:fe3e:822a	1;	 #LH-Markt1
+	2a03:2260:115:0:32b5:c2ff:fee2:f5de	1;	 #WerbeagenturKaltegartner
+	2a03:2260:115:0:c66e:1fff:fe2c:3f4	1;	 #FFMS-Rorup-03
+	2a03:2260:115:0:16cc:20ff:fe6f:def0	1;	 #FFMS-Havixbeck-01
+	2a03:2260:115:0:16cc:20ff:fe4d:1356	1;	 #Freifunk-ACAT
+	2a03:2260:115:0:16cc:20ff:fec0:1500	1;	 #Backwiaerk-1
+	2a03:2260:115:0:6a72:51ff:fe2e:bb75	1;	 #Freifunk-Duelmen-SPD-003
+	2a03:2260:115:0:32b5:c2ff:feda:1ce4	1;	 #Freifunk
+	2a03:2260:115:0:c66e:1fff:fe2c:510	1;	 #FFMS-Rorup-02
+	2a03:2260:115:0:c66e:1fff:fe31:6f42	1;	 #ffcoe-herbern-02
+	2a03:2260:115:0:16cc:20ff:fec0:18a2	1;	 #VoBa-Luedinghausen-Olfen-1
+	2a03:2260:115:0:62e3:27ff:fe9f:56b6	1;	 #freifunk-WML-Lernwelten
+	2a03:2260:115:0:32b5:c2ff:fe6f:a38	1;	 #freifunk30b5c26f0a38
+	2a03:2260:115:0:32b5:c2ff:fe81:5f18	1;	 #freifunk-gbk
+	2a03:2260:115:0:12fe:edff:fef1:5c92	1;	 #freifunk_Lette_Skeeter
+	2a03:2260:115:0:32b5:c2ff:fe0e:82a6	1;	 #freifunk30b5c20e82a6
+	2a03:2260:115:0:6a72:51ff:fe40:9285	1;	 #Schapdetten_BulletM2
+	2a03:2260:115:0:32b5:c2ff:fe22:e890	1;	 #Schapdetten_Uplink_Schenkingstr
+	2a03:2260:115:0:16cc:20ff:fe4d:1384	1;	 #VoBa-Luedinghausen-Olfen-4
+	2a03:2260:115:0:32b5:c2ff:fee2:f7da	1;	 #VoBa-Luedinghausen-Olfen-2
+	2a03:2260:115:0:c66e:1fff:fee6:9814	1;	 #FanLin-Boesensell02-Ponyhof-Freifunk
+	2a03:2260:115:0:62e3:27ff:fec6:e17e	1;	 #freifunk_holzplatz
+	2a03:2260:115:0:c6e9:84ff:feb5:cb44	1;	 #Freifunk-Duelmen-PM5c
+	2a03:2260:115:0:c66e:1fff:fe31:6f18	1;	 #ffcoe-herbern-03
+	2a03:2260:115:0:32b5:c2ff:fe3e:833c	1;	 #Cafe-Terjung-1
+	2a03:2260:115:0:c66e:1fff:fea2:436e	1;	 #manni
+	2a03:2260:115:0:c66e:1fff:fede:e922	1;	 #freifunk-OttiStrontianitfeld
+	2a03:2260:115:0:62e3:27ff:fe76:adc6	1;	 #freifunk-paterkamp4
+	2a03:2260:115:0:16cc:20ff:fe70:b730	1;	 #freifunk-Pastor-Rueck-Str
+	2a03:2260:115:0:c66e:1fff:fe2b:ff3a	1;	 #FanLin-Duelmen01-Freifunk
+	2a03:2260:115:0:32b5:c2ff:feed:85f0	1;	 #FF-Buldern-Tuecking
+	2a03:2260:115:0:16cc:20ff:fec6:aebf	1;	 #Azaleenstrasse.LH
+	2a03:2260:115:0:ea94:f6ff:fe29:f6d0	1;	 #freifunk-coesfeld0003
+	2a03:2260:115:0:32b5:c2ff:fe3e:823c	1;	 #LH-Markt2
+	2a03:2260:115:0:16cc:20ff:fe97:d3a6	1;	 #RadioLanger
+	2a03:2260:115:0:32b5:c2ff:fe0e:c974	1;	 #freifunk30b5c20ec974
+	2a03:2260:115:0:6670:2ff:fe52:f284	1;	 #freifunk64700252f284
+	2a03:2260:115:0:6a72:51ff:fe42:57bf	1;	 #FF-NottulnAS57
+	2a03:2260:115:0:32b5:c2ff:fe22:a386	1;	 #Juwelier_Busche
+	2a03:2260:115:0:eade:27ff:fed5:ddd6	1;	 #freehotspot-dsk-duelmen
+	2a03:2260:115:0:62e3:27ff:fe53:1706	1;	 #ff-coe-dantooine
+	2a03:2260:115:0:62e3:27ff:fe2a:569a	1;	 #freifunk60e3272a569a
+	2a03:2260:115:0:32b5:c2ff:fe3e:8314	1;	 #CafeSchmitfranz
+	2a03:2260:115:0:32b5:c2ff:fe6f:7b4	1;	 #freifunk30b5c26f07b4
+	2a03:2260:115:0:32b5:c2ff:fe3e:817a	1;	 #Forum_LH
+	2a03:2260:115:0:eade:27ff:fef3:f72	1;	 #FFMS-Rorup-18
+	2a03:2260:115:0:32b5:c2ff:feed:4174	1;	 #Freifunk-Otti-Heitkamp1
+	2a03:2260:115:0:32b5:c2ff:fe6f:8bc	1;	 #freifunk30b5c26f08bc
+	2a03:2260:115:0:32b5:c2ff:fe6f:a0e	1;	 #freifunk30b5c26f0a0e
+	2a03:2260:115:0:32b5:c2ff:feb0:5184	1;	 #Freifunk-Duelmen-SPD-004
+	2a03:2260:115:0:c6e9:84ff:fec8:4cd0	1;	 #Freifunk-WML-Hoffmann-Ladenbau
+	2a03:2260:115:0:32b5:c2ff:fe3e:87de	1;	 #Cafe-Reitstall-1
+	2a03:2260:115:0:62e3:27ff:fe59:ffc0	1;	 #Freifunk-Duelmen-SPD-001
+	2a03:2260:115:0:62e3:27ff:fe59:fc0e	1;	 #Freifunk-Duelmen-SPD-007
+	2a03:2260:115:0:62e3:27ff:fe59:ffbc	1;	 #Freifunk-Duelmen-SPD-006
+	2a03:2260:115:0:c66e:1fff:feae:2680	1;	 #FFMS-Rorup-26
+	2a03:2260:115:0:ea94:f6ff:fe69:b6e4	1;	 #ffcoe001-mf
+	2a03:2260:115:0:32b5:c2ff:feb0:556a	1;	 #Havixbeck-1-Freifunk_Schulten-Kamp
+	2a03:2260:115:0:16cc:20ff:fe6f:fab8	1;	 #rorup.net.1113
+	2a03:2260:115:0:16cc:20ff:fe6f:e35e	1;	 #FFMS-Rorup-16
+	2a03:2260:115:0:32b5:c2ff:fe3e:820e	1;	 #FinkesFreifunk
+	2a03:2260:115:0:32b5:c2ff:feda:6fa	1;	 #ZurMuehle.LH
+	2a03:2260:115:0:32b5:c2ff:fec8:8b3a	1;	 #Freifunk
+	2a03:2260:115:0:c66e:1fff:fee8:f258	1;	 #FFMS-Rorup-31
+	2a03:2260:115:0:16cc:20ff:fecd:3d2c	1;	 #ZEDReisen
+	2a03:2260:115:0:16cc:20ff:fe6f:a2d2	1;	 #rorup.net.0005
+	2a03:2260:115:0:ea94:f6ff:febf:72a6	1;	 #Willi
+	2a03:2260:115:0:c6e9:84ff:feb5:cb3e	1;	 #Freifunk-Duelmen-BKStr25
+	2a03:2260:115:0:16cc:20ff:fe6f:fc18	1;	 #Merfelds-Backstube-02
+	2a03:2260:115:0:32b5:c2ff:fee3:a84	1;	 #freifunk30b5c2e30a84
+	2a03:2260:115:0:16cc:20ff:fe6f:a31e	1;	 #rorup.net.FanLin.1002
+	2a03:2260:115:0:b248:7aff:fef6:5bce	1;	 #Freifunk-Duelmen-SPD-002
+	2a03:2260:115:0:32b5:c2ff:fe52:8d28	1;	 #ffms-lh-mozartstr-01
+	2a03:2260:115:0:32b5:c2ff:fe6f:918	1;	 #freifunk30b5c26f0918
+	2a03:2260:115:0:32b5:c2ff:fe6f:98e	1;	 #freifunk30b5c26f098e
+	2a03:2260:115:0:16cc:20ff:fe6f:e39c	1;	 #rorup.net.0006
+	2a03:2260:115:0:ea94:f6ff:fe62:6410	1;	 #FFMS-Rorup-21
+	2a03:2260:115:0:32b5:c2ff:fe3e:877c	1;	 #LH-Markt3
+	2a03:2260:115:0:62e3:27ff:fe5a:6e	1;	 #AlterGartenweg1Duelmen
+	2a03:2260:115:0:32b5:c2ff:feee:643c	1;	 #FF-LH-Gildenweg58
+	2a03:2260:115:0:32b5:c2ff:fe3e:831a	1;	 #HotelzurPost
 }

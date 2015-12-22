@@ -1,0 +1,4 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:c66e:1fff:fec5:5264	1;	 #Cafe-Machina.Milch-und-Kaffeewerkstatt
+}
