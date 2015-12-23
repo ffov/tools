@@ -1,4 +1,0 @@
-geo $switch {
-	default	0;
-	2a03:2260:115:0:32b5:c2ff:fe80:e54e	1;	 #Tabak-Busche_Karin-Dieker.Freifunk-WML.de
-}
