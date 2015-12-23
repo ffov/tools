@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 #Imports:
-import json
+import json, urllib
 from graph import Graph
 class DomainSelector:
 	def __init__(self, nodesFile, graphFile, dataPath = './', printStatus = False, targets = None):

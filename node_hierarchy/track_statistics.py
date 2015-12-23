@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 #Imports:
-import json
+import json, urllib
 import operator
 
 class TrackStatistics:
@@ -87,4 +87,5 @@ data = [
 	},
 ]
 
-stat = TrackStatistics('nodes.json', data, printStatus = True)
+#stat = TrackStatistics('nodes.json', data, printStatus = True)
+stat = TrackStatistics('https://freifunk-muensterland.de/map/data/nodes.json', data, printStatus = True)
