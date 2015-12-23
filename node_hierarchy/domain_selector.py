@@ -14,11 +14,13 @@ class DomainSelector:
 		self.graph = Graph(self.nodesData, self.graphData)
 		if self.targets == None:
 			self.writeConfigFiles(self.graph.nodes_list,"all")
+			self.writeDumpFile(self.graph.nodes_list,"all")
 		else:
 			nodes = {}
 			for k,v in self.targets.iteritems():
 				nodes = self.graph.getNodeCloudsIn(v)
 				self.writeConfigFiles(nodes,k)
+				self.writeDumpFile(nodes,k)
 				nodes = {}
 
 	def __getFile__(self, nodesFile):
@@ -34,12 +36,12 @@ class DomainSelector:
 		resource.close()
 		return data
 
-	def writeConfigFiles(self,nodes_level, name):
-		maxDepth = self.maxDepth(nodes_level)
+	def writeConfigFiles(self, nodes, name):
+		maxDepth = self.maxDepth(nodes)
 		for i in range(0,maxDepth):
 			content = 'geo $switch {\n\tdefault\t0;'
 			f = open(self.dataPath+'/'+name+'_node_level'+str(i),'w')
-			for node in nodes_level.itervalues():
+			for node in nodes.itervalues():
 				if node.stepsToVpn == i:
 					if node.ipv6 and node.hostname:
 						content += '\n\t'+node.ipv6+'\t1;\t #'+node.hostname
@@ -48,6 +50,19 @@ class DomainSelector:
 			content += '\n}'
 			f.write(content.encode('utf8'))
 			f.close()
+
+	def writeDumpFile(self, nodes, name):
+		content = {}
+		for node in nodes.itervalues():
+			if node.ipv6 and node.hostname:
+				content[node.nodeid] = {
+					'nodeid' : node.nodeid,
+					'ipv6' : node.ipv6,
+					'hostname' : node.hostname,
+					'level' : node.stepsToVpn,
+				}
+		with open(self.dataPath+'/'+name+'_node_statistics.json', 'w') as outfile:
+			json.dump(content, outfile)
 
 	def maxDepth(self, nodes):
 		maxDepth = 0

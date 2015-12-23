@@ -1,7 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 #Imports:
-import json
 from domain_selector import DomainSelector
 
 targets = {
