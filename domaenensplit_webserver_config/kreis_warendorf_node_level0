@@ -5,6 +5,7 @@ geo $switch {
 	2a03:2260:115:0:c66e:1fff:feb2:87a2	1;	 #ff-BIG-AMERICAN-FOOD-Sendenhorst
 	2a03:2260:115:0:c66e:1fff:fe2d:3db8	1;	 #freifunk-rinkerode-002
 	2a03:2260:115:0:c66e:1fff:feb3:9c70	1;	 #ffwaf-fensterberg
+	2a03:2260:115:0:c66e:1fff:fec7:b92	1;	 #Ferienwohnung_An_den_Linden
 	2a03:2260:115:0:c66e:1fff:fed1:3094	1;	 #ffwaf-natobunker1
 	2a03:2260:115:0:16cc:20ff:fecd:4f9a	1;	 #ffwaf-Piratenpartei-Sendenhorst
 	2a03:2260:115:0:32b5:c2ff:feed:d976	1;	 #fewo-nocke
@@ -27,10 +28,9 @@ geo $switch {
 	2a03:2260:115:0:32b5:c2ff:feb1:54ca	1;	 #Ferienwohnung_Nachtigallengrund
 	2a03:2260:115:0:32b5:c2ff:fe81:2b50	1;	 #ffwaf-Oelde-Nord-001
 	2a03:2260:115:0:c66e:1fff:feb2:878a	1;	 #Freifunk-BfA1
-	2a03:2260:115:0:ea94:f6ff:fe42:96de	1;	 #ffwaf-walgernweg1
+	2a03:2260:115:0:16cc:20ff:fe62:efac	1;	 #ffwaf-wilhelmsplatz8
 	2a03:2260:115:0:32b5:c2ff:feee:2fd0	1;	 #freifunk-rinkerode-001
 	2a03:2260:115:0:16cc:20ff:fe62:f71c	1;	 #ffwaf-Kleikamp1
-	2a03:2260:115:0:16cc:20ff:fe62:efac	1;	 #ffwaf-wilhelmsplatz8
 	2a03:2260:115:0:16cc:20ff:fecd:4f7c	1;	 #ff-Hoelscher-Raeume-Traeume-Sendenhorst
 	2a03:2260:115:0:c66e:1fff:fea1:1ec4	1;	 #Kiepenkerl-Immobilien-Shop-Sendenhorst_01
 	2a03:2260:115:0:32b5:c2ff:fe81:4656	1;	 #ffwaf-enniger-kapellenstr-01
@@ -43,13 +43,15 @@ geo $switch {
 	2a03:2260:115:0:62e3:27ff:fe5f:e8a8	1;	 #ffwaf-HillmannTraining
 	2a03:2260:115:0:16cc:20ff:fee1:59a2	1;	 #ff-SozialZentrum-Fels-Albersloh
 	2a03:2260:115:0:c66e:1fff:fe2d:3d86	1;	 #Stadtteilbuero
-	2a03:2260:115:0:16cc:20ff:feb2:d972	1;	 #Freifunk_Vechtel
+	2a03:2260:115:0:eade:27ff:fe58:7e44	1;	 #Drensteinfurt-Heimstaettenweg
 	2a03:2260:115:0:c66e:1fff:fe82:109c	1;	 #ffwaf-eloh-008
+	2a03:2260:115:0:32b5:c2ff:fed9:a04a	1;	 #porten-leve
 	2a03:2260:115:0:62e3:27ff:fe81:9372	1;	 #Freifunk-Nordstern
+	2a03:2260:115:0:ea94:f6ff:fe42:96de	1;	 #ffwaf-walgernweg1
 	2a03:2260:115:0:c6e9:84ff:fee3:71ea	1;	 #ffms-EngelNB-uplink
 	2a03:2260:115:0:32b5:c2ff:fedf:c480	1;	 #ff_AHLENER_Westen001_MFE
+	2a03:2260:115:0:16cc:20ff:feb2:d972	1;	 #Freifunk_Vechtel
 	2a03:2260:115:0:c66e:1fff:fe08:aeb5	1;	 #ffwaf-eloh-edvmischke
 	2a03:2260:115:0:32b5:c2ff:fec2:a05a	1;	 #ffwaf-Markus-Alker
-	2a03:2260:115:0:eade:27ff:fe58:7e44	1;	 #Drensteinfurt-Heimstaettenweg
 	2a03:2260:115:0:ea94:f6ff:fe78:cb08	1;	 #freifunk-Ostbevern1
 }

@@ -1,5 +1,6 @@
 geo $switch {
 	default	0;
+	2a03:2260:115:0:62e3:27ff:fe60:5178	1;	 #Mesum-0010-Optik-Beurich
 	2a03:2260:115:0:ea94:f6ff:fe4f:b38a	1;	 #Ferienhaus-mitten-im-gruenen-02
 	2a03:2260:115:0:32b5:c2ff:fed9:c8de	1;	 #Steinfurt0126-Restaurant-Gronenburg-Greven
 	2a03:2260:115:0:32b5:c2ff:feae:5880	1;	 #freifunk-heimstaettenweg-014
@@ -14,21 +15,20 @@ geo $switch {
 	2a03:2260:115:0:62e3:27ff:feb2:da52	1;	 #St.Arnold_Link
 	2a03:2260:115:0:16cc:20ff:fe63:809a	1;	 #Hardy_Schmitz_Rheine_03
 	2a03:2260:115:0:16cc:20ff:fe70:5b78	1;	 #St.Arnold_002
-	2a03:2260:115:0:32b5:c2ff:feb0:40b0	1;	 #Steinfurt0129-DRK-Emsdetten-2
+	2a03:2260:115:0:32b5:c2ff:feb0:4f12	1;	 #Hoergeraete_Wagner_Nk
 	2a03:2260:115:0:32b5:c2ff:fe82:8b2b	1;	 #Mesum-0025
 	2a03:2260:115:0:62e3:27ff:feb7:ce88	1;	 #MAI_KV_05
+	2a03:2260:115:0:c6e9:84ff:febe:2428	1;	 #Steinfurt-Elte-Dorfplatz-0013
 	2a03:2260:115:0:32b5:c2ff:fed9:9b56	1;	 #Steinfurt0029-Turnschuh
 	2a03:2260:115:0:62e3:27ff:fe82:194	1;	 #Steinfurt-Elte-Testgeraet-0020
 	2a03:2260:115:0:62e3:27ff:fe60:5150	1;	 #Mesum-0023-Sparkasse-Rheine-Fil.-Mesum
 	2a03:2260:115:0:62e3:27ff:fe2a:6552	1;	 #Mesum-0021-Johannes-Apotheke
 	2a03:2260:115:0:62e3:27ff:fe59:d494	1;	 #Elte-Landgasthaus-Hotel-Eggert-0013
-	2a03:2260:115:0:62e3:27ff:fe59:e0ae	1;	 #Steinfurt-Elte-Ferienhaus-Wueller-0008
 	2a03:2260:115:0:62e3:27ff:fe59:ff6e	1;	 #Steinfurt-Elte-Fachwerkhofanlage-Poepping-0009
-	2a03:2260:115:0:c24a:ff:fe8c:726c	1;	 #Steinfurt-Mesum-0002
+	2a03:2260:115:0:6a72:51ff:fe0a:76ad	1;	 #Steinfurt0257-Nostalgie-Cafe-2
+	2a03:2260:115:0:32b5:c2ff:fe81:1c04	1;	 #Steinfurt-Mesum-0001
 	2a03:2260:115:0:62e3:27ff:fe59:ff00	1;	 #Steinfurt-Elte-0010
-	2a03:2260:115:0:32b5:c2ff:fead:5c86	1;	 #MAI_KV_07
 	2a03:2260:115:0:62e3:27ff:fe5f:fe68	1;	 #Mesum-0011-Blumenhaus-Behnen
 	2a03:2260:115:0:32b5:c2ff:fecb:2b42	1;	 #Steinfurt0158-Feuerwache2
 	2a03:2260:115:0:62e3:27ff:fe76:feee	1;	 #freifunk_lengerich_vd02
-	2a03:2260:115:0:62e3:27ff:fe81:9348	1;	 #freifunk-Kuechenwerkstatt-Reichhardt-01
 }

@@ -1,0 +1,5 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:6a72:51ff:fe20:ab80	1;	 #cafe-med-aussen
+	2a03:2260:115:0:62e3:27ff:fe59:fff2	1;	 #Caritas-Nienberge-07
+}

@@ -1,0 +1,6 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:62e3:27ff:fef5:5490	1;	 #z_man_04
+	2a03:2260:115:0:c6e9:84ff:fef3:23c8	1;	 #Raewer.Freifunk-WML.de
+	2a03:2260:115:0:c6e9:84ff:fec8:4b3e	1;	 #Freifunk-WML-AXA-Carbon-Schwanekamp-pwd-by-Volksbank-Gescher
+}

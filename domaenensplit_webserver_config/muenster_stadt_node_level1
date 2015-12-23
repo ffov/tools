@@ -1,0 +1,32 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:eade:27ff:fed5:e31e	1;	 #FeinkostJauch
+	2a03:2260:115:0:c6e9:84ff:feb5:ea10	1;	 #Orchidee-ThaiMassage-Muenster
+	2a03:2260:115:0:c6e9:84ff:fe7f:2baa	1;	 #mk_2
+	2a03:2260:115:0:c6e9:84ff:feb5:ca9c	1;	 #Caritas-Nienberge-05
+	2a03:2260:115:0:ea94:f6ff:fea2:1a58	1;	 #dunstkreis-002
+	2a03:2260:115:0:12fe:edff:fecd:b124	1;	 #bro_of_coins
+	2a03:2260:115:0:ea94:f6ff:fe0c:8f66	1;	 #Gazelle_01
+	2a03:2260:115:0:62e3:27ff:fe59:fbe8	1;	 #Caritas-Nienberge-03
+	2a03:2260:115:0:62e3:27ff:fe59:fca8	1;	 #Caritas-Nienberge-06
+	2a03:2260:115:0:c66e:1fff:fee8:116e	1;	 #Freifunk-Aasee-LaVela
+	2a03:2260:115:0:6a72:51ff:fe08:86fc	1;	 #FanLin-HuoJian
+	2a03:2260:115:0:12fe:edff:fe7d:8c9e	1;	 #Commander1024-2
+	2a03:2260:115:0:618:d6ff:fe6d:54a	1;	 #SputnikHalle
+	2a03:2260:115:0:c6e9:84ff:fe7f:29d2	1;	 #mk_3
+	2a03:2260:115:0:c6e9:84ff:feb5:ebcc	1;	 #freifunkkurzegeist2
+	2a03:2260:115:0:fa1a:67ff:fe3f:e4e0	1;	 #auf_Mauritz
+	2a03:2260:115:0:62e3:27ff:fe59:fd3a	1;	 #Caritas-Nienberge-04
+	2a03:2260:115:0:ea94:f6ff:fe6d:10ce	1;	 #Commander1024-1
+	2a03:2260:115:0:618:d6ff:fe0b:a795	1;	 #SputnikCafe
+	2a03:2260:115:0:ea94:f6ff:fe2a:d458	1;	 #Freifunk_CSt-2
+	2a03:2260:115:0:ea94:f6ff:fe0c:a604	1;	 #Jp-Cut
+	2a03:2260:115:0:26a4:3cff:fe92:be8d	1;	 #FanLin-ZhongLou
+	2a03:2260:115:0:62e3:27ff:fe59:fdda	1;	 #Caritas-Nienberge-08
+	2a03:2260:115:0:62e3:27ff:fe59:ff20	1;	 #Caritas-Nienberge-02
+	2a03:2260:115:0:618:d6ff:fe35:4722	1;	 #Gazelle_04
+	2a03:2260:115:0:ea94:f6ff:fe6d:cda	1;	 #Banane-03
+	2a03:2260:115:0:6a72:51ff:fe10:a66c	1;	 #LaPaloma
+	2a03:2260:115:0:32b5:c2ff:fe7e:2e94	1;	 #freifunk30b5c27e2e94
+	2a03:2260:115:0:eade:27ff:fed6:1506	1;	 #haus-a-buero
+}

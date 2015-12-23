@@ -1,0 +1,4 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:62e3:27ff:fe5a:86	1;	 #FFMS-Rorup-34
+}
