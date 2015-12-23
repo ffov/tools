@@ -2,72 +2,18 @@
 # -*- coding: utf-8 -
 #Imports:
 import json
-from graph import Graph
-
-class NodeHierarchy:
-	def __init__(self, nodesFile, graphFile, dataPath = './', printStatus = False, targets = None):
-		self.printStatus = printStatus
-		self.targets = targets
-		self.nodesData = self.__getFile__(nodesFile)
-		self.graphData = self.__getFile__(graphFile)
-		self.dataPath = dataPath
-
-		self.graph = Graph(self.nodesData, self.graphData)
-		if self.targets == None:
-			self.writeConfigFiles(self.graph.nodes_list,"all")
-		else:
-			nodes = {}
-			for k,v in self.targets.iteritems():
-				nodes = self.graph.getNodeCloudsIn(v)
-				self.writeConfigFiles(nodes,k)
-				nodes = {}
-
-	def __getFile__(self, nodesFile):
-		if nodesFile.startswith('https://') or nodesFile.startswith('http://'):
-			if self.printStatus:
-				print "Download node.json from URL: " + nodesFile
-			resource = urllib.urlopen(nodesFile)
-		else:
-			if self.printStatus:
-				print "Open node.json file: " + nodesFile
-			resource = open(nodesFile)
-		data = json.loads(resource.read())
-		resource.close()
-		return data
-
-	def writeConfigFiles(self,nodes_level, name):
-		maxDepth = self.maxDepth(nodes_level)
-		for i in range(0,maxDepth):
-			content = 'geo $switch {\n\tdefault\t0;'
-			f = open(self.dataPath+'/'+name+'_node_level'+str(i),'w')
-			for node in nodes_level.itervalues():
-				if node.stepsToVpn == i:
-					if node.ipv6 and node.hostname:
-						content += '\n\t'+node.ipv6+'\t1;\t #'+node.hostname
-					#else:
-					#	print node.nodeid
-			content += '\n}'
-			f.write(content.encode('utf8'))
-			f.close()
-
-	def maxDepth(self, nodes):
-		maxDepth = 0
-		for v in nodes.itervalues():
-			if v.stepsToVpn > maxDepth:
-				maxDepth = v.stepsToVpn
-		return maxDepth+1
-
+from domain_selector import DomainSelector
 
 targets = {
-	'muenster' : [
-		{'city' : u'Münster'}, 
-		{'county' : u'Münster'}
-	],
+#	'muenster' : [
+#		{'city' : u'Münster'}, 
+#		{'county' : u'Münster'},
+#	],
 	'kreis_warendorf' : [
-		{'county' : u'Kreis Warendorf'}
+		{'county' : u'Kreis Warendorf'},
 	],
 	'kreis_coesfeld' : [
-		{'county' : u'Kreis Coesfeld'}
+		{'county' : u'Kreis Coesfeld'},
 	],
 	'kreis_steinfurt_west' : [
 		{'town' : u'48565'},
@@ -77,7 +23,7 @@ targets = {
 		{'town' : u'Horstmar'},
 		{'village' : u'Laer'},
 		{'village' : u'Nordwalde'},
-		{'village' : u'Altenberge'}
+		{'village' : u'Altenberge'},
 	],
 	'kreis_steinfurt_ost' : [
 		{'town' : u'Emsdetten'},
@@ -88,7 +34,42 @@ targets = {
 		{'town' : u'Lengerich'},
 		{'town' : u'Tecklenburg'},
 		{'village' : u'Lienen'},
+	],
+	'muenster_stadt' : [
+		{'city_district' : u'Münster-Mitte'},
+		{'city_district' : u'Münster-Nord'},
+		{'city_district' : u'Münster-Ost'},
+		{'suburb' : u'Berg Fidel'},
+		{'suburb' : u'Gremmendorf'},
+		{'suburb' : u'Mecklenbeck'},
+		{'suburb' : u'Gievenbeck'},
+		{'suburb' : u'Nienberge'},
+		{'suburb' : u'Roxel'},
+		{'suburb' : u'Sentruper Höhe'},
+	],
+	'muenster_sued' : [
+		{'suburb' : u'Amelsbüren'},
+		{'suburb' : u'Hiltrup'},
+		{'suburb' : u'Albachten'},
+	],
+	'kreis_borken' : [
+		{'town' : u'Ahaus'},
+		{'town' : u'Bocholt'},
+		{'town' : u'Borken'},
+		{'town' : u'Gescher'},
+		{'village' : u'Heek'},
+		{'town' : u'Heiden'},
+		{'town' : u'Isselburg'},
+		{'village' : u'Legden'},
+		{'town' : u'Raesfeld'},
+		{'town' : u'Reken'},
+		{'town' : u'Rhede'},
+		{'village' : u'Schöppingen'},
+		{'town' : u'Stadtlohn'},
+		{'village' : u'Südlohn'},
+		{'town' : u'Velen'},
+		{'town' : u'Vreden'},
 	]
 }
 
-ds = NodeHierarchy(nodesFile = 'nodes.json', graphFile = 'graph.json', printStatus = True, dataPath = './results/', targets = targets)
+ds = DomainSelector(nodesFile = 'nodes.json', graphFile = 'graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets)

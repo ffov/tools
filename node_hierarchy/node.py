@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 from geocode import Geocode
+import time
 
 class Node(object):
 	def __init__(self, nodeid, ipv6 = None, hostname = None, isOnline = False, lastSeen = None, lat = None, lon = None, coder = None):
