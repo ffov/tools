@@ -1,14 +1,12 @@
 geo $switch {
 	default	0;
 	2a03:2260:115:0:c6e9:84ff:fef3:31c8	1;	 #DARC-N53-OV-Stadtlohn.freifunk-wml.de
-	2a03:2260:115:0:56e6:fcff:feaf:355a	1;	 #freifunk-WML-Grabenstrasse-2
 	2a03:2260:115:0:ea94:f6ff:fee5:52a7	1;	 #Freifunk-Velen-ZumTiergarten-4
 	2a03:2260:115:0:32b5:c2ff:feee:1ece	1;	 #Drosselstiege-Finkenstiege_Spielplatz_freifunk-wml.de
 	2a03:2260:115:0:32b5:c2ff:fe22:f766	1;	 #freifunk-rosenweg2
-	2a03:2260:115:0:32b5:c2ff:fe7e:2a2a	1;	 #teleringSchwering
 	2a03:2260:115:0:16cc:20ff:feb3:eb46	1;	 #freifunk14cc20b3eb46
 	2a03:2260:115:0:32b5:c2ff:feee:9130	1;	 #freifunk_goerkeskamp
-	2a03:2260:115:0:c6e9:84ff:fec8:48ac	1;	 #freifunk-WML-Schlosshotel002
+	2a03:2260:115:0:32b5:c2ff:fe7e:2e18	1;	 #Bed-and-Breakfast
 	2a03:2260:115:0:12fe:edff:fef1:5140	1;	 #Freifunk-Hundewick-City-3
 	2a03:2260:115:0:32b5:c2ff:fe9e:dcf2	1;	 #z_man_06
 	2a03:2260:115:0:32b5:c2ff:fece:e95b	1;	 #freifunkreken00003
@@ -22,11 +20,11 @@ geo $switch {
 	2a03:2260:115:0:32b5:c2ff:fe6f:35ec	1;	 #Freifunk-Da-Fabio
 	2a03:2260:115:0:c6e9:84ff:fef3:1be4	1;	 #freifunk-WML-Schaefers-1
 	2a03:2260:115:0:c6e9:84ff:fec8:4adc	1;	 #freifunk-WML-Canario
+	2a03:2260:115:0:c6e9:84ff:fec8:4dc0	1;	 #Freifunk-wml-zur-Kanne-pwd-by-Volksbank-Gescher
 	2a03:2260:115:0:62e3:27ff:fe9f:55bc	1;	 #freifunk-WML-EDEKA-Eismann-3
 	2a03:2260:115:0:c6e9:84ff:fec8:4a74	1;	 #Freifunk-WML-Hirschapotheke-pwd-by-Volksbank-Gescher
 	2a03:2260:115:0:6670:2ff:fe53:418	1;	 #Freifunk-Velen-ZumTiergarten-2
-	2a03:2260:115:0:32b5:c2ff:fe7e:2e18	1;	 #Bed-and-Breakfast
 	2a03:2260:115:0:16cc:20ff:fecd:356e	1;	 #z_man_05
-	2a03:2260:115:0:c6e9:84ff:fef3:3c9c	1;	 #Gaststaette_Kettlerhaus_1.Freifunk-WML.de
+	2a03:2260:115:0:c6e9:84ff:fec8:48ac	1;	 #freifunk-WML-Schlosshotel002
 	2a03:2260:115:0:62e3:27ff:fe76:e5a8	1;	 #Freifunk-Legden-Poststrasse18_2
 }

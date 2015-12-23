@@ -3,7 +3,6 @@ geo $switch {
 	2a03:2260:115:0:16cc:20ff:fee1:57d0	1;	 #Haus_der_Schoenheit
 	2a03:2260:115:0:c6e9:84ff:fec8:4e10	1;	 #freifunk-wml-Steffers-Buchhandlung-1
 	2a03:2260:115:0:16cc:20ff:fecd:4f28	1;	 #freifunk-atelier-lisa-oldhues
-	2a03:2260:115:0:c6e9:84ff:fef7:8c01	1;	 #FF-Ochtrup-Bahnhofstr-Baeumer
 	2a03:2260:115:0:16cc:20ff:fecd:f4a	1;	 #Vorgerd-Mode-Sport-Spiel
 	2a03:2260:115:0:16cc:20ff:fecd:fe2	1;	 #HK-Orga
 	2a03:2260:115:0:c66e:1fff:fe87:8500	1;	 #Gasthof-Stermann
@@ -21,10 +20,8 @@ geo $switch {
 	2a03:2260:115:0:c6e9:84ff:feb5:cb9a	1;	 #Wilhelm_Meyer
 	2a03:2260:115:0:32b5:c2ff:fe88:442e	1;	 #Hotel-Lindenhof
 	2a03:2260:115:0:16cc:20ff:fee1:5bf6	1;	 #Steinfurt0065-Pizzeria-Peppone
-	2a03:2260:115:0:32b5:c2ff:fec2:b700	1;	 #Autohaus.Willbrand.GmbH_Tankstelle
 	2a03:2260:115:0:32b5:c2ff:feb0:54b8	1;	 #freifunk_th_storm_str25
 	2a03:2260:115:0:32b5:c2ff:feb0:4cc2	1;	 #Gemeinde_Metelen_Sportpark_Sued
-	2a03:2260:115:0:32b5:c2ff:fed9:ca42	1;	 #Steinfurt0140-Zahnarzt-zum-Kirchplatz-2
 	2a03:2260:115:0:16cc:20ff:fecd:1262	1;	 #Steinfurt0078-Sin-Instinct-Eventconcept-2
 	2a03:2260:115:0:62e3:27ff:fe9f:507e	1;	 #freifunk-wml-Steffers-Prof-Gaertner-25
 	2a03:2260:115:0:16cc:20ff:fecd:1102	1;	 #Schülernachhilfe-Steinfurt-2
@@ -37,28 +34,25 @@ geo $switch {
 	2a03:2260:115:0:ea94:f6ff:fecd:50f8	1;	 #FreiFunkTurm
 	2a03:2260:115:0:c6e9:84ff:fec8:4e06	1;	 #freifunk-wml-parkstrasse
 	2a03:2260:115:0:16cc:20ff:fecd:dd8	1;	 #Steinfurt0073-Verkehrsverein-Wettringen
-	2a03:2260:115:0:6a72:51ff:fe0c:4180	1;	 #Steinfurt0134-BurgsteinfurterStr-Outdoor-Rocket-M2
 	2a03:2260:115:0:62e3:27ff:fe9f:55d2	1;	 #AutohausKrechtingRadhausKrechting
 	2a03:2260:115:0:62e3:27ff:febd:ce9a	1;	 #ff-ochtrup-marienstr-20
 	2a03:2260:115:0:16cc:20ff:fee1:5876	1;	 #Ingenieurbuero_TGA_Joeken_Stegemann
 	2a03:2260:115:0:12fe:edff:fe7f:3982	1;	 #FreifunkKarl
 	2a03:2260:115:0:32b5:c2ff:fed9:ff36	1;	 #Steinfurt0047-Pirateninsel
 	2a03:2260:115:0:16cc:20ff:fee4:c5e	1;	 #Steinfurt-Preussen-Stuebel
-	2a03:2260:115:0:c6e9:84ff:feb5:cb86	1;	 #freifunkc4e984b5cb86
 	2a03:2260:115:0:ea94:f6ff:fe52:1862	1;	 #ffst-grottenkamp-001
 	2a03:2260:115:0:62e3:27ff:fe9f:5506	1;	 #freifunk-wml-Mohnstr-2
-	2a03:2260:115:0:c6e9:84ff:feb5:f122	1;	 #Steinfurt-KISS
 	2a03:2260:115:0:16cc:20ff:fec0:42c2	1;	 #Modenhaus-Wesseler
 	2a03:2260:115:0:32b5:c2ff:fec2:b734	1;	 #Sport_Linke_Keller
 	2a03:2260:115:0:62e3:27ff:feb8:5134	1;	 #ff-st-rathaus-bo-06
 	2a03:2260:115:0:32b5:c2ff:feb0:43aa	1;	 #Hotel_zur_Post_Wettringen
-	2a03:2260:115:0:c6e9:84ff:fe5b:1120	1;	 #www.ev-jugendhilfe.de-10
-	2a03:2260:115:0:62e3:27ff:fe9f:55e2	1;	 #freifunk-wml-Steffers-Steuerberater
+	2a03:2260:115:0:c6e9:84ff:feb5:f122	1;	 #Steinfurt-KISS
 	2a03:2260:115:0:16cc:20ff:fecd:128a	1;	 #Steinfurt0071-Fahrschule-Kleideiter
 	2a03:2260:115:0:16cc:20ff:fee1:561a	1;	 #Steinfurt0108-WEISER-HÖREN
 	2a03:2260:115:0:ea94:f6ff:fe69:b67a	1;	 #freifunk-lethe
 	2a03:2260:115:0:c6e9:84ff:feb5:cb2a	1;	 #Metelen_Heeker_Str
-	2a03:2260:115:0:32b5:c2ff:fedf:bee0	1;	 #freifunk30b5c2dfbee0
+	2a03:2260:115:0:16cc:20ff:fee1:43b2	1;	 #Steinfurt0113-LVM
+	2a03:2260:115:0:6a72:51ff:fe0c:4216	1;	 #Steinfurt0091-Gemeinde-Outdoor-RocketM2
 	2a03:2260:115:0:16cc:20ff:fee1:43b6	1;	 #Steinfurt0106-Logopaedie-Christina-Fehlker
 	2a03:2260:115:0:16cc:20ff:fee1:43b8	1;	 #Steinfurt0101-Ludgeri-Apotheke
 	2a03:2260:115:0:62e3:27ff:febd:cfc8	1;	 #ff-ochtrup-kniepenkamp-1
@@ -68,7 +62,7 @@ geo $switch {
 	2a03:2260:115:0:16cc:20ff:fee1:5baa	1;	 #Steinfurt0062-Landgasthof-Hagenhoff
 	2a03:2260:115:0:a2f3:c1ff:feb3:c198	1;	 #freifunka0f3c1b3c198
 	2a03:2260:115:0:16cc:20ff:febb:afc0	1;	 #ff-ochtrup-marienstr-18
-	2a03:2260:115:0:c6e9:84ff:feb5:c9de	1;	 #freifunkc4e984b5c9de
+	2a03:2260:115:0:c6e9:84ff:feb5:cb82	1;	 #Landbaeckerei_Elshoff
 	2a03:2260:115:0:ea94:f6ff:fe51:826e	1;	 #freifunk-andorf
 	2a03:2260:115:0:16cc:20ff:fe6e:873c	1;	 #freifunk_laudamm
 	2a03:2260:115:0:32b5:c2ff:fedf:e814	1;	 #Bonhoefferstrasse
@@ -85,9 +79,9 @@ geo $switch {
 	2a03:2260:115:0:16cc:20ff:fee1:556e	1;	 #Steinfurt0110-Bauersachs
 	2a03:2260:115:0:c24a:ff:feee:d55a	1;	 #UWG-Metelen-02
 	2a03:2260:115:0:62e3:27ff:feb7:8eec	1;	 #www.ev-jugendhilfe.de-9
-	2a03:2260:115:0:6670:2ff:fe5d:b66e	1;	 #eppings-biercafe.de
 	2a03:2260:115:0:c6e9:84ff:feb6:320	1;	 #ff-st-rathaus-bo
 	2a03:2260:115:0:16cc:20ff:fee1:58be	1;	 #Praxis-Dr.Barth
+	2a03:2260:115:0:c6e9:84ff:fe5b:1120	1;	 #www.ev-jugendhilfe.de-10
 	2a03:2260:115:0:32b5:c2ff:fee2:f6b2	1;	 #Freifunk_Gnoiener_Platz
 	2a03:2260:115:0:16cc:20ff:fee1:5622	1;	 #Steinfurt0109-Textilhaus-Scho
 	2a03:2260:115:0:62e3:27ff:fe9f:56a6	1;	 #freifunk-wml-demo
@@ -121,6 +115,7 @@ geo $switch {
 	2a03:2260:115:0:62e3:27ff:febd:be78	1;	 #ff-ochtrup-weinerstr-1
 	2a03:2260:115:0:32b5:c2ff:fee0:d8	1;	 #Buechereck
 	2a03:2260:115:0:32b5:c2ff:feb0:4fc2	1;	 #Su_Nuraghe
+	2a03:2260:115:0:62e3:27ff:fe9f:55e2	1;	 #freifunk-wml-Steffers-Steuerberater
 	2a03:2260:115:0:62e3:27ff:feee:5cc	1;	 #freifunk-FC_Lau-Brechte-Sportplatz
 	2a03:2260:115:0:62e3:27ff:feb8:53b0	1;	 #ff-st-rathaus-bo-04
 	2a03:2260:115:0:c66e:1fff:fee6:a386	1;	 #freifunk-Bamse
@@ -133,7 +128,6 @@ geo $switch {
 	2a03:2260:115:0:32b5:c2ff:fec2:b790	1;	 #Friseur_Ezgi
 	2a03:2260:115:0:32b5:c2ff:feb0:5600	1;	 #Steinfurt0143-Raumgestaltung-Kemper
 	2a03:2260:115:0:32b5:c2ff:fe22:d9da	1;	 #Steinfurt-Burgsteinfurt-MLHCampus-WettringerStr
-	2a03:2260:115:0:32b5:c2ff:fe81:2c0c	1;	 #KG-D.J.Albers
 	2a03:2260:115:0:16cc:20ff:fe4d:1044	1;	 #freifunk14cc204d1044
 	2a03:2260:115:0:62e3:27ff:fe9f:55a2	1;	 #freifunk-wml-Nordwall
 	2a03:2260:115:0:32b5:c2ff:feb0:4fb4	1;	 #Gemeinde_Metelen_Sporthalle
@@ -142,13 +136,9 @@ geo $switch {
 	2a03:2260:115:0:16cc:20ff:fecd:125c	1;	 #Steinfurt0077-Sin-Instinct-Eventconcept-1
 	2a03:2260:115:0:16cc:20ff:fecd:1228	1;	 #Steinfurt0076-Westfaelische-Provinzial
 	2a03:2260:115:0:16cc:20ff:fec0:4328	1;	 #Schuh-und-Lederware-Hillmann
-	2a03:2260:115:0:62e3:27ff:fe9a:9e68	1;	 #www.ev-jugendhilfe.de-8
-	2a03:2260:115:0:12fe:edff:fee6:d28	1;	 #freifunk10feede60d28
 	2a03:2260:115:0:ea94:f6ff:fecd:a9a6	1;	 #philipp
 	2a03:2260:115:0:62e3:27ff:feb8:5323	1;	 #ff-st-rathaus-bo-03
-	2a03:2260:115:0:62e3:27ff:febd:fcea	1;	 #freifunk-il-Piccolo
 	2a03:2260:115:0:c66e:1fff:fe2d:9f6e	1;	 #RistoranteItalianissimo
-	2a03:2260:115:0:32b5:c2ff:fec6:b67e	1;	 #ffms-parad0x-st-003
 	2a03:2260:115:0:32b5:c2ff:fec2:774c	1;	 #freifunk_tuerkei
 	2a03:2260:115:0:32b5:c2ff:feb0:5242	1;	 #Steinfurt0081-Werninghoker-Strasse-Timpen-1
 	2a03:2260:115:0:62e3:27ff:febd:ccb2	1;	 #ff-ochtrup-weinerstr-27
@@ -158,14 +148,14 @@ geo $switch {
 	2a03:2260:115:0:16cc:20ff:fec0:3fd4	1;	 #Soccerworld_Steinfurt
 	2a03:2260:115:0:16cc:20ff:fee1:5816	1;	 #Gemeinde_Metelen_Sendplatz
 	2a03:2260:115:0:16cc:20ff:fecd:dae	1;	 #Steinfurt0084-Gemeinde-Wettringen-3
+	2a03:2260:115:0:62e3:27ff:fe81:9f3c	1;	 #www.ev-jugendhilfe.de-7
 	2a03:2260:115:0:ea94:f6ff:fe29:bc4a	1;	 #Steinfurt0014-GrueneST
 	2a03:2260:115:0:32b5:c2ff:fe81:2b66	1;	 #FreifunkPeter
 	2a03:2260:115:0:32b5:c2ff:fed9:b300	1;	 #mobile-steinfurt.de_1
 	2a03:2260:115:0:62e3:27ff:fe9f:5274	1;	 #ff-Ochtrup-Oelerich
-	2a03:2260:115:0:16cc:20ff:fe6f:652	1;	 #Steinfurt0012
 	2a03:2260:115:0:32b5:c2ff:feb0:4fa0	1;	 #Modehaus_Wissing
 	2a03:2260:115:0:32b5:c2ff:fe7d:ff56	1;	 #freifunkamwald
-	2a03:2260:115:0:c6e9:84ff:feb5:cb82	1;	 #Landbaeckerei_Elshoff
+	2a03:2260:115:0:6670:2ff:fe5d:b66e	1;	 #eppings-biercafe.de
 	2a03:2260:115:0:16cc:20ff:fecd:1254	1;	 #Steinfurt0083-Gemeinde-Wettringen-2
 	2a03:2260:115:0:16cc:20ff:fecd:10c8	1;	 #Steinfurt0072-Sonnen-Apotheke
 	2a03:2260:115:0:c66e:1fff:feb3:77ac	1;	 #Heimathaus-Borghorst

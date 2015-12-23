@@ -5,29 +5,27 @@ geo $switch {
 	2a03:2260:115:0:eade:27ff:fed5:d82a	1;	 #freifunk-e8de27d5d82a
 	2a03:2260:115:0:62e3:27ff:fe9f:57d8	1;	 #freifunk60e3279f57d8
 	2a03:2260:115:0:32b5:c2ff:fed9:9a3e	1;	 #FreifunkGrueneMuenster
-	2a03:2260:115:0:ea94:f6ff:fe29:8512	1;	 #freifunk-stadtlohnweg01
+	2a03:2260:115:0:ea94:f6ff:fe2a:3da	1;	 #BlackLight-Bar
 	2a03:2260:115:0:92f6:52ff:fe27:2f2c	1;	 #yk2ms002
 	2a03:2260:115:0:62e3:27ff:febd:ff16	1;	 #freifunk-k3
-	2a03:2260:115:0:16cc:20ff:fe70:9f02	1;	 #warpzone-uplink
 	2a03:2260:115:0:ea94:f6ff:fe29:fb0a	1;	 #Dorbaumstrasse
 	2a03:2260:115:0:32b5:c2ff:fe6e:8841	1;	 #ffms-HeartOfGold-01
 	2a03:2260:115:0:ea94:f6ff:fe0c:907a	1;	 #CafeMamsel
-	2a03:2260:115:0:16cc:20ff:fe3b:1926	1;	 #ff0.andymwwwy
+	2a03:2260:115:0:c66e:1fff:febd:19c4	1;	 #Agathastr
 	2a03:2260:115:0:eade:27ff:feca:9ca4	1;	 #WF-FF-01
 	2a03:2260:115:0:ea94:f6ff:fe69:b542	1;	 #marie-curie
 	2a03:2260:115:0:c66e:1fff:fee7:f1c6	1;	 #FanLin-DaGe
 	2a03:2260:115:0:12fe:edff:fec4:66c6	1;	 #fungur-test
-	2a03:2260:115:0:ea94:f6ff:fe6d:cf0	1;	 #Banane-01
 	2a03:2260:115:0:ea94:f6ff:fe2a:391c	1;	 #meer-funk
 	2a03:2260:115:0:c66e:1fff:febd:1ec	1;	 #00Q_DineUp.de
+	2a03:2260:115:0:ea94:f6ff:fe29:b9f8	1;	 #Masada
 	2a03:2260:115:0:ea94:f6ff:fe63:d02	1;	 #Banane-02
 	2a03:2260:115:0:ea94:f6ff:fe6d:407c	1;	 #Schlossgarten-Cafe-02
-	2a03:2260:115:0:ea94:f6ff:fe29:852c	1;	 #harryismus
+	2a03:2260:115:0:ea94:f6ff:fe6d:3ff6	1;	 #fair_and_friendly_Buero
 	2a03:2260:115:0:c66e:1fff:fe70:b64	1;	 #FeuerFreiFunk
 	2a03:2260:115:0:c66e:1fff:fe7a:9a1a	1;	 #aqua-maris-Muenster
 	2a03:2260:115:0:ea94:f6ff:fe4f:b4ac	1;	 #freifunk-Am-Krug
-	2a03:2260:115:0:26a4:3cff:fed8:8fc4	1;	 #Last_Resort
-	2a03:2260:115:0:32b5:c2ff:fe70:4c8e	1;	 #Zahntechnik-E-S
+	2a03:2260:115:0:ea94:f6ff:fe6d:4074	1;	 #Schlossgarten-Cafe-01
 	2a03:2260:115:0:c6e9:84ff:feb5:ea5a	1;	 #freifunk-nobrain
 	2a03:2260:115:0:219:99ff:fe5f:b364	1;	 #Commander1024-worker
 	2a03:2260:115:0:ea94:f6ff:fe29:8532	1;	 #GloryToFlyingSpaghettiMonster
@@ -42,28 +40,27 @@ geo $switch {
 	2a03:2260:115:0:ea94:f6ff:fe6d:1344	1;	 #Le-petit-Reve
 	2a03:2260:115:0:ea94:f6ff:fe2a:3ca	1;	 #freifunk-krehlio
 	2a03:2260:115:0:c66e:1fff:fee6:dfca	1;	 #seecurity-1
-	2a03:2260:115:0:c66e:1fff:febd:19c4	1;	 #Agathastr
+	2a03:2260:115:0:16cc:20ff:fe3b:1926	1;	 #ff0.andymwwwy
+	2a03:2260:115:0:c66e:1fff:feff:db4e	1;	 #knoten1
 	2a03:2260:115:0:ea94:f6ff:fe2a:8f28	1;	 #rainbowdash
 	2a03:2260:115:0:ea94:f6ff:fe6d:1c38	1;	 #Schlossgarten-Cafe-04
-	2a03:2260:115:0:c66e:1fff:feff:db4e	1;	 #knoten1
-	2a03:2260:115:0:32b5:c2ff:fec6:aba0	1;	 #freifunk-fsp03
+	2a03:2260:115:0:26a4:3cff:fed8:8fc4	1;	 #Last_Resort
 	2a03:2260:115:0:ea94:f6ff:fe6c:cfe8	1;	 #Funki
-	2a03:2260:115:0:26a4:3cff:fedf:a10e	1;	 #warpzone-unifi-1
 	2a03:2260:115:0:c6e9:84ff:feb5:ebb8	1;	 #HalloMensch
 	2a03:2260:115:0:ea94:f6ff:fe69:b694	1;	 #Sparklenet
 	2a03:2260:115:0:eade:27ff:fed6:b64	1;	 #wallywlan01
 	2a03:2260:115:0:62e3:27ff:fe5a:76	1;	 #Sparklenet_2
 	2a03:2260:115:0:ea94:f6ff:fe29:8552	1;	 #PIRATEN_OEDP_WeselerStr
-	2a03:2260:115:0:ea94:f6ff:fe4f:b3e2	1;	 #Freifunk-48
-	2a03:2260:115:0:ea94:f6ff:fe90:b05e	1;	 #Freifunk-Frank
+	2a03:2260:115:0:ea94:f6ff:fe29:da56	1;	 #Cafe_Ecksteins_01
 	2a03:2260:115:0:32b5:c2ff:fe6f:20e0	1;	 #Caritas-Nienberge-01
 	2a03:2260:115:0:c6e9:84ff:fe33:485a	1;	 #HansaRingFunk
 	2a03:2260:115:0:ea94:f6ff:febf:8600	1;	 #ffms-mimipalast
-	2a03:2260:115:0:6a72:51ff:fe20:6213	1;	 #FanLin-CoOp-Bleker-IT
 	2a03:2260:115:0:ea94:f6ff:fe2a:d44e	1;	 #freifunk_CSt-1
-	2a03:2260:115:0:ea94:f6ff:fe29:da12	1;	 #Gazelle_03
+	2a03:2260:115:0:ea94:f6ff:fe29:8512	1;	 #freifunk-stadtlohnweg01
 	2a03:2260:115:0:eade:27ff:fed5:e2ec	1;	 #LaPaloma-Base
 	2a03:2260:115:0:16cc:20ff:feb0:cffa	1;	 #ffms-rudolfstr
+	2a03:2260:115:0:16cc:20ff:fe4d:337c	1;	 #freifunkkurzegeist1
+	2a03:2260:115:0:12fe:edff:fe2b:6764	1;	 #AllYourWiFiAreBelongsToUs
 	2a03:2260:115:0:16cc:20ff:febb:be5e	1;	 #FreifunkMSbyL1Nch
 	2a03:2260:115:0:ea94:f6ff:fe6c:cfe6	1;	 #Salome_Haar_und_Kunst
 	2a03:2260:115:0:c66e:1fff:fee6:9874	1;	 #Wiese
@@ -72,13 +69,13 @@ geo $switch {
 	2a03:2260:115:0:c66e:1fff:fe87:54e0	1;	 #rabbit_hole_1
 	2a03:2260:115:0:12fe:edff:feb7:a9c	1;	 #da1l6
 	2a03:2260:115:0:ea94:f6ff:fe51:8ec6	1;	 #FanLin-NanMen
-	2a03:2260:115:0:16cc:20ff:fea4:9900	1;	 #freifunk-fsp01
+	2a03:2260:115:0:ea94:f6ff:fe4f:b3e2	1;	 #Freifunk-48
 	2a03:2260:115:0:32b5:c2ff:fe2a:cd0c	1;	 #WF-FF-02
 	2a03:2260:115:0:223:cdff:fe20:bb26	1;	 #freifunk-fever
 	2a03:2260:115:0:ea94:f6ff:fecd:33d4	1;	 #freifunk-Paulstrasse
 	2a03:2260:115:0:eade:27ff:fe3c:181e	1;	 #00Q_Johann-Krane-Weg_8_X1
 	2a03:2260:115:0:c6e9:84ff:feb5:ea76	1;	 #freifunkkurzegeist3
-	2a03:2260:115:0:ea94:f6ff:fe6d:4074	1;	 #Schlossgarten-Cafe-01
+	2a03:2260:115:0:ea94:f6ff:fe90:b05e	1;	 #Freifunk-Frank
 	2a03:2260:115:0:ea94:f6ff:fe90:84b8	1;	 #SputnikBuero
 	2a03:2260:115:0:ea94:f6ff:fe29:817a	1;	 #freifunk-e894f629817a
 	2a03:2260:115:0:eade:27ff:fe62:d6da	1;	 #freifunk-kolpingsfamilie
@@ -90,18 +87,17 @@ geo $switch {
 	2a03:2260:115:0:ea94:f6ff:fe6d:4040	1;	 #Schlossgarten-Cafe-05
 	2a03:2260:115:0:62e3:27ff:fe81:edf8	1;	 #mk_4
 	2a03:2260:115:0:eade:27ff:fed6:1338	1;	 #heerde_nord
-	2a03:2260:115:0:ea94:f6ff:fe29:b9f8	1;	 #Masada
 	2a03:2260:115:0:32b5:c2ff:fe81:22da	1;	 #TJ-1_MCBattleAxe.de
 	2a03:2260:115:0:ea94:f6ff:fe6c:cf30	1;	 #triptychon-03
 	2a03:2260:115:0:c66e:1fff:fe87:8534	1;	 #freifunk-gasselstiege-2
 	2a03:2260:115:0:c66e:1fff:fe7a:99fe	1;	 #freifunk-c46e1f7a99fe
 	2a03:2260:115:0:ea94:f6ff:fe29:8394	1;	 #freifunk-dieckmann
-	2a03:2260:115:0:ea94:f6ff:fe6d:3ff6	1;	 #fair_and_friendly_Buero
+	2a03:2260:115:0:ea94:f6ff:fe6d:cf0	1;	 #Banane-01
 	2a03:2260:115:0:12fe:edff:fef1:4c24	1;	 #Stehrweg22
 	2a03:2260:115:0:ea94:f6ff:fe33:a4cc	1;	 #freifunk-emslaenderweg
 	2a03:2260:115:0:c24a:ff:fe38:f054	1;	 #edlabs-001
 	2a03:2260:115:0:ea94:f6ff:fe6d:26de	1;	 #phonerepair.ms
-	2a03:2260:115:0:12fe:edff:fe2b:6764	1;	 #AllYourWiFiAreBelongsToUs
+	2a03:2260:115:0:ea94:f6ff:fe69:c5b0	1;	 #dunstkreis-001
 	2a03:2260:115:0:32b5:c2ff:feb0:74fa	1;	 #Freifunk-Rumphorst-01
 	2a03:2260:115:0:ea94:f6ff:fe29:8336	1;	 #Bleker-IT
 	2a03:2260:115:0:32b5:c2ff:fe2a:cd02	1;	 #WF-FF-03
@@ -111,11 +107,11 @@ geo $switch {
 	2a03:2260:115:0:eade:27ff:fed6:1632	1;	 #Schneeschwung
 	2a03:2260:115:0:32b5:c2ff:fe7d:fe24	1;	 #freifunk30b5c27dfe24
 	2a03:2260:115:0:c66e:1fff:fe41:61fc	1;	 #freifunk-mm-ms-001
-	2a03:2260:115:0:16cc:20ff:fe6f:b48	1;	 #SpecOps01
+	2a03:2260:115:0:ea94:f6ff:fe69:b578	1;	 #dunstkreis-003
 	2a03:2260:115:0:ea94:f6ff:fe29:f738	1;	 #Windhorststrasse
 	2a03:2260:115:0:ea94:f6ff:fe4b:3c9e	1;	 #freifunk-nidi
 	2a03:2260:115:0:16cc:20ff:fe6f:46ae	1;	 #Ewaldi22.2
-	2a03:2260:115:0:ea94:f6ff:fe69:c5b0	1;	 #dunstkreis-001
+	2a03:2260:115:0:ea94:f6ff:fe42:8f88	1;	 #coinsfunk
 	2a03:2260:115:0:ea94:f6ff:fe69:c550	1;	 #Starweg-1
 	2a03:2260:115:0:c6e9:84ff:fe5b:1086	1;	 #freifunk-heekweg
 	2a03:2260:115:0:32b5:c2ff:fe7e:91f2	1;	 #Suedstern
@@ -124,16 +120,13 @@ geo $switch {
 	2a03:2260:115:0:ea94:f6ff:fe90:a326	1;	 #coerde-eins
 	2a03:2260:115:0:12fe:edff:fe9c:49e	1;	 #freifunk-www.Pension-Haselmann.de
 	2a03:2260:115:0:ea94:f6ff:fe42:8f86	1;	 #cult-cars
-	2a03:2260:115:0:ea94:f6ff:fe69:b578	1;	 #dunstkreis-003
-	2a03:2260:115:0:ea94:f6ff:fe42:8f88	1;	 #coinsfunk
-	2a03:2260:115:0:c66e:1fff:fe2c:fa	1;	 #FanLin-ZhiZi
-	2a03:2260:115:0:ea94:f6ff:fe78:881a	1;	 #freifunk-Siemensstr
+	2a03:2260:115:0:16cc:20ff:fe6f:b48	1;	 #SpecOps01
+	2a03:2260:115:0:16cc:20ff:fe70:9f02	1;	 #warpzone-uplink
 	2a03:2260:115:0:c66e:1fff:fee8:1208	1;	 #Hohenzollernring
 	2a03:2260:115:0:c66e:1fff:fe8c:eeca	1;	 #dnet01
-	2a03:2260:115:0:ea94:f6ff:fe29:d998	1;	 #Gazelle_02
+	2a03:2260:115:0:ea94:f6ff:fe29:852c	1;	 #harryismus
 	2a03:2260:115:0:ea94:f6ff:fe42:8fc0	1;	 #comline-d23-01
 	2a03:2260:115:0:ea94:f6ff:fe6d:cc6	1;	 #the_maze
 	2a03:2260:115:0:6666:b3ff:feb0:21a6	1;	 #Freifunk
-	2a03:2260:115:0:16cc:20ff:fe4d:337c	1;	 #freifunkkurzegeist1
 	2a03:2260:115:0:c6e9:84ff:fee3:6742	1;	 #carl-neuendorff-weg
 }
