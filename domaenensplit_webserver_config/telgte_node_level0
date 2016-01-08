@@ -1,0 +1,4 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:32b5:c2ff:feed:d976	1;	 #fewo-nocke
+}

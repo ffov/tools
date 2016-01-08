@@ -1,41 +1,35 @@
 geo $switch {
 	default	0;
 	2a03:2260:115:0:32b5:c2ff:feda:1e00	1;	 #Freifunk
+	2a03:2260:115:0:c66e:1fff:fe31:6f66	1;	 #ffcoe-herbern-01
 	2a03:2260:115:0:6a72:51ff:fe30:87c4	1;	 #rorup.net.GemeindehausPark
-	2a03:2260:115:0:32b5:c2ff:feee:8e90	1;	 #Havixbeck-2-Freifunk_Schulten-Kamp
+	2a03:2260:115:0:6a72:51ff:fe2e:bbaa	1;	 #Freifunk-Duelmen-SPD-005
 	2a03:2260:115:0:16cc:20ff:fe6f:a39a	1;	 #FanLin-Boesensell03-PonyhofKaffee-Freifunk
-	2a03:2260:115:0:62e3:27ff:fe76:9056	1;	 #Havixbeck-3-Outdoors_Schulten-Kamp
 	2a03:2260:115:0:6a72:51ff:fe2e:99dc	1;	 #LH-Markt1-1
-	2a03:2260:115:0:c66e:1fff:fec7:87c	1;	 #freifunk-OttiStrontianitfeld1
-	2a03:2260:115:0:c66e:1fff:fee6:97a4	1;	 #FFMS-Rorup-08
-	2a03:2260:115:0:16cc:20ff:fea4:8a26	1;	 #FFMS-Rorup-19
+	2a03:2260:115:0:ea94:f6ff:fe4f:b2f2	1;	 #FFMS-Rorup-27
+	2a03:2260:115:0:32b5:c2ff:fe3e:8298	1;	 #HotelzurPost5
 	2a03:2260:115:0:6a72:51ff:fe2e:981e	1;	 #LH-Markt2-2
 	2a03:2260:115:0:eade:27ff:fe30:2e6e	1;	 #FFMS-Rorup-22
 	2a03:2260:115:0:32b5:c2ff:fe3e:82b6	1;	 #HotelzurPost4
 	2a03:2260:115:0:6a72:51ff:fe28:ae4c	1;	 #rorup.net.BuergerhausKirchplatz
-	2a03:2260:115:0:ea94:f6ff:fe4f:b49a	1;	 #ffcoe-herbern-07
 	2a03:2260:115:0:32b5:c2ff:feee:1fc0	1;	 #ZEDReisen2
 	2a03:2260:115:0:6a72:51ff:fe28:f903	1;	 #Anemonenweg.LH
+	2a03:2260:115:0:32b5:c2ff:fe22:ac5a	1;	 #Cafe-Reitstall-2
 	2a03:2260:115:0:32b5:c2ff:fe3e:80b0	1;	 #HotelzurPost2
 	2a03:2260:115:0:16cc:20ff:fec0:1abc	1;	 #freifunk14cc20c01abc
-	2a03:2260:115:0:c66e:1fff:fee6:9870	1;	 #FanLin-Rorup05-Freifunk
 	2a03:2260:115:0:6a72:51ff:fe42:5332	1;	 #FFMS-Rorup-24
 	2a03:2260:115:0:6a72:51ff:fe2e:9978	1;	 #LH-Markt3-3
-	2a03:2260:115:0:c6e9:84ff:feb6:482	1;	 #freifunk_duelmen_tvduelmen2
 	2a03:2260:115:0:6a72:51ff:fe2e:99e1	1;	 #Backwiaerk-1-1
 	2a03:2260:115:0:6a72:51ff:fe20:5cbd	1;	 #FFMS-Roup-32
-	2a03:2260:115:0:c66e:1fff:fe2c:444	1;	 #FFMS-Rorup-07
+	2a03:2260:115:0:32b5:c2ff:feee:5c54	1;	 #Mediterrana2
 	2a03:2260:115:0:c66e:1fff:fe8c:b786	1;	 #ffcoe-herbern-09
-	2a03:2260:115:0:ea94:f6ff:fe0c:d66e	1;	 #FFMS-Rorup-17
 	2a03:2260:115:0:62e3:27ff:fe59:fc36	1;	 #Freifunk-Duelmen-SB13-2
-	2a03:2260:115:0:16cc:20ff:fe6f:e2b6	1;	 #FFMS-Rorup-09
 	2a03:2260:115:0:c66e:1fff:fec7:3d48	1;	 #freifunk-OttiStrontianitfeld2
 	2a03:2260:115:0:32b5:c2ff:feee:7692	1;	 #Cafe-Terjung-2
 	2a03:2260:115:0:32b5:c2ff:fe3e:804e	1;	 #HotelzurPost1
+	2a03:2260:115:0:32b5:c2ff:fe3e:831e	1;	 #HotelzurPost6
 	2a03:2260:115:0:32b5:c2ff:fe22:aa64	1;	 #ZurMuehle.LH2
 	2a03:2260:115:0:eade:27ff:fe58:a880	1;	 #FanLin-Merfeld02-Freifunk
-	2a03:2260:115:0:c66e:1fff:fe31:6f66	1;	 #ffcoe-herbern-01
-	2a03:2260:115:0:62e3:27ff:fe76:b71a	1;	 #Forum_LH_2
-	2a03:2260:115:0:6a72:51ff:fe2e:e379	1;	 #Luedinghausen_Marketing1
 	2a03:2260:115:0:32b5:c2ff:fe3e:80ac	1;	 #HotelzurPost3
+	2a03:2260:115:0:c66e:1fff:fec7:87c	1;	 #freifunk-OttiStrontianitfeld1
 }

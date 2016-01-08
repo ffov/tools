@@ -1,4 +1,5 @@
 geo $switch {
 	default	0;
 	2a03:2260:115:0:16cc:20ff:fee1:5758	1;	 #KSk_001
+	2a03:2260:115:0:62e3:27ff:fe59:e37a	1;	 #Steinfurt-Elte-0016
 }
