@@ -1,4 +1,0 @@
-geo $switch {
-	default	0;
-	2a03:2260:115:0:16cc:20ff:fe6e:fa2c	1;	 #ffwaf-eloh-Kaldewey-IT-Solutions-002
-}

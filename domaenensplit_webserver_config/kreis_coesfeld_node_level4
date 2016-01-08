@@ -1,0 +1,4 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:ea94:f6ff:fe4f:b49a	1;	 #ffcoe-herbern-07
+}

@@ -1,0 +1,5 @@
+geo $switch {
+	default	0;
+	2a03:2260:115:0:32b5:c2ff:feb0:4f12	1;	 #Hoergeraete_Wagner_Nk
+	2a03:2260:115:0:62e3:27ff:fe59:e38e	1;	 #Steinfurt-Elte-0015
+}

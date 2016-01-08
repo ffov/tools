@@ -1,11 +1,9 @@
 geo $switch {
 	default	0;
-	2a03:2260:115:0:46d9:e7ff:fe43:9b2f	1;	 #ffzurpost001
-	2a03:2260:115:0:62e3:27ff:fec7:83d2	1;	 #ffwaf-enniger-kapellenstr-02
-	2a03:2260:115:0:ea94:f6ff:fe29:db96	1;	 #freifunk-Ostbevern2
-	2a03:2260:115:0:32b5:c2ff:feed:f7c8	1;	 #ff_gw-albersloh_01
-	2a03:2260:115:0:32b5:c2ff:fec6:935a	1;	 #ffwaf-eloh-Kaldewey-IT-Solutions-003
-	2a03:2260:115:0:62e3:27ff:fe82:1704	1;	 #ff-Piratenpartei-Sendenhorst
-	2a03:2260:115:0:16cc:20ff:fecd:4f44	1;	 #ffwaf-Sportschuetzen-Sendenhorst1
 	2a03:2260:115:0:c66e:1fff:feb2:879c	1;	 #Freifunk-BfA2
+	2a03:2260:115:0:62e3:27ff:fe82:1704	1;	 #ff-Piratenpartei-Sendenhorst
+	2a03:2260:115:0:6a72:51ff:fe2e:e31e	1;	 #Kiepenkerl-Immobilien
+	2a03:2260:115:0:32b5:c2ff:feed:f7c8	1;	 #ff_gw-albersloh_01
+	2a03:2260:115:0:16cc:20ff:fecd:4f44	1;	 #ffwaf-Sportschuetzen-Sendenhorst1
+	2a03:2260:115:0:32b5:c2ff:fe22:3506	1;	 #Kiepenkerl-Immobilien-Shop-Sendenhorst
 }

@@ -4,7 +4,7 @@
 import json, urllib
 from graph import Graph
 class DomainSelector:
-	def __init__(self, nodesFile, graphFile, dataPath = './', printStatus = False, targets = None):
+	def __init__(self, nodesFile, graphFile, dataPath = './', printStatus = False, targets = None, branch = 'stable'):
 		self.printStatus = printStatus
 		self.targets = targets
 		self.nodesData = self.__getFile__(nodesFile)
@@ -18,7 +18,7 @@ class DomainSelector:
 		else:
 			nodes = {}
 			for k,v in self.targets.iteritems():
-				nodes = self.graph.getNodeCloudsIn(v)
+				nodes = self.graph.getNodeCloudsIn(v,branch)
 				self.writeConfigFiles(nodes,k)
 				self.writeDumpFile(nodes,k)
 				nodes = {}

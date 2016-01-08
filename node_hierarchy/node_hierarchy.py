@@ -68,8 +68,17 @@ targets = {
 		{'village' : u'Südlohn'},
 		{'town' : u'Velen'},
 		{'town' : u'Vreden'},
+	],
+	'sassenberg' : [
+		{'town' : u'Sassenberg'},
+	],
+	'telgte' : [
+		{'town' : u'Telgte'},
+	],
+	'warendorf_stadt' : [
+		{'town' : u'Warendorf'},
 	]
 }
 
 #ds = DomainSelector(nodesFile = 'nodes.json', graphFile = 'graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets)
-ds = DomainSelector(nodesFile = 'https://freifunk-muensterland.de/map/data/nodes.json', graphFile = 'https://freifunk-muensterland.de/map/data/graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets)
+ds = DomainSelector(nodesFile = 'https://freifunk-muensterland.de/map/data/nodes.json', graphFile = 'https://freifunk-muensterland.de/map/data/graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets, branch = 'stable')

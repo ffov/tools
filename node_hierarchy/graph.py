@@ -21,7 +21,7 @@ class Graph:
 	def parseNodes(self):
 		for k,v in self.nodes['nodes'].iteritems():
 			lat, lon = self.getGeo(k)
-			node = Node(k, ipv6 = self.getPublicAddress(k), hostname = self.getHostname(k), isOnline = self.getOnlineState(k), lat=lat, lon=lon, coder = self.coder)
+			node = Node(k, ipv6 = self.getPublicAddress(k), hostname = self.getHostname(k), isOnline = self.getOnlineState(k), lat=lat, lon=lon, coder = self.coder, autoupdater = self.getAutoupdaterStatus(k), branch = self.getBranch(k))
 			self.nodes_list[k] = node
 
 	def parseLinks(self):
@@ -73,6 +73,22 @@ class Graph:
 	def getHostname(self,node_id):
 		return self.nodes['nodes'][node_id]['nodeinfo']['hostname']
 
+	def getAutoupdaterStatus(self, node_id):
+		#return True
+		if 'autoupdater' in self.nodes['nodes'][node_id]['nodeinfo']['software']:
+			return self.nodes['nodes'][node_id]['nodeinfo']['software']['autoupdater']['enabled']
+		else:
+			#if node is offline for a long time sometimes no autoupdater status can be found
+			return False
+
+	def getBranch(self, node_id):
+		#return True
+		if 'autoupdater' in self.nodes['nodes'][node_id]['nodeinfo']['software']:
+			return self.nodes['nodes'][node_id]['nodeinfo']['software']['autoupdater']['branch']
+		else:
+			#if node is offline for a long time sometimes no autoupdater status can be found
+			return None
+
 	def getGeo(self, node_id):
 		if 'location' in self.nodes['nodes'][node_id]['nodeinfo'] and 'latitude' in self.nodes['nodes'][node_id]['nodeinfo']['location'] and 'longitude' in self.nodes['nodes'][node_id]['nodeinfo']['location']:
 			return self.nodes['nodes'][node_id]['nodeinfo']['location']['latitude'], self.nodes['nodes'][node_id]['nodeinfo']['location']['longitude']
@@ -90,12 +106,16 @@ class Graph:
 		return self.nodes['nodes'][node_id]['flags']['online']
 
 
-	def getNodeCloudsIn(self, region):
+	def getNodeCloudsIn(self, region, branch = 'stable'):
 		results = {}
 		for k,v in self.getAllLevelXNodes(0).iteritems():
 			if v.geodata != None and v.isOnline == True:
 				if v.isInRegion(region):
-					results.update(v.getNodeCloud({}))
+					for ksub,vsub in v.getNodeCloud({}).iteritems():
+						if not vsub.autoupdater or vsub.branch != branch:
+							break
+					else:
+						results.update(v.getNodeCloud({}))
 		print "Result:",len(results), region
 		return results
 

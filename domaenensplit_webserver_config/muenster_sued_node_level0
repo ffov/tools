@@ -1,33 +1,31 @@
 geo $switch {
 	default	0;
-	2a03:2260:115:0:6670:2ff:feed:f3ca	1;	 #freifunk-MsHiltrup-T
+	2a03:2260:115:0:ea94:f6ff:fe4f:b480	1;	 #TankstelleAlbachten
 	2a03:2260:115:0:32b5:c2ff:fe81:1a30	1;	 #Freifunk-0u7p0s7-91-1-Hiltrup
 	2a03:2260:115:0:16cc:20ff:fe97:d188	1;	 #Sportschuetzen-Hiltrup
-	2a03:2260:115:0:16cc:20ff:fe6f:a320	1;	 #FanLin-ZhiNue
 	2a03:2260:115:0:16cc:20ff:fecd:5450	1;	 #Pflegebuero-Schmidt
-	2a03:2260:115:0:ea94:f6ff:fe51:f13c	1;	 #bier-und-funk
-	2a03:2260:115:0:32b5:c2ff:fee2:f514	1;	 #Dialogo-Praxis-fuer-Logopaedie
+	2a03:2260:115:0:16cc:20ff:fe70:b69e	1;	 #Infopunkt-Hiltrup
+	2a03:2260:115:0:ea94:f6ff:fe69:b656	1;	 #such_free
 	2a03:2260:115:0:16cc:20ff:fecd:524a	1;	 #Caffe-Papageno-Router-OG1
+	2a03:2260:115:0:ea94:f6ff:fe51:f13c	1;	 #bier-und-funk
+	2a03:2260:115:0:c6e9:84ff:feb5:c9ba	1;	 #freifunk-GAG
+	2a03:2260:115:0:32b5:c2ff:fee2:f514	1;	 #Dialogo-Praxis-fuer-Logopaedie
 	2a03:2260:115:0:16cc:20ff:fe97:d100	1;	 #First-Reisebuero
+	2a03:2260:115:0:c24a:ff:fe0b:9afe	1;	 #benenn_mich
 	2a03:2260:115:0:32b5:c2ff:fee2:f60e	1;	 #Kulturbahnhof-Hiltrup
+	2a03:2260:115:0:16cc:20ff:fe97:d212	1;	 #Huettmann-Mode-Sport
+	2a03:2260:115:0:6670:2ff:feed:f3ca	1;	 #freifunk-MsHiltrup-T
+	2a03:2260:115:0:c66e:1fff:fede:e916	1;	 #freifunk-o142MietstudioMuenster
+	2a03:2260:115:0:16cc:20ff:fe6f:a320	1;	 #FanLin-ZhiNue
+	2a03:2260:115:0:ea94:f6ff:fe4f:b41c	1;	 #Roccos-Soccerarena
 	2a03:2260:115:0:16cc:20ff:fecd:5294	1;	 #Das-Schuhhaus-Berger
-	2a03:2260:115:0:250:fcff:fe5a:94d1	1;	 #Offloader-Hausheithorn
 	2a03:2260:115:0:eade:27ff:fed6:fc8	1;	 #Fichtenfunk
 	2a03:2260:115:0:ea94:f6ff:fe41:2a12	1;	 #freifunk-e894f6412a12
-	2a03:2260:115:0:32b5:c2ff:fed9:9ae8	1;	 #sense-buero
-	2a03:2260:115:0:16cc:20ff:fe63:5a46	1;	 #Albachten-Weede
-	2a03:2260:115:0:76ea:3aff:fef1:dc86	1;	 #Albachten-Weede-2
-	2a03:2260:115:0:12fe:edff:fecd:a340	1;	 #Serendipity_ffms
-	2a03:2260:115:0:ea94:f6ff:fe4f:b480	1;	 #TankstelleAlbachten
-	2a03:2260:115:0:ea94:f6ff:fe69:b656	1;	 #such_free
-	2a03:2260:115:0:6a72:51ff:fe2c:e653	1;	 #Dialogo-Praxis-fuer-Logopaedie-Pico
-	2a03:2260:115:0:16cc:20ff:fe70:b69e	1;	 #Infopunkt-Hiltrup
-	2a03:2260:115:0:12fe:edff:fef1:6c08	1;	 #China-Restaurant-Lotusgarten
-	2a03:2260:115:0:16cc:20ff:fe97:d212	1;	 #Huettmann-Mode-Sport
-	2a03:2260:115:0:c66e:1fff:fede:e916	1;	 #freifunk-o142MietstudioMuenster
-	2a03:2260:115:0:ea94:f6ff:fe4f:b41c	1;	 #Roccos-Soccerarena
 	2a03:2260:115:0:32b5:c2ff:fee2:f43c	1;	 #Hair-4-You
+	2a03:2260:115:0:76ea:3aff:fef1:dc86	1;	 #Albachten-Weede-2
 	2a03:2260:115:0:16cc:20ff:fea9:23a8	1;	 #Zum_Ausspann_01
+	2a03:2260:115:0:12fe:edff:fef1:6c08	1;	 #China-Restaurant-Lotusgarten
+	2a03:2260:115:0:16cc:20ff:fe63:5a46	1;	 #Albachten-Weede
+	2a03:2260:115:0:16cc:20ff:fecd:542e	1;	 #Stadtteilbuecherei-Muenster-Hiltrup-St.Clemens
 	2a03:2260:115:0:16cc:20ff:fe97:cf52	1;	 #Steakhaus-Hacienda
-	2a03:2260:115:0:ea94:f6ff:fea2:1a3e	1;	 #very_wifi
 }

@@ -5,107 +5,83 @@ geo $switch {
 	2a03:2260:115:0:c66e:1fff:fe87:69f6	1;	 #freifunk-jaegerweg-2
 	2a03:2260:115:0:32b5:c2ff:fe3e:8808	1;	 #ffst-comtom-02
 	2a03:2260:115:0:62e3:27ff:fe77:f38	1;	 #freifunk_lengerich_vd01
-	2a03:2260:115:0:c66e:1fff:fe2e:24bc	1;	 #freifunk_rheine
+	2a03:2260:115:0:ea94:f6ff:fe4f:b42e	1;	 #Ferienhaus-mitten-im-gruenen-01
 	2a03:2260:115:0:c6e9:84ff:feb5:f052	1;	 #Steinfurt-Elte-0004
-	2a03:2260:115:0:32b5:c2ff:feb0:460c	1;	 #Mesum-0015-Fietzenflicker
 	2a03:2260:115:0:c6e9:84ff:fe99:a4de	1;	 #freifunk-offlum2
 	2a03:2260:115:0:c6e9:84ff:feb5:f5b8	1;	 #LVM-Neuenkirchen
-	2a03:2260:115:0:c6e9:84ff:feb5:ca42	1;	 #zweiradheemann.de
-	2a03:2260:115:0:62e3:27ff:fe2a:567c	1;	 #Mesum-0019-Fleischerei-Ende
+	2a03:2260:115:0:32b5:c2ff:fead:5c26	1;	 #MAI_KV_06
 	2a03:2260:115:0:32b5:c2ff:fe3e:883a	1;	 #Hardy_Schmitz_Rheine_04
-	2a03:2260:115:0:32b5:c2ff:feb0:42f4	1;	 #Steinfurt0128-DRK-Emsdetten-1
-	2a03:2260:115:0:c6e9:84ff:fe83:c72a	1;	 #Freifunk_Emsdetten_Drivel
+	2a03:2260:115:0:62e3:27ff:fe2a:55ea	1;	 #Mesum-0018-Haarstudio-Baglivi
 	2a03:2260:115:0:32b5:c2ff:feb5:6708	1;	 #Alte_Marktschaenke
 	2a03:2260:115:0:62e3:27ff:fe59:ff52	1;	 #Steinfurt-Elte-0012
 	2a03:2260:115:0:62e3:27ff:fe59:e0b8	1;	 #steinfurt-elte-heimathaus
 	2a03:2260:115:0:c66e:1fff:fe2d:3fdc	1;	 #signal-iduna-service-buero-greven
-	2a03:2260:115:0:16cc:20ff:fecd:1086	1;	 #Steinfurt-Mesum-0005
 	2a03:2260:115:0:62e3:27ff:fe59:ff96	1;	 #Steinfurt-Mesum-0003
 	2a03:2260:115:0:62e3:27ff:fe59:d46c	1;	 #Steinfurt-Elte-0014
-	2a03:2260:115:0:c66e:1fff:feb3:9a5a	1;	 #Steinfurt0252-Cramer-Löw
 	2a03:2260:115:0:c6e9:84ff:feb0:c03c	1;	 #freifunk_neuenkirchen_0001
 	2a03:2260:115:0:c66e:1fff:fe2e:235e	1;	 #klartextshop.de
-	2a03:2260:115:0:32b5:c2ff:feb0:4858	1;	 #Mesum-0013-Pfiffikus-Center
-	2a03:2260:115:0:c6e9:84ff:feb5:ea4c	1;	 #Schuhhaus_Schuette
 	2a03:2260:115:0:16cc:20ff:fee1:5752	1;	 #Helms-IT
 	2a03:2260:115:0:c6e9:84ff:febe:25bc	1;	 #freifunk-neuenkirchen_001
 	2a03:2260:115:0:16cc:20ff:fe4d:902	1;	 #freifunk-heimstaettenweg-01
 	2a03:2260:115:0:c24a:ff:fe84:8c2e	1;	 #Freifunk_Reitstall_Schulte_Mesum
-	2a03:2260:115:0:32b5:c2ff:feee:618	1;	 #Steinfurt0056-Grevens-Pizza
-	2a03:2260:115:0:ea94:f6ff:fe4f:b42e	1;	 #Ferienhaus-mitten-im-gruenen-01
-	2a03:2260:115:0:32b5:c2ff:fed9:ca8e	1;	 #Steinfurt0126-Vogler
+	2a03:2260:115:0:32b5:c2ff:feee:3dd4	1;	 #freifunk-neuenkirchen
 	2a03:2260:115:0:32b5:c2ff:feda:4e4	1;	 #Greven32
 	2a03:2260:115:0:62e3:27ff:fe81:fd08	1;	 #Mesum-0009-Schuhhaus-Franke
-	2a03:2260:115:0:ea94:f6ff:fe29:c1b0	1;	 #Steinfurt0004-SchultePC
-	2a03:2260:115:0:62e3:27ff:fe76:d452	1;	 #freifunk60e32776d452
 	2a03:2260:115:0:32b5:c2ff:fed9:feb2	1;	 #Steinfurt0046
-	2a03:2260:115:0:32b5:c2ff:fe81:165c	1;	 #Steinfurt0053-Denkmal10
-	2a03:2260:115:0:32b5:c2ff:feda:81a	1;	 #www.ev-jugendhilfe.de-3
+	2a03:2260:115:0:62e3:27ff:fe81:9d90	1;	 #freifunk-Kuechenwerkstatt-Reichhardt
 	2a03:2260:115:0:62e3:27ff:fe59:d7f4	1;	 #Steinfurt-Elte-SGELTE-0018
+	2a03:2260:115:0:6666:b3ff:fe2e:dade	1;	 #UWG-Neuenkirchen.de
 	2a03:2260:115:0:62e3:27ff:fe59:e096	1;	 #Steinfurt-Elte-0007
 	2a03:2260:115:0:62e3:27ff:fe82:176	1;	 #Steinfurt-Elte-0022
-	2a03:2260:115:0:62e3:27ff:fe5f:ff06	1;	 #Mesum-0012-Provinzial-Huesing
-	2a03:2260:115:0:16cc:20ff:fe87:4d78	1;	 #MAI_KV_01
-	2a03:2260:115:0:32b5:c2ff:feb3:66ac	1;	 #Finke_Westfaelische_Provinzial
-	2a03:2260:115:0:62e3:27ff:fe60:5042	1;	 #Mesum-0017-Wienkamp
-	2a03:2260:115:0:16cc:20ff:fecd:1274	1;	 #Steinfurt0075-Fahrschule-Engels-Kockmann-2
 	2a03:2260:115:0:c66e:1fff:fe28:fdf4	1;	 #freifunk-AQUATECHNIK
-	2a03:2260:115:0:32b5:c2ff:fec6:b93e	1;	 #Steinfurt0157-Feuerwache1
+	2a03:2260:115:0:62e3:27ff:fe82:130	1;	 #Steinfurt-Elte-Ferienwohnung-Waldblick-0021
+	2a03:2260:115:0:32b5:c2ff:feb8:6cb4	1;	 #freifunk-fu-Lengerich02
+	2a03:2260:115:0:c6e9:84ff:feb5:ca42	1;	 #zweiradheemann.de
+	2a03:2260:115:0:16cc:20ff:fecd:1274	1;	 #Steinfurt0075-Fahrschule-Engels-Kockmann-2
+	2a03:2260:115:0:62e3:27ff:fe5f:ff06	1;	 #Mesum-0012-Provinzial-Huesing
 	2a03:2260:115:0:32b5:c2ff:feee:5e7c	1;	 #www.ev-jugendhilfe.de-4
-	2a03:2260:115:0:16cc:20ff:fee1:5c08	1;	 #Steinfurt0061-SPD-Emsdetten
-	2a03:2260:115:0:c6e9:84ff:feb5:ee08	1;	 #Steinfurt-Elte-0006
 	2a03:2260:115:0:c6e9:84ff:fe5a:fefc	1;	 #www.ev-jugendhilfe.de-13
 	2a03:2260:115:0:32b5:c2ff:feee:8ae4	1;	 #St.Arnold_003
-	2a03:2260:115:0:c66e:1fff:fea1:28da	1;	 #Steinfurt0258-NEXT-GAME
 	2a03:2260:115:0:16cc:20ff:fe2c:13c8	1;	 #freifunk-heimstaettenweg-014a
-	2a03:2260:115:0:62e3:27ff:fe60:5150	1;	 #Mesum-0023-Sparkasse-Rheine-Fil.-Mesum
-	2a03:2260:115:0:c66e:1fff:fe31:623a	1;	 #FreifunkRheine3
+	2a03:2260:115:0:c6e9:84ff:feb5:ea4c	1;	 #Schuhhaus_Schuette
+	2a03:2260:115:0:16cc:20ff:fe87:4d78	1;	 #MAI_KV_01
 	2a03:2260:115:0:16cc:20ff:fe63:8374	1;	 #Hardy_Schmitz_Rheine_02
 	2a03:2260:115:0:62e3:27ff:fe76:e1e4	1;	 #ffst-comtom-03
 	2a03:2260:115:0:32b5:c2ff:fe70:4cb0	1;	 #Fontana_Eiscafe
-	2a03:2260:115:0:32b5:c2ff:feee:f34	1;	 #Steinfurt0070-Batcave
-	2a03:2260:115:0:32b5:c2ff:feb0:4322	1;	 #Steinfurt0127
-	2a03:2260:115:0:62e3:27ff:fe2a:55ea	1;	 #Mesum-0018-Haarstudio-Baglivi
-	2a03:2260:115:0:32b5:c2ff:feee:f16	1;	 #olddeath
+	2a03:2260:115:0:32b5:c2ff:feee:3056	1;	 #Foto_Keizer
+	2a03:2260:115:0:c6e9:84ff:feb6:3d8	1;	 #Baeckerei_Conditorei_Triffterer
 	2a03:2260:115:0:32b5:c2ff:feee:76e	1;	 #Steinfurt0057-Koch
-	2a03:2260:115:0:ea94:f6ff:fe78:303a	1;	 #Eschendorf_01
-	2a03:2260:115:0:16cc:20ff:fe6e:f80c	1;	 #ff-gerolderux
 	2a03:2260:115:0:c6e9:84ff:feb5:f016	1;	 #Steinfurt-Elte-Fachwerkhofanlage-Poepping-0005
 	2a03:2260:115:0:32b5:c2ff:feee:3e4c	1;	 #Neuenkirchen_JHS14
-	2a03:2260:115:0:32b5:c2ff:feb0:47a2	1;	 #Mesum-0016-Elektro-Domhoefer
 	2a03:2260:115:0:16cc:20ff:fee1:41cc	1;	 #Steinfurt0118-Fahrschule-Kleideiter
 	2a03:2260:115:0:62e3:27ff:fe5a:314	1;	 #Steinfurt-Elte-Zum-Splenterkotten-0023
+	2a03:2260:115:0:c66e:1fff:fe2e:14fe	1;	 #www.sued-ems-media.de
 	2a03:2260:115:0:c6e9:84ff:fe99:8b9e	1;	 #freifunk-offlum3
 	2a03:2260:115:0:c66e:1fff:fe29:24e	1;	 #freifunk-AQUATECHNIK-2
-	2a03:2260:115:0:c66e:1fff:fe97:8308	1;	 #Steinfurt0009
-	2a03:2260:115:0:ea94:f6ff:fe62:57ae	1;	 #Steinfurt0003-Logopaedie-Somberger
-	2a03:2260:115:0:32b5:c2ff:feee:3dd4	1;	 #freifunk-neuenkirchen
+	2a03:2260:115:0:62e3:27ff:fe60:5042	1;	 #Mesum-0017-Wienkamp
 	2a03:2260:115:0:32b5:c2ff:feb0:477c	1;	 #Mesum-0006-Fleischerei-Achterkamp
 	2a03:2260:115:0:32b5:c2ff:feb0:48a4	1;	 #Mesum-0014
-	2a03:2260:115:0:c66e:1fff:fe2d:3fd0	1;	 #Steinfurt0051-Hollinger-Futterkrippe
-	2a03:2260:115:0:c6e9:84ff:feef:4522	1;	 #Mesum-0025-Physiotherapiepraxis-Rote
+	2a03:2260:115:0:32b5:c2ff:fe80:f90c	1;	 #Biercafe_Doerper_Berg
 	2a03:2260:115:0:32b5:c2ff:feb3:802c	1;	 #Reisebuero_Siemon_Sonnigeaussichten.de
 	2a03:2260:115:0:16cc:20ff:fee1:42e2	1;	 #Steinfurt0117-Fahrschule-Kleideiter
-	2a03:2260:115:0:c66e:1fff:feb3:9b9c	1;	 #Steinfurt0256-Nostalgie-Cafe-1
 	2a03:2260:115:0:c6e9:84ff:feb0:dd0a	1;	 #St.Arnold_001
 	2a03:2260:115:0:32b5:c2ff:feda:806	1;	 #www.ev-jugendhilfe.de-2
 	2a03:2260:115:0:32b5:c2ff:feee:8b06	1;	 #Eschendorf_02
 	2a03:2260:115:0:62e3:27ff:fe9f:5c82	1;	 #freifunk-RheineTFH
 	2a03:2260:115:0:62e3:27ff:fe59:dfcc	1;	 #Steinfurt-Elte-Ferienwohnung-Elter-Sand-0017
-	2a03:2260:115:0:c66e:1fff:fea1:2ad6	1;	 #Steinfurt-G06
-	2a03:2260:115:0:32b5:c2ff:fe80:f90c	1;	 #Biercafe_Doerper_Berg
+	2a03:2260:115:0:32b5:c2ff:fe81:25ba	1;	 #Steinfurt-Elte-0002
 	2a03:2260:115:0:62e3:27ff:fe81:9616	1;	 #freifunk-Krankengymnastik-Lukasiewicz
+	2a03:2260:115:0:12fe:edff:feb7:49a0	1;	 #steinfurt-elte-ls1478
 	2a03:2260:115:0:32b5:c2ff:fe81:2822	1;	 #Steinfurt-Elte-0003
 	2a03:2260:115:0:32b5:c2ff:feb0:47f4	1;	 #Mesum-0008-Blumenhaus-Behnen
 	2a03:2260:115:0:c6e9:84ff:feb5:f36c	1;	 #TC_Gruen_Weiss_71_Neuenkirchen
-	2a03:2260:115:0:32b5:c2ff:fe70:4d16	1;	 #Steinfurt0028
-	2a03:2260:115:0:32b5:c2ff:feee:79a	1;	 #Steinfurt0055-Pizzablitz-Amigo
-	2a03:2260:115:0:62e3:27ff:fe5f:ff0c	1;	 #Steinfurt-Elte-0025
 	2a03:2260:115:0:62e3:27ff:fe60:512c	1;	 #Steinfurt-Elte-0026
-	2a03:2260:115:0:32b5:c2ff:fed9:ca6a	1;	 #Steinfurt0090-Landhotel-Zur-Gronenburg-Greven
+	2a03:2260:115:0:62e3:27ff:fe2a:567c	1;	 #Mesum-0019-Fleischerei-Ende
 	2a03:2260:115:0:16cc:20ff:fecd:ff6	1;	 #Steinfurt-SPD-Rheine01
 	2a03:2260:115:0:62e3:27ff:fe82:156	1;	 #Steinfurt-Elte-Britta-Buelter-0018
 	2a03:2260:115:0:62e3:27ff:fe2a:573c	1;	 #Mesum-0020-LVM-Schipp
 	2a03:2260:115:0:16cc:20ff:fe63:81fe	1;	 #Hardy_Schmitz_Rheine_01
-	2a03:2260:115:0:c66e:1fff:feb3:99de	1;	 #Steinfurt0251-Tandure-Grill
+	2a03:2260:115:0:32b5:c2ff:feb3:66ac	1;	 #Finke_Westfaelische_Provinzial
+	2a03:2260:115:0:62e3:27ff:feb7:8cec	1;	 #MAI_KV_04
+	2a03:2260:115:0:c66e:1fff:fe31:623a	1;	 #SchotthockGrill
 }
