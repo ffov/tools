@@ -4,7 +4,7 @@ from geocode import Geocode
 import time
 
 class Node(object):
-	def __init__(self, nodeid, ipv6 = None, hostname = None, isOnline = False, lastSeen = None, lat = None, lon = None, coder = None):
+	def __init__(self, nodeid, ipv6 = None, hostname = None, isOnline = False, lastSeen = None, lat = None, lon = None, coder = None, autoupdater = False, branch = None):
 		self.coder = coder
 		if self.coder == None:
 			self.coder = Geocode(geocoderCache = True, printStatus = True)
@@ -15,6 +15,8 @@ class Node(object):
 		self.stepsToVpn = -1
 		self.isOnline = isOnline
 		self.lastSeen = lastSeen
+		self.autoupdater = autoupdater
+		self.branch = branch
 		self._geo = None
 		self.geodata = None
 		if lat != None and lon != None:
