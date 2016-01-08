@@ -26,8 +26,8 @@ from __future__ import print_function
 
 # Configuration
 
-map_url = 'https://freifunk-muensterland.de/map/data/nodes.json'
-graph_url = 'https://freifunk-muensterland.de/map/data/graph.json'
+map_url = 'https://freifunk-muensterland.de/map/data_alt/nodes.json'
+graph_url = 'https://freifunk-muensterland.de/map/data_alt/graph.json'
 max_distance = 75           # Maximale Entfernung in Metern zu Nachbarknoten. Kann durch -d gesetzt werden
 use_status_page = False     # Alte Methode für Liste der verbundenen Knoten über Status-Seite des Knotens
 use_batctl = False          # Alte Methode für Hop-Anzahl-Erkennung über batctl tr auf einem Freifunk-Knoten
