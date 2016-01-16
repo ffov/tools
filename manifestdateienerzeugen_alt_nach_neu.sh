@@ -13,7 +13,7 @@ for i in stable beta experimental; do
 	for j in *bin; do
 		model=${j#*-*-*-*}
 		model=${model%-sysupgrade.bin}
-		pruefsumme=`sha512sum $j`
+		pruefsumme=`sha512sum $j|sed -i 's/  / /g'`
                 pruef=${pruefsumme#*}
                 pruef=${pruef%  $j}
 		echo "$model $version $pruef" >> $i.manifest
