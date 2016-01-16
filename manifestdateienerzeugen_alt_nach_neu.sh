@@ -16,7 +16,7 @@ for i in stable beta experimental; do
 		pruefsumme=`sha512sum $j`
                 pruef=${pruefsumme#*}
                 pruef=${pruef%  $j}
-		echo "$model $version $pruef $j" >> $i.manifest
+		echo "$model $version $pruef" >> $i.manifest
 	done
 done
 
