@@ -3,8 +3,9 @@
 PRIORITY=0
 
 cd $1
-datum=`date -d @$(( $(date +"%s") - 604800)) +"%Y-%m-%d %H:%M:%S%:z"`
+datum=`date -d @$(( $(date +"%s") - 1209600)) +"%Y-%m-%d %H:%M:%S%:z"`
 version=v2015.1.2+192
+#version=master+210
 for i in stable beta experimental; do
 	echo "BRANCH=$i" > $i.manifest
 	echo "DATE=$datum" >> $i.manifest
@@ -13,10 +14,10 @@ for i in stable beta experimental; do
 	for j in *bin; do
 		model=${j#*-*-*-*}
 		model=${model%-sysupgrade.bin}
-		pruefsumme=`sha512sum $j|sed -i 's/  / /g'`
+		pruefsumme=`sha512sum $j`
                 pruef=${pruefsumme#*}
                 pruef=${pruef%  $j}
-		echo "$model $version $pruef" >> $i.manifest
+		echo "$model $version $pruef $j" >> $i.manifest
 	done
 done
 
