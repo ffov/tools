@@ -40,10 +40,11 @@ class Merger:
                     try:
                         if self.nodes['nodes'][node]['flags']['online']:
                             continue
+                        if self.nodes['nodes'][node]['lastseen'] > nodes['nodes'][node]['lastseen']:
+                            continue
                     except KeyError:
                         pass
                     self.nodes['nodes'][node] = nodes['nodes'][node]
-                #self.nodes['nodes'].update(nodes['nodes'])
             else:
                 self.nodes = nodes
 
