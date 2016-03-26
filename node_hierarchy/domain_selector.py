@@ -22,6 +22,8 @@ class DomainSelector:
 				self.writeConfigFiles(nodes,k)
 				self.writeDumpFile(nodes,k)
 				nodes = {}
+			self.writeConfigFiles(self.graph.nodes_no_autoupdater,"no_autoupdater")
+			self.writeConfigFiles(self.graph.nodes_no_geo,"no_geo")
 
 	def __getFile__(self, nodesFile):
 		if nodesFile.startswith('https://') or nodesFile.startswith('http://'):
@@ -39,14 +41,12 @@ class DomainSelector:
 	def writeConfigFiles(self, nodes, name):
 		maxDepth = self.maxDepth(nodes)
 		for i in range(0,maxDepth):
-			content = 'geo $switch {\n\tdefault\t0;'
+			content = 'geo $switch {\n  default 0;'
 			f = open(self.dataPath+'/'+name+'_node_level'+str(i),'w')
 			for node in nodes.itervalues():
 				if node.stepsToVpn == i:
 					if node.ipv6 and node.hostname:
-						content += '\n\t'+node.ipv6+'\t1;\t #'+node.hostname
-					#else:
-					#	print node.nodeid
+						content += '\n  '+node.ipv6+' 1; #'+node.hostname
 			content += '\n}'
 			f.write(content.encode('utf8'))
 			f.close()

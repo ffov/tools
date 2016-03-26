@@ -13,6 +13,8 @@ class Graph:
 		self.data = graphData
 		self.nodes = nodesData
 		self.nodes_list = {}
+		self.nodes_no_autoupdater = {}
+		self.nodes_no_geo = {}
 		self.parseNodes()
 		self.parseLinks()
 		self.calculateStepsToVpn()
@@ -21,14 +23,17 @@ class Graph:
 	def parseNodes(self):
 		for k,v in self.nodes['nodes'].iteritems():
 			lat, lon = self.getGeo(k)
-			node = Node(k, ipv6 = self.getPublicAddress(k), hostname = self.getHostname(k), isOnline = self.getOnlineState(k), lat=lat, lon=lon, coder = self.coder, autoupdater = self.getAutoupdaterStatus(k), branch = self.getBranch(k))
+			node = Node(k, ipv6 = self.getPublicAddress(k), hostname = self.getHostname(k), isOnline = self.getOnlineState(k), lat=lat, lon=lon, coder = self.coder, autoupdater = self.getAutoupdaterStatus(k), branch = self.getBranch(k), isGateway = self.getIsGateway(k))
 			self.nodes_list[k] = node
 
 	def parseLinks(self):
 		link_nodes = self.data['batadv']['nodes']
 		for link in self.data['batadv']['links']:
 			if 'node_id' in link_nodes[link['source']].keys() and 'node_id' in link_nodes[link['target']].keys():#else it is a vpn link
-				self.setLinkBetween(link_nodes[link['source']]['node_id'], link_nodes[link['target']]['node_id'])
+				if self.nodes_list[link_nodes[link['source']]['node_id']].isGateway == True or self.nodes_list[link_nodes[link['target']]['node_id']].isGateway:
+					self.setVpnLink(link['source'], link['target'])
+				else:
+					self.setLinkBetween(link_nodes[link['source']]['node_id'], link_nodes[link['target']]['node_id'])
 			else:
 				self.setVpnLink(link['source'], link['target'])
 					
@@ -46,11 +51,11 @@ class Graph:
 			}
 
 	def setVpnLink(self, src, dst):
-		if 'node_id' not in self.data['batadv']['nodes'][src].keys():
-			if self.data['batadv']['nodes'][dst]['node_id']:
+		if 'node_id' not in self.data['batadv']['nodes'][src].keys() or self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].isGateway == True:
+			if 'node_id' in self.data['batadv']['nodes'][dst]:
 				self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].stepsToVpn = 0
-		elif 'node_id' not in self.data['batadv']['nodes'][dst].keys():
-			if self.data['batadv']['nodes'][src]['node_id']:
+		elif 'node_id' not in self.data['batadv']['nodes'][dst].keys() or self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].isGateway == True:
+			if 'node_id' in self.data['batadv']['nodes'][src]:
 				self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].stepsToVpn = 0
 
 	def calculateStepsToVpn(self):
@@ -72,6 +77,9 @@ class Graph:
 
 	def getHostname(self,node_id):
 		return self.nodes['nodes'][node_id]['nodeinfo']['hostname']
+
+	def getIsGateway(self,node_id):
+		return self.nodes['nodes'][node_id]['flags']['gateway']
 
 	def getAutoupdaterStatus(self, node_id):
 		#return True
@@ -108,14 +116,22 @@ class Graph:
 
 	def getNodeCloudsIn(self, region, branch = 'stable'):
 		results = {}
+		noAuto = False
 		for k,v in self.getAllLevelXNodes(0).iteritems():
-			if v.geodata != None and v.isOnline == True:
-				if v.isInRegion(region):
-					for ksub,vsub in v.getNodeCloud({}).iteritems():
-						if not vsub.autoupdater or vsub.branch != branch:
-							break
-					else:
-						results.update(v.getNodeCloud({}))
+			if v.isOnline == True:
+				if v.geodata != None:
+					if v.isInRegion(region):
+						noAuto = False
+						for ksub,vsub in v.getNodeCloud({}).iteritems():
+							if not vsub.autoupdater or (branch and vsub.branch != branch):
+								#break
+								noAuto = True
+								self.nodes_no_autoupdater[ksub] = vsub
+						#else:
+						if not noAuto:
+							results.update(v.getNodeCloud({}))
+				else:
+					self.nodes_no_geo.update(v.getNodeCloud({}))
 		print "Result:",len(results), region
 		return results
 
