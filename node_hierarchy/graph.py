@@ -29,7 +29,7 @@ class Graph:
 	def parseLinks(self):
 		link_nodes = self.data['batadv']['nodes']
 		for link in self.data['batadv']['links']:
-			if 'node_id' in link_nodes[link['source']].keys() and 'node_id' in link_nodes[link['target']].keys():#else it is a vpn link
+			if 'node_id' in link_nodes[link['source']] and 'node_id' in link_nodes[link['target']]:#else it is a vpn link
 				if self.nodes_list[link_nodes[link['source']]['node_id']].isGateway == True or self.nodes_list[link_nodes[link['target']]['node_id']].isGateway:
 					self.setVpnLink(link['source'], link['target'])
 				else:
@@ -51,12 +51,12 @@ class Graph:
 			}
 
 	def setVpnLink(self, src, dst):
-		if 'node_id' not in self.data['batadv']['nodes'][src].keys() or self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].isGateway == True:
-			if 'node_id' in self.data['batadv']['nodes'][dst]:
-				self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].stepsToVpn = 0
-		elif 'node_id' not in self.data['batadv']['nodes'][dst].keys() or self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].isGateway == True:
-			if 'node_id' in self.data['batadv']['nodes'][src]:
-				self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].stepsToVpn = 0
+			if 'node_id' not in self.data['batadv']['nodes'][src] or (self.data['batadv']['nodes'][src]['node_id'] and self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].isGateway == True):
+				if 'node_id' in self.data['batadv']['nodes'][dst] and self.data['batadv']['nodes'][dst]['node_id']:
+					self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].stepsToVpn = 0
+			elif 'node_id' not in self.data['batadv']['nodes'][dst] or (self.data['batadv']['nodes'][dst]['node_id'] and self.nodes_list[self.data['batadv']['nodes'][dst]['node_id']].isGateway == True):
+				if 'node_id' in self.data['batadv']['nodes'][src] and self.data['batadv']['nodes'][src]['node_id']:
+					self.nodes_list[self.data['batadv']['nodes'][src]['node_id']].stepsToVpn = 0
 
 	def calculateStepsToVpn(self):
 		for node in self.nodes_list.itervalues():
