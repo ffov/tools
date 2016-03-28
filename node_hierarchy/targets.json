@@ -1,0 +1,75 @@
+{
+	"domaene_01" : [
+		{"city_district" : "Münster-Mitte"},
+		{"city_district" : "Münster-Nord"},
+		{"city_district" : "Münster-Ost"},
+		{"suburb" : "Berg Fidel"},
+		{"suburb" : "Gremmendorf"},
+		{"suburb" : "Mecklenbeck"},
+		{"suburb" : "Gievenbeck"},
+		{"suburb" : "Nienberge"},
+		{"suburb" : "Roxel"},
+		{"suburb" : "Sentruper Höhe"}
+	],
+	"domaene_02" : [
+		{"county" : "Kreis Coesfeld"}
+	],
+	"domaene_03" : [
+		{"town" : "48565"},
+		{"village" : "Wettringen"},
+		{"town" : "Ochtrup"},
+		{"village" : "Metelen"},
+		{"town" : "Horstmar"},
+		{"village" : "Laer"},
+		{"village" : "Nordwalde"},
+		{"village" : "Altenberge"}
+	],
+	"domaene_04" : [
+		{"town" : "Emsdetten"},
+		{"town" : "Neuenkirchen"},
+		{"town" : "Rheine"},
+		{"town" : "Greven"},
+		{"village" : "Ladbergen"},
+		{"town" : "Lengerich"},
+		{"town" : "Tecklenburg"},
+		{"village" : "Lienen"}
+	],
+	"domaene_05" : [
+		{"suburb" : "Amelsbüren"},
+		{"suburb" : "Hiltrup"},
+		{"suburb" : "Albachten"}
+	],
+	"domaene_06" : [
+		{"town" : "Ahaus"},
+		{"town" : "Bocholt"},
+		{"town" : "Borken"},
+		{"town" : "Gescher"},
+		{"village" : "Heek"},
+		{"town" : "Heiden"},
+		{"town" : "Isselburg"},
+		{"village" : "Legden"},
+		{"town" : "Raesfeld"},
+		{"town" : "Reken"},
+		{"town" : "Rhede"},
+		{"village" : "Schöppingen"},
+		{"town" : "Stadtlohn"},
+		{"village" : "Südlohn"},
+		{"town" : "Velen"},
+		{"town" : "Vreden"}
+	],
+	"domaene_07" : [
+		{"town" : "Telgte"}
+	],
+	"domaene_09" : [
+		{"town" : "Stadtlohn"}
+	],
+	"domaene_11" : [
+		{"town" : "Bocholt"}
+	],
+	"stadt_warendorf" : [
+		{"town" : "Warendorf"}
+	],
+	"domaene_14" : [
+		{"county" : "Kreis Warendorf"}
+	]
+}

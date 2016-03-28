@@ -1,10 +1,16 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 #Imports:
-import json, urllib
+import json, urllib, os
 from graph import Graph
+from hieraException import HieraException
+
 class DomainSelector:
 	def __init__(self, nodesFile, graphFile, dataPath = './', printStatus = False, targets = None, branch = 'stable'):
+		if not os.path.isdir(dataPath):
+			print "\033[91mError:\033[0m Output folder was not found or is not writable. Given path:", dataPath
+			raise HieraException
+
 		self.printStatus = printStatus
 		self.targets = targets
 		self.nodesData = self.__getFile__(nodesFile)
@@ -28,21 +34,27 @@ class DomainSelector:
 	def __getFile__(self, nodesFile):
 		if nodesFile.startswith('https://') or nodesFile.startswith('http://'):
 			if self.printStatus:
-				print "Download node.json from URL: " + nodesFile
+				print 'Download', nodesFile.rsplit('/', 1)[1] , 'from URL:', nodesFile
 			resource = urllib.urlopen(nodesFile)
 		else:
 			if self.printStatus:
-				print "Open node.json file: " + nodesFile
+				print 'Open', nodesFile.rsplit('/', 1)[1] , 'from file:', nodesFile
 			resource = open(nodesFile)
-		data = json.loads(resource.read())
-		resource.close()
+		try:
+			data = json.loads(resource.read())
+		except:
+			print "\033[91mError:\033[0m Error while parsing a json file (perhapes misformed file): ", nodesFile
+			raise HieraException
+		finally:
+			resource.close()
+
 		return data
 
 	def writeConfigFiles(self, nodes, name):
 		maxDepth = self.maxDepth(nodes)
 		for i in range(0,maxDepth):
 			content = 'geo $switch {\n  default 0;'
-			f = open(self.dataPath+'/'+name+'_node_level'+str(i),'w')
+			f = open(self.dataPath.rstrip('/')+'/'+name+'_node_level'+str(i),'w')
 			for node in nodes.itervalues():
 				if node.stepsToVpn == i:
 					if node.ipv6 and node.hostname:
