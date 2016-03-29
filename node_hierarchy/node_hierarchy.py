@@ -36,16 +36,8 @@ def prepareTargets(args):
 				specific_targets[k] = v
 		return specific_targets
 
-
-
-print args
-
 targets = prepareTargets(args)
 
-
-
-#ds = DomainSelector(nodesFile = 'nodes.json', graphFile = 'graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets)
-#ds = DomainSelector(nodesFile = 'https://service.freifunk-muensterland.de/maps/data_legacy/nodes.json', graphFile = 'https://service.freifunk-muensterland.de/maps/data_legacy/graph.json', printStatus = True, dataPath = '../domaenensplit_webserver_config/', targets = targets, branch = None)
 try:
 	ds = DomainSelector(nodesFile = args.json_path.rstrip('/')+'/nodes.json', graphFile = args.json_path.rstrip('/')+'/graph.json', printStatus = args.print_status, dataPath = args.out_path, targets = targets, branch = args.only_specific_branch)
 except HieraException:

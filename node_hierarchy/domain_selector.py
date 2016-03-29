@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -
 #Imports:
-import json, urllib, os
+import json, urllib, os, glob
 from graph import Graph
 from hieraException import HieraException
 
@@ -13,9 +13,11 @@ class DomainSelector:
 
 		self.printStatus = printStatus
 		self.targets = targets
+		self.dataPath = dataPath.rstrip('/')
 		self.nodesData = self.__getFile__(nodesFile)
 		self.graphData = self.__getFile__(graphFile)
-		self.dataPath = dataPath
+
+		self.__prepareOutDir__()
 
 		self.graph = Graph(self.nodesData, self.graphData)
 		if self.targets == None:
@@ -28,8 +30,14 @@ class DomainSelector:
 				self.writeConfigFiles(nodes,k)
 				self.writeDumpFile(nodes,k)
 				nodes = {}
-			self.writeConfigFiles(self.graph.nodes_no_autoupdater,"no_autoupdater")
-			self.writeConfigFiles(self.graph.nodes_no_geo,"no_geo")
+		self.writeConfigFiles(self.graph.getProblemNodes(noAutoupdater = True),"no_autoupdater")
+		self.writeConfigFiles(self.graph.getProblemNodes(noGeodata = True),"no_geo")
+		self.writeConfigFiles(self.graph.getProblemNodes(noGeodata = True, noAutoupdater = True),"no_nothing")
+
+	def __prepareOutDir__(self):
+		files = glob.glob(self.dataPath+'/*')
+		for f in files:
+		    os.remove(f)
 
 	def __getFile__(self, nodesFile):
 		if nodesFile.startswith('https://') or nodesFile.startswith('http://'):
@@ -52,16 +60,17 @@ class DomainSelector:
 
 	def writeConfigFiles(self, nodes, name):
 		maxDepth = self.maxDepth(nodes)
-		for i in range(0,maxDepth):
-			content = 'geo $switch {\n  default 0;'
-			f = open(self.dataPath.rstrip('/')+'/'+name+'_node_level'+str(i),'w')
-			for node in nodes.itervalues():
-				if node.stepsToVpn == i:
-					if node.ipv6 and node.hostname:
-						content += '\n  '+node.ipv6+' 1; #'+node.hostname
-			content += '\n}'
-			f.write(content.encode('utf8'))
-			f.close()
+		if len(nodes) > 0:
+			for i in range(0,maxDepth):
+				content = 'geo $switch {\n  default 0;'
+				f = open(self.dataPath.rstrip('/')+'/'+name+'_node_level'+str(i),'w')
+				for node in nodes.itervalues():
+					if node.stepsToVpn == i:
+						if node.ipv6 and node.hostname:
+							content += '\n  '+node.ipv6+' 1; #'+node.hostname
+				content += '\n}'
+				f.write(content.encode('utf8'))
+				f.close()
 
 	def writeDumpFile(self, nodes, name):
 		content = {}

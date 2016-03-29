@@ -113,25 +113,45 @@ class Graph:
 	def getOnlineState(self,node_id):
 		return self.nodes['nodes'][node_id]['flags']['online']
 
+	def getProblemNodes(self, noAutoupdater = False, noGeodata = False, online = True):
+		results = {}
+		for k,v in self.nodes_list.iteritems():
+			if v.isOnline or online == False:
+				if noAutoupdater and noGeodata:
+					if not v.autoupdater and not v.geodata:
+						results[k] = v 
+				elif noAutoupdater:
+					if v.autoupdater and v.geodata:
+						results[k] = v 
+				elif noGeodata:
+					if not v.geodata and v.autoupdater:
+						results[k] = v
+		return results
+
 
 	def getNodeCloudsIn(self, region, branch = 'stable'):
 		results = {}
-		noAuto = False
+#		noAuto = False
 		for k,v in self.getAllLevelXNodes(0).iteritems():
 			if v.isOnline == True:
 				if v.geodata != None:
 					if v.isInRegion(region):
-						noAuto = False
 						for ksub,vsub in v.getNodeCloud({}).iteritems():
 							if not vsub.autoupdater or (branch and vsub.branch != branch):
-								#break
-								noAuto = True
-								self.nodes_no_autoupdater[ksub] = vsub
-						#else:
-						if not noAuto:
+								break
+						else:
 							results.update(v.getNodeCloud({}))
-				else:
-					self.nodes_no_geo.update(v.getNodeCloud({}))
+#						noAuto = False
+#						for ksub,vsub in v.getNodeCloud({}).iteritems():
+#							if not vsub.autoupdater or (branch and vsub.branch != branch):
+#								#break
+#								noAuto = True
+#								self.nodes_no_autoupdater[ksub] = vsub
+#						#else:
+#						if not noAuto:
+#							results.update(v.getNodeCloud({}))
+#				else:
+#					self.nodes_no_geo.update(v.getNodeCloud({}))
 		print "Result:",len(results), region
 		return results
 
