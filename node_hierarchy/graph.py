@@ -141,17 +141,6 @@ class Graph:
 								break
 						else:
 							results.update(v.getNodeCloud({}))
-#						noAuto = False
-#						for ksub,vsub in v.getNodeCloud({}).iteritems():
-#							if not vsub.autoupdater or (branch and vsub.branch != branch):
-#								#break
-#								noAuto = True
-#								self.nodes_no_autoupdater[ksub] = vsub
-#						#else:
-#						if not noAuto:
-#							results.update(v.getNodeCloud({}))
-#				else:
-#					self.nodes_no_geo.update(v.getNodeCloud({}))
 		print "Result:",len(results), region
 		return results
 

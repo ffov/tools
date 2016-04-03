@@ -105,4 +105,4 @@ class Node(object):
 				if result['cached'] == False:
 					time.sleep(1)
 			else:
-				self['geodata'] = None
+				self.getodata = None
