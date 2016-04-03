@@ -60,11 +60,27 @@
 	"domaene_07" : [
 		{"town" : "Telgte"}
 	],
+	"domaene_08" : [
+		{"town" : "Gescher"}
+	],
 	"domaene_09" : [
 		{"town" : "Stadtlohn"}
 	],
 	"domaene_11" : [
 		{"town" : "Bocholt"}
+	],
+	"domaene_12" : [
+		{
+			"town" : "Dülmen",
+			"suburb" : "Mitte"
+		},
+		{"suburb" : "Hausdülmen"},
+		{"suburb" : "Merfeld"},
+		{"suburb" : "Buldern"},
+		{"suburb" : "Hiddingsel"}
+	],
+	"domaene_13" : [
+		{"suburb" : "Rorup"}
 	],
 	"stadt_warendorf" : [
 		{"town" : "Warendorf"}
