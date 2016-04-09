@@ -4,7 +4,7 @@ set -x
 #==========================================================
 DEFAULT_GLUON_IMAGEDIR_PREFIX='/var/www/html/'
 DEFAULT_GLUON_SITEDIR='/home/mpw/gits/site-ffms/'
-DEFAULT_GLUON_DIR='gluon'
+DEFAULT_GLUON_DIR='../gluon'
 GLUON_VERSION=""
 VERSION=""
 TARGETS=""
@@ -20,11 +20,11 @@ function set_not_passed_arguments () {
 	then
 		GLUON_SITEDIR=$DEFAULT_GLUON_SITEDIR
 	fi
-	if [[ $GLUON_IMAGEDIR_PREFIX = "" ]]
+	if [[ $GLUON_IMAGEDIR_PREFIX == "" ]]
 	then
 		GLUON_IMAGEDIR_PREFIX='/home/mpw/output'
 	fi
-	if [[ $CORES="" ]]
+	if [[ $CORES == "" ]]
 	then
 		CORES=`cat /proc/cpuinfo |grep -i 'model name'|wc -l`
 	fi
@@ -62,7 +62,7 @@ function process_arguments () {
 			shift
 		fi
 		case "$arg" in
-			"-j*|--cores*")
+			-j*|--cores*)
 				if [[ $value =~ ^-?[0-9]+$ ]]
 				then
 					CORES=$value
@@ -70,13 +70,13 @@ function process_arguments () {
 					display_usage
 				fi
 				;;
-			"-g*|--gluon-dir*")
+			-g*|--gluon-dir*)
 				GLUON_DIR=$value
 				;;
-			"-s*|--site-dir*")
+			-s*|--site-dir*)
 				GLUON_SITEDIR=$value
 				;;
-			"-o*|--output-prefix*")
+			-o*|--output-prefix*)
 				GLUON_IMAGEDIR_PREFIX=$value
 				;;
 		esac
@@ -135,7 +135,8 @@ function check_success() {
 }
 
 function build_all_domains_and_all_targets () {
-	for i in `git branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`; do
+	cd $GLUON_DIR
+	for i in `cd $GLUON_SITEDIR;git branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`; do
 		prefix=`echo $i|sed -e 's/Domäne-/domaene/'`
 		imagedir=$GLUON_IMAGEDIR_PREFIX/$prefix/versions/v$VERSION
 		mkdir -p $imagedir
