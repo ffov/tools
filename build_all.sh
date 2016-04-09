@@ -3,13 +3,15 @@
 set -x 
 #==========================================================
 DEFAULT_GLUON_IMAGEDIR_PREFIX='/var/www/html/'
-DEFAULT_GLUON_SITEDIR='/home/mpw/gits/site-ffms/'
+DEFAULT_GLUON_SITEDIR=`dirname \`pwd\``'/site/'
+echo sitedir
+echo $DEFAULT_GLUON_SITEDIR
 DEFAULT_GLUON_DIR='../gluon'
 GLUON_VERSION=""
 VERSION=""
 TARGETS=""
 CORES=""
-WORKINGDIR=""
+MAKE_OPTS=""
 
 function set_not_passed_arguments () {
 	if [[ $GLUON_DIR == "" ]]
@@ -92,8 +94,12 @@ function process_arguments () {
 	set_not_passed_arguments
 }
 
+function build_make_opts () {
+	MAKE_OPTS="-C $GLUON_DIR GLUON_SITEDIR=$GLUON_SITEDIR -j$CORES V=s"
+}
+
 function update_site-ffms_repo () {
-	git fetch
+	git --git-dir=$GLUON_SITEDIR/.git --work-tree=$GLUON_SITEDIR fetch
 }
 
 function display_usage () {
@@ -108,22 +114,18 @@ function download_gluon_repo_if_nescessary () {
 }	
 
 function select_commit () {
-	cd $GLUON_DIR
-	git fetch
-	git checkout $1
-	cd $WORKINGDIR
+	git --git-dir=$1/.git --work-tree=$1 fetch
+	git --git-dir=$1/.git --work-tree=$1 checkout $2
 }
 
 function gluon_prepare_buildprocess () {
-	cd $GLUON_DIR
-	make dirclean GLUON_SITEDIR=$GLUON_SITEDIR V=s -j$CORES
-	make update GLUON_SITEDIR=$GLUON_SITEDIR V=s -j$CORES
+	make dirclean $MAKE_OPTS
+	make update $MAKE_OPTS
 	check_success
-	cd $WORKINGDIR
 }
 
 function set_targets () {
-	TARGETS=`ls $GLUON_DIR/targets | grep -v targets.mk`
+	TARGETS=`make $MAKE_OPTS GLUON_TARGET= 2> /dev/null |grep -v 'Please\|make'|sed -e 's/ \* //g'`
 }
 
 function check_success() {
@@ -135,35 +137,30 @@ function check_success() {
 }
 
 function build_all_domains_and_all_targets () {
-	cd $GLUON_DIR
-	for i in `cd $GLUON_SITEDIR;git branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`; do
+	for i in `git --git-dir=$GLUON_SITEDIR/.git --work-tree=$GLUON_SITEDIR branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`; do
 		prefix=`echo $i|sed -e 's/Domäne-/domaene/'`
 		imagedir=$GLUON_IMAGEDIR_PREFIX/$prefix/versions/v$VERSION
 		mkdir -p $imagedir
-		git checkout $i
-		git pull
-		cd $GLUON_DIR
+		select_commit $GLUON_SITEDIR $i
+		git --git-dir=$GLUON_SITEDIR/.git --work-tree=$GLUON_SITEDIR pull
+		echo $TARGETS
 		for j in $TARGETS
 		do
-			make clean GLUON_SITEDIR=$GLUON_SITEDIR GLUON_RELEASE=$GLUON_VERSION GLUON_TARGET=$j V=s -j$CORES
-			make GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$j GLUON_IMAGEDIR=$imagedir GLUON_SITEDIR=$GLUON_SITEDIR V=s -j$CORES
+			make clean $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION GLUON_TARGET=$j V=s -j$CORES GLUON_IMAGEDIR=$imagedir
+			make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$j GLUON_IMAGEDIR=$imagedir
 			check_success
-			make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=experimental GLUON_PRIORITY=0 GLUON_SITEDIR=$GLUON_SITEDIR
-			make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=beta GLUON_PRIORITY=1 GLUON_SITEDIR=$GLUON_SITEDIR
-			make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_PRIORITY=3 GLUON_SITEDIR=$GLUON_SITEDIR
 		done
+		make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=experimental GLUON_PRIORITY=0 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
+		make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=beta GLUON_PRIORITY=1 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
+		make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_PRIORITY=3 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
 	done
 }
 
-function get_path () {
-	WORKINGDIR=`pwd`
-}
-
-get_path
 process_arguments "$@"
+build_make_opts
 update_site-ffms_repo
 download_gluon_repo_if_nescessary
-select_commit $GLUON_VERSION
+select_commit $GLUON_DIR $GLUON_VERSION
 gluon_prepare_buildprocess
 set_targets
 build_all_domains_and_all_targets
