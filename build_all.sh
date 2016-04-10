@@ -28,7 +28,7 @@ function set_not_passed_arguments () {
 	fi
 	if [[ $GLUON_IMAGEDIR_PREFIX == "" ]]
 	then
-		GLUON_IMAGEDIR_PREFIX='/home/mpw/output'
+		GLUON_IMAGEDIR_PREFIX=$DEFAULT_GLUON_IMAGEDIR_PREFIX
 	fi
 	if [[ $CORES == "" ]]
 	then
