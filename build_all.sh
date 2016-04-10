@@ -42,10 +42,6 @@ function set_not_passed_arguments () {
 	then
 		GLUON_URL=$DEFAULT_GLUON_URL
 	fi
-	if [[ $BRANCH_FILTER == "" ]]
-	then
-		BRANCH_FILTER=$DEFAULT_BRANCH_FILTER
-	fi
 }
 
 function split_value_from_argument () {
