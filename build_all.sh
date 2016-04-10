@@ -191,10 +191,10 @@ All parameters can be set in one of the following ways: -e <value>, -e<value>, -
 	-o --output-prefix: Prefix for output folder, default is "/var/www/html".
 	--gluon-url: URL to Gluon repository, default is "https://github.com/freifunk-gluon/gluon.git".
 	--site-url: URL to the site configuration. Default is site-ffms of Freifunk Münsterland.
-	-D --enable-debugging: Enables debugging bei setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
+	-D --enable-debugging: Enables debugging by setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
 	-B --enable-broken: Enable the building of broken targets and broken images.
 	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build.
-	-t*|--target: Targets to build. If left empty, all targets will be buld. If broken is set, even those will be builld.
+	-t*|--target: Targets to build. If left empty, all targets will be build. If broken is set, even those will be build.
 
 Please report issues here: https://github.com/FreiFunkMuenster/tools/issues
 
