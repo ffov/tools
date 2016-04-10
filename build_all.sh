@@ -14,6 +14,7 @@ DOMAINS_TO_BUILD=""
 TARGETS_TO_BUILD=""
 SITE_URL=""
 GLUON_URL=""
+BROKEN=""
 imagedir=""
 
 function set_not_passed_arguments () {
@@ -40,6 +41,10 @@ function set_not_passed_arguments () {
 	if [[ $GLUON_URL == "" ]]
 	then
 		GLUON_URL=$DEFAULT_GLUON_URL
+	fi
+	if [[ $BRANCH_FILTER == "" ]]
+	then
+		BRANCH_FILTER=$DEFAULT_BRANCH_FILTER
 	fi
 }
 
@@ -72,17 +77,22 @@ function add_domain_to_buildprocess () {
 }
 
 function add_target_to_buildprocess () {
-	DOMAINS_TO_BUILD="$DOMAINS_TO_BUILD $1"
+	TARGETS="$TARGETS $1"
 }
 
 function process_arguments () {
-	while [[ "${1:0:1}" == "-" ]]
+	while [[ "$1" != "" ]]
 	do
 		arg=$1
-		value=`split_value_from_argument $1 $2`
-		if [[ $? == 1 ]] 
+		if [[ "${1:0:1}" == "-" ]]
 		then
-			shift
+			value=`split_value_from_argument $1 $2`
+			if [[ $? == 1 ]] 
+			then
+				shift
+			fi
+		else
+			value=$1
 		fi
 		case "$arg" in
 			-j*|--cores*)
@@ -90,6 +100,8 @@ function process_arguments () {
 				then
 					CORES=$value
 				else
+					echo "Number of cores is not an integer. Aborting."
+					echo
 					display_usage
 				fi
 				shift
@@ -117,6 +129,9 @@ function process_arguments () {
 			-D|--enable-debugging)
 				enable_debugging
 				;;
+			-B|--enable-broken)
+				BROKEN="BROKEN=1"
+				;;
 			-d*|--domain*)
 				add_domain_to_buildprocess $value
 				shift
@@ -125,24 +140,35 @@ function process_arguments () {
 				add_target_to_buildprocess $value
 				shift
 				;;
+			*)
+				if [[ $GLUON_VERSION == "" ]]
+				then
+					GLUON_VERSION=$value
+				elif [[ $VERSION == "" ]]
+				then
+					VERSION=$value
+				else
+					echo "Unparsable parameter. Aborting."
+					echo
+					display_usage
+				fi
+				shift
+				;;
 		esac
 	done
-	if [[ $1 == "" || $2 == "" ]]
+	if [[ $GLUON_VERSION == "" || $VERSION == "" ]]
 	then
 		display_usage
-	else	
-		GLUON_VERSION=$1
-		VERSION=$2
 	fi
 	set_not_passed_arguments
 }
 
 function build_make_opts () {
-	MAKE_OPTS="-C $GLUON_DIR GLUON_SITEDIR=$GLUON_SITEDIR -j$CORES V=s"
+	MAKE_OPTS="-C $GLUON_DIR GLUON_SITEDIR=$GLUON_SITEDIR -j$CORES V=s $BROKEN"
 }
 
-function is_folder_a_git_repo () {
-	git status --git-dir=$1/.git --work-tree=$1
+function is_git_repo () {
+	git --git-dir=$1/.git --work-tree=$1 status 2&> /dev/null
 	if [ $? != 0 ]
 	then
 		echo "The folder \"$1\" is not a valid git repository, delete it or select another destination and restart the script."
@@ -152,7 +178,27 @@ function is_folder_a_git_repo () {
 }
 
 function display_usage () {
-echo 'Usage: $0 [(-j|--cores <Number of cores to use>)|(-g|--gluon-dir) <Path to Gluon-Git>|(-s|--site-dir) <Path to site.conf folder>|(-o|--output-prefix) <output path prefix>] Gluon_release_tag Gluon_version'
+echo 'Usage: $0 [PARAMETERS] GLUON_RELEASE_TAG VERSION_NUMBER
+
+Parameters:
+
+All parameters can be set in one of the following ways: -e <value>, -e<value>, --example <value>, --exmaple==<value>
+
+	-j --cores: Number of cores to use. If left empty, all cores will be used.
+
+	-g --gluon-dir: Path to Gluon-Git-Folder. Default is "../gluon".
+	-s --site-dir: Path to the site config. Default is "../site".
+	-o --output-prefix: Prefix for output folder, default is "/var/www/html".
+	--gluon-url: URL to Gluon repository, default is "https://github.com/freifunk-gluon/gluon.git".
+	--site-url: URL to the site configuration. Default is site-ffms of Freifunk Münsterland.
+	-D --enable-debugging: Enables debugging bei setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
+	-B --enable-broken: Enable the building of broken targets and broken images.
+	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build.
+	-t*|--target: Targets to build. If left empty, all targets will be buld. If broken is set, even those will be builld.
+
+Please report issues here: https://github.com/FreiFunkMuenster/tools/issues
+
+License: GPLv3, Author: Matthias Walther'
 	exit 1
 }
 
@@ -173,7 +219,7 @@ function git_pull () {
 }
 
 function prepare_repo () {
-	if [[ `is_folder $1` && `is_folder_a_git_repo $1` ]]
+	if is_folder $1 && is_git_repo $1
 	then
 		git_fetch $1
 	else
@@ -194,7 +240,7 @@ function get_all_targets_from_gluon_repo () {
 function check_targets () {
 	if [[ $TARGETS == "" ]]
 	then
-		TARGETS=${get_all_domains_from_site_repo}
+		TARGETS=$(get_all_targets_from_gluon_repo)
 	fi
 }
 
@@ -205,7 +251,7 @@ function get_all_domains_from_site_repo () {
 function check_domains () {
 	if [[ $DOMAINS_TO_BUILD == "" ]]
 	then
-		DOMAINS_TO_BUILD=${get_all_domains_from_site_repo}
+		DOMAINS_TO_BUILD=$(get_all_domains_from_site_repo)
 	fi
 }
 
