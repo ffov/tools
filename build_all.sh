@@ -189,8 +189,9 @@ All parameters can be set in one of the following ways: -e <value>, -e<value>, -
 	--site-url: URL to the site configuration. Default is site-ffms of Freifunk Münsterland.
 	-D --enable-debugging: Enables debugging by setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
 	-B --enable-broken: Enable the building of broken targets and broken images.
-	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build.
-	-t*|--target: Targets to build. If left empty, all targets will be build. If broken is set, even those will be build.
+	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build. This parameter can be used multiple times or you can set multiple branches at once, seperated by space and in quotes: "branch1 branch2 branch3".
+	-t*|--target: Targets to build. If left empty, all targets will be build. If broken is set, even those will be build. This parameter can be used multiple times or you can set multiple targets at once, seperated by space and in quotes: "target1 target2 target3".
+
 
 Please report issues here: https://github.com/FreiFunkMuenster/tools/issues
 
