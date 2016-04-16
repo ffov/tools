@@ -209,6 +209,7 @@ function git_fetch () {
 
 function git_checkout () {
 	git --git-dir=$1/.git --work-tree=$1 checkout $2
+	check_success
 }
 
 function git_pull () {
