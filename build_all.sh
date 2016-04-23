@@ -15,9 +15,11 @@ TARGETS_TO_BUILD=""
 SITE_URL=""
 GLUON_URL=""
 BROKEN=""
+RETRIES=""
+SKIP_GLUON_PREBUILD_ACTIONS=""
 imagedir=""
 
-function set_not_passed_arguments () {
+function set_arguments_not_passed () {
 	if [[ $GLUON_DIR == "" ]]
 	then
 		GLUON_DIR=$DEFAULT_GLUON_DIR
@@ -41,6 +43,14 @@ function set_not_passed_arguments () {
 	if [[ $GLUON_URL == "" ]]
 	then
 		GLUON_URL=$DEFAULT_GLUON_URL
+	fi
+	if [[ $RETRIES == "" ]]
+	then
+		RETRIES=1
+	fi
+	if [[ $SKIP_GLUON_PREBUILD_ACTIONS == "" ]]
+	then
+		SKIP_GLUON_PREBUILD_ACTIONS=0
 	fi
 }
 
@@ -128,12 +138,26 @@ function process_arguments () {
 			-B|--enable-broken)
 				BROKEN="BROKEN=1"
 				;;
+			-S|--skip-gluon-prebuilds)
+				SKIP_GLUON_PREBUILD_ACTIONS=1
+				;;
 			-d*|--domain*)
 				add_domain_to_buildprocess $value
 				shift
 				;;
 			-t*|--target*)
 				add_target_to_buildprocess $value
+				shift
+				;;
+			-f*|--force-retries*)
+				if [[ $value =~ ^-?[0-9]+$ ]]
+				then
+					RETRIES=$value
+				else
+					echo "Number of retries is not an integer. Aborting."
+					echo
+					display_usage
+				fi
 				shift
 				;;
 			*)
@@ -156,7 +180,7 @@ function process_arguments () {
 	then
 		display_usage
 	fi
-	set_not_passed_arguments
+	set_arguments_not_passed
 }
 
 function build_make_opts () {
@@ -208,8 +232,8 @@ function git_fetch () {
 }
 
 function git_checkout () {
-	git --git-dir=$1/.git --work-tree=$1 checkout $2
-	check_success
+	command="git --git-dir=$1/.git --work-tree=$1 checkout $2"
+	try_execution_x_times $RETRIES $command
 }
 
 function git_pull () {
@@ -226,13 +250,14 @@ function prepare_repo () {
 }
 
 function gluon_prepare_buildprocess () {
-	make dirclean $MAKE_OPTS
-	make update ${MAKE_OPTS/-j* /-j1 }
-	check_success
+	command="make dirclean $MAKE_OPTS"
+	try_execution_x_times $RETRIES $command
+	command="make update ${MAKE_OPTS/-j* /-j1 }"
+	try_execution_x_times $RETRIES $command
 	for $target in $TARGETS
 	do
-		make clean $MAKE_OPTS GLUON_TARGET=$target V=s -j$CORES GLUON_IMAGEDIR=$imagedir
-		check_success
+		command="make clean $MAKE_OPTS GLUON_TARGET=$target V=s -j$CORES GLUON_IMAGEDIR=$imagedir"
+		try_execution_x_times $RETRIES $command
 	done
 }
 
@@ -258,17 +283,25 @@ function check_domains () {
 	fi
 }
 
-function check_success() {
-	if [ $? != 0 ]
+function try_execution_x_times () {
+	tries_left=$1
+	shift
+	return_value=1
+	while [[ $return_value != 0 && $tries_left -gt 0 ]]
+	do
+		let tries_left-=1
+		echo "$@" | bash
+		return_value=$?
+	done
+	if [[ ! $return_value == 0 ]]
 	then
-		echo "Something went wrong, aborting."
-		exit 1
+		display_usage
 	fi
 }
 
 function build_target_for_domaene () {
-	make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$1 GLUON_IMAGEDIR=$imagedir
-	check_success
+	command="make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$1 GLUON_IMAGEDIR=$imagedir"
+	try_execution_x_times $RETRIES $command
 }
 
 function make_manifests () {
@@ -305,5 +338,8 @@ prepare_repo $GLUON_DIR $GLUON_URL
 git_checkout $GLUON_DIR $GLUON_VERSION
 check_targets
 check_domains
-gluon_prepare_buildprocess
+if [[ $SKIP_GLUON_PREBUILD_ACTIONS == 0 ]]
+then
+	gluon_prepare_buildprocess
+fi
 build_selected_domains_and_selected_targets
