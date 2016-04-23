@@ -227,8 +227,13 @@ function prepare_repo () {
 
 function gluon_prepare_buildprocess () {
 	make dirclean $MAKE_OPTS
-	make update $MAKE_OPTS
+	make update ${MAKE_OPTS/-j* /-j1 }
 	check_success
+	for $target in $TARGETS
+	do
+		make clean $MAKE_OPTS GLUON_TARGET=$target V=s -j$CORES GLUON_IMAGEDIR=$imagedir
+		check_success
+	done
 }
 
 function get_all_targets_from_gluon_repo () {
@@ -262,7 +267,6 @@ function check_success() {
 }
 
 function build_target_for_domaene () {
-	make clean $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION GLUON_TARGET=$1 V=s -j$CORES GLUON_IMAGEDIR=$imagedir
 	make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$1 GLUON_IMAGEDIR=$imagedir
 	check_success
 }
@@ -299,7 +303,7 @@ build_make_opts
 prepare_repo $GLUON_SITEDIR $SITE_URL
 prepare_repo $GLUON_DIR $GLUON_URL
 git_checkout $GLUON_DIR $GLUON_VERSION
-gluon_prepare_buildprocess
 check_targets
 check_domains
+gluon_prepare_buildprocess
 build_selected_domains_and_selected_targets
