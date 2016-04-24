@@ -250,8 +250,10 @@ function prepare_repo () {
 }
 
 function gluon_prepare_buildprocess () {
+	rm $GLUON_IMAGEDIR/openwrt/dl
 	command="make dirclean $MAKE_OPTS"
 	try_execution_x_times $RETRIES $command
+	ln -s ../openwrt-dl $GLUON_IMAGEDIR/openwrt/dl
 	command="make update ${MAKE_OPTS/-j* /-j1 }"
 	try_execution_x_times $RETRIES $command
 	for $target in $TARGETS
