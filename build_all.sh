@@ -264,7 +264,7 @@ function gluon_prepare_buildprocess () {
 }
 
 function get_all_targets_from_gluon_repo () {
-	echo `make $MAKE_OPTS GLUON_TARGET= 2> /dev/null |grep -v 'Please\|make'|sed -e 's/ \* //g'`
+	echo `make $MAKE_OPTS GLUON_TARGET= 2> /dev/null |grep -v 'Please\|make\|Makefile'|sed -e 's/ \* //g'`
 }
 
 function check_targets () {
@@ -297,7 +297,8 @@ function try_execution_x_times () {
 	done
 	if [[ ! $return_value == 0 ]]
 	then
-		display_usage
+		echo "Something went wrong. Aborting."
+		exit 1
 	fi
 }
 
