@@ -184,7 +184,7 @@ function process_arguments () {
 }
 
 function build_make_opts () {
-	MAKE_OPTS="-C $GLUON_DIR GLUON_SITEDIR=$GLUON_SITEDIR -j$CORES V=s $BROKEN"
+	MAKE_OPTS="-C $GLUON_DIR GLUON_SITEDIR=$GLUON_SITEDIR -j$CORES V=s $BROKEN FORCE_UNSAFE_CONFIGURE=1"
 }
 
 function is_git_repo () {
