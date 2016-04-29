@@ -251,6 +251,7 @@ function prepare_repo () {
 
 function gluon_prepare_buildprocess () {
 	rm $GLUON_IMAGEDIR/openwrt/dl
+	mkdir -p ../openwrt-dl
 	command="make dirclean $MAKE_OPTS"
 	try_execution_x_times $RETRIES $command
 	ln -s ../openwrt-dl $GLUON_IMAGEDIR/openwrt/dl
