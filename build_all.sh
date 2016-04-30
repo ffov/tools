@@ -20,38 +20,14 @@ SKIP_GLUON_PREBUILD_ACTIONS=""
 imagedir=""
 
 function set_arguments_not_passed () {
-	if [[ $GLUON_DIR == "" ]]
-	then
-		GLUON_DIR=$DEFAULT_GLUON_DIR
-	fi
-	if [[ $GLUON_SITEDIR == "" ]]
-	then
-		GLUON_SITEDIR=$DEFAULT_GLUON_SITEDIR
-	fi
-	if [[ $GLUON_IMAGEDIR_PREFIX == "" ]]
-	then
-		GLUON_IMAGEDIR_PREFIX=$DEFAULT_GLUON_IMAGEDIR_PREFIX
-	fi
-	if [[ $CORES == "" ]]
-	then
-		CORES=`cat /proc/cpuinfo |grep -i 'model name'|wc -l`
-	fi
-	if [[ $SITE_URL == "" ]]
-	then
-		SITE_URL=$DEFAULT_SITE_URL
-	fi
-	if [[ $GLUON_URL == "" ]]
-	then
-		GLUON_URL=$DEFAULT_GLUON_URL
-	fi
-	if [[ $RETRIES == "" ]]
-	then
-		RETRIES=1
-	fi
-	if [[ $SKIP_GLUON_PREBUILD_ACTIONS == "" ]]
-	then
-		SKIP_GLUON_PREBUILD_ACTIONS=0
-	fi
+	GLUON_DIR=${GLUON_DIR:-$DEFAULT_GLUON_DIR}
+	GLUON_SITEDIR=${GLUON_SITEDIR:-$DEFAULT_GLUON_SITEDIR}
+	GLUON_IMAGEDIR_PREFIX=${GLUON_IMAGEDIR_PREFIX:-$DEFAULT_GLUON_IMAGEDIR_PREFIX}
+	CORES=${CORES:-$(grep -ic 'model name' /proc/cpuinfo)}
+	SITE_URL=${SITE_URL:-$DEFAULT_SITE_URL}
+	GLUON_URL=${GLUON_URL:-$DEFAULT_GLUON_URL}
+	RETRIES=${RETRIES:-1}
+	SKIP_GLUON_PREBUILD_ACTIONS=${SKIP_GLUON_PREBUILD_ACTIONS:-0}
 }
 
 function split_value_from_argument () {
@@ -87,7 +63,7 @@ function add_target_to_buildprocess () {
 }
 
 function process_arguments () {
-	while [[ "$1" != "" ]]
+	while [[ $# -gt 0 ]]
 	do
 		arg=$1
 		if [[ "${1:0:1}" == "-" ]]
@@ -188,7 +164,7 @@ function build_make_opts () {
 }
 
 function is_git_repo () {
-	git --git-dir=$1/.git --work-tree=$1 status 2&> /dev/null
+	git --git-dir="$1"/.git --work-tree="$1" status 2&> /dev/null
 	if [ $? != 0 ]
 	then
 		echo "The folder \"$1\" is not a valid git repository, delete it or select another destination and restart the script."
@@ -213,6 +189,7 @@ All parameters can be set in one of the following ways: -e <value>, -e<value>, -
 	--site-url: URL to the site configuration. Default is site-ffms of Freifunk Münsterland.
 	-D --enable-debugging: Enables debugging by setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
 	-B --enable-broken: Enable the building of broken targets and broken images.
+	-S --skip-gluon-prebuilds: Skript make dirclean of Gluon folder. But openwrt/dl-folder is cached anway, just speeds up build process if you did not changes to packages.
 	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build. This parameter can be used multiple times or you can set multiple branches at once, seperated by space and in quotes: "branch1 branch2 branch3".
 	-t*|--target: Targets to build. If left empty, all targets will be build. If broken is set, even those will be build. This parameter can be used multiple times or you can set multiple targets at once, seperated by space and in quotes: "target1 target2 target3".
 
@@ -228,24 +205,24 @@ function is_folder () {
 }
 
 function git_fetch () {
-	git --git-dir=$1/.git --work-tree=$1 fetch
+	git --git-dir="$1"/.git --work-tree="$1" fetch
 }
 
 function git_checkout () {
-	command="git --git-dir=$1/.git --work-tree=$1 checkout $2"
-	try_execution_x_times $RETRIES $command
+	command="git --git-dir=\"$1\"/.git --work-tree=\"$1\" checkout $2"
+	try_execution_x_times $RETRIES "$command"
 }
 
 function git_pull () {
-	git --git-dir=$1/.git --work-tree=$1 pull
+	git --git-dir="$1"/.git --work-tree="$1" pull
 }
 
 function prepare_repo () {
-	if is_folder $1 && is_git_repo $1
+	if is_folder "$1" && is_git_repo "$1"
 	then
-		git_fetch $1
+		git_fetch "$1"
 	else
-		git clone $2 $1
+		git clone $2 "$1"
 	fi
 }
 
@@ -253,14 +230,15 @@ function gluon_prepare_buildprocess () {
 	rm $GLUON_IMAGEDIR/openwrt/dl
 	mkdir -p ../openwrt-dl
 	command="make dirclean $MAKE_OPTS"
-	try_execution_x_times $RETRIES $command
+	try_execution_x_times $RETRIES "$command"
+	mkdir -p $GLUON_IMAGEDIR/openwrt
 	ln -s ../openwrt-dl $GLUON_IMAGEDIR/openwrt/dl
 	command="make update ${MAKE_OPTS/-j* /-j1 }"
-	try_execution_x_times $RETRIES $command
+	try_execution_x_times $RETRIES "$command"
 	for $target in $TARGETS
 	do
 		command="make clean $MAKE_OPTS GLUON_TARGET=$target V=s -j$CORES GLUON_IMAGEDIR=$imagedir"
-		try_execution_x_times $RETRIES $command
+		try_execution_x_times $RETRIES "$command"
 	done
 }
 
@@ -276,7 +254,7 @@ function check_targets () {
 }
 
 function get_all_domains_from_site_repo () {
-	echo `git --git-dir=$GLUON_SITEDIR/.git --work-tree=$GLUON_SITEDIR branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`
+	echo `git --git-dir="$GLUON_SITEDIR"/.git --work-tree="$GLUON_SITEDIR" branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`
 }
 
 function check_domains () {
@@ -304,23 +282,23 @@ function try_execution_x_times () {
 }
 
 function build_target_for_domaene () {
-	command="make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$1 GLUON_IMAGEDIR=$imagedir"
-	try_execution_x_times $RETRIES $command
+	command="make $MAKE_OPTS GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_TARGET=$1 GLUON_IMAGEDIR=\"$imagedir\""
+	try_execution_x_times $RETRIES "$command"
 }
 
 function make_manifests () {
-	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=experimental GLUON_PRIORITY=0 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
-	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=beta GLUON_PRIORITY=1 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
-	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_PRIORITY=3 $MAKE_OPTS GLUON_IMAGEDIR=$imagedir
+	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=experimental GLUON_PRIORITY=0 $MAKE_OPTS GLUON_IMAGEDIR="$imagedir"
+	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=beta GLUON_PRIORITY=1 $MAKE_OPTS GLUON_IMAGEDIR="$imagedir"
+	make manifest GLUON_RELEASE=$GLUON_VERSION+$VERSION GLUON_BRANCH=stable GLUON_PRIORITY=3 $MAKE_OPTS GLUON_IMAGEDIR="$imagedir"
 }
 
 
 function build_selected_targets_for_domaene () {
 	prefix=`echo $1|sed -e 's/Domäne-/domaene/'`
-	imagedir=$GLUON_IMAGEDIR_PREFIX/$prefix/versions/v$VERSION
-	mkdir -p $imagedir
-	git_checkout $GLUON_SITEDIR $1
-	git_pull $GLUON_SITEDIR
+	imagedir="$GLUON_IMAGEDIR_PREFIX"/"$prefix"/versions/v$VERSION
+	mkdir -p "$imagedir"
+	git_checkout "$GLUON_SITEDIR" $1
+	git_pull "$GLUON_SITEDIR"
 	for j in $TARGETS
 	do
 		build_target_for_domaene $j
@@ -337,9 +315,9 @@ function build_selected_domains_and_selected_targets () {
 
 process_arguments "$@"
 build_make_opts
-prepare_repo $GLUON_SITEDIR $SITE_URL
-prepare_repo $GLUON_DIR $GLUON_URL
-git_checkout $GLUON_DIR $GLUON_VERSION
+prepare_repo "$GLUON_SITEDIR" $SITE_URL
+prepare_repo "$GLUON_DIR" $GLUON_URL
+git_checkout "$GLUON_DIR" $GLUON_VERSION
 check_targets
 check_domains
 if [[ $SKIP_GLUON_PREBUILD_ACTIONS == 0 ]]
