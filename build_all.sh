@@ -243,7 +243,7 @@ function gluon_prepare_buildprocess () {
 }
 
 function get_all_targets_from_gluon_repo () {
-	echo `make $MAKE_OPTS GLUON_TARGET= 2> /dev/null |grep -v 'Please\|make\|Makefile'|sed -e 's/ \* //g'`
+	echo `make $MAKE_OPTS GLUON_TARGET= 2> /dev/null |grep -v 'Please\|make\|Makefile'|sed -e 's/.* \* //g'`
 }
 
 function check_targets () {
