@@ -1,6 +1,8 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
 domains = { count = 0 }
 
+JSON = (loadfile "JSON.lua")()
+
 function find_all_polygons()
 	local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL, 'r'))
 	for line in file:lines() do
@@ -15,8 +17,21 @@ end
 function report_polygon_match(count)
 	print("Dieser Knoten liegt im Polygon" .. domains[count] ..".")
 end
+function read_whole_file(file)
+	local f = io.open(file, "rb")
+        local content = f:read("*all")
+	f:close()
+        return content
+end
+-- function test_polygon_contains_point(number_points, 
 function test_all_polygons()
-	for i = 1; i <= domains["count"], i = i+1 do
+	local inspect = require('inspect')
+	for i = 1, domains["count"] do
+		local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL .. '/' .. domains[i], 'r'))
+		local polygon_json = read_whole_file(file)
+		local polygon = JSON:decode(polygon_json)
+		print(inspect(polygon))
+
 	end
 
 end
