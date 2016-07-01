@@ -164,7 +164,7 @@ function build_make_opts () {
 }
 
 function is_git_repo () {
-	git --git-dir="$1"/.git --work-tree="$1" status 2&> /dev/null
+	git -C "$1" status 2&> /dev/null
 	if [ $? != 0 ]
 	then
 		echo "The folder \"$1\" is not a valid git repository, delete it or select another destination and restart the script."
@@ -205,16 +205,16 @@ function is_folder () {
 }
 
 function git_fetch () {
-	git --git-dir="$1"/.git --work-tree="$1" fetch
+	git -C "$1" fetch
 }
 
 function git_checkout () {
-	command="git --git-dir=\"$1\"/.git --work-tree=\"$1\" checkout $2"
+	command="git -C \"$1\" checkout $2"
 	try_execution_x_times $RETRIES "$command"
 }
 
 function git_pull () {
-	git --git-dir="$1"/.git --work-tree="$1" pull
+	git -C "$1" pull
 }
 
 function prepare_repo () {
@@ -254,7 +254,7 @@ function check_targets () {
 }
 
 function get_all_domains_from_site_repo () {
-	echo `git --git-dir="$GLUON_SITEDIR"/.git --work-tree="$GLUON_SITEDIR" branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`
+	echo `git -C "$GLUON_SITEDIR" branch -a|grep -v HEAD|grep origin/Domäne| sed -e 's/.*\/Domäne/Domäne/'`
 }
 
 function check_domains () {
