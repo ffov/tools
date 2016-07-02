@@ -1,4 +1,6 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
+WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
+
 domains = { count = 0 }
 wifis = {}
 JSON = (loadfile "JSON.lua")()
@@ -46,24 +48,19 @@ function test_all_polygons()
 
 end
 function parse_wifis()
-	-- local file = assert(io.popen('iwinfo client0 scan'))
-	local file = assert(io.popen('iwlist wlan0 scan'))
+	local file = assert(io.popen(WIFI_SCAN_COMMAND))
 	local counter = 0;
-	package.path = package.path .. ";/usr/local/inspect.lua"
-	local inspect = require('inspect')
-
 	for line in file:lines() do
 		if line:find('Address') ~= nil then
 			counter = counter + 1
 			wifis[counter] = {}
 			wifis[counter]["address"] = line:gsub ('.*(%w%w:%w%w:%w%w:%w%w:%w%w:%w%w).*', '%1')
-		elseif line:find('Channel') ~= nil then
-			wifis[counter]["channel"] = line:gsub( '.+Channel.-([%d]+).+', '%1')
+		elseif line:find('hannel') ~= nil then
+			wifis[counter]["channel"] = line:match('%d+')
 		elseif line:find('Signal') ~= nil then
 			wifis[counter]["signalstrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
 		end
 	end
-	print(inspect(wifis))
 end
 
 -- find_all_polygons()
