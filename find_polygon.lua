@@ -1,6 +1,6 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
 domains = { count = 0 }
-
+wifis = {}
 JSON = (loadfile "JSON.lua")()
 
 function find_all_polygons()
@@ -45,36 +45,27 @@ function test_all_polygons()
 	end
 
 end
-function compose_post_string()
-	local file = assert(io.popen('iwinfo client0 scan'))
-	while true do
-		local line = file.read()
-		if (line == nil) then
-			break
-		end
-		if line:find( 'Address' ) ~= nil do
-			local address = line:gsub( 'Cell %d%d %- Address: ', '')
-			local channel
-			local signalstrength
-			print(address)
-			while true do
-				local blockline = file.read()
-				if blockline == '' then
-					break
-				elseif blockline:find('Channel') ~= nil then
-					local channel = blockline:gsub( '.+Channel: ', '')
-				elseif blockline:find('Signal') ~= nil then
-					local signalstrength = blockline:gsub( '.+Signal: ', '')
-					local signalstrength = signalstrength:gsub( '%s.+', '')
-				end
-			end
+function parse_wifis()
+	-- local file = assert(io.popen('iwinfo client0 scan'))
+	local file = assert(io.popen('iwlist wlan0 scan'))
+	local counter = 0;
+	package.path = package.path .. ";/usr/local/inspect.lua"
+	local inspect = require('inspect')
+
+	for line in file:lines() do
+		if line:find('Address') ~= nil then
+			counter = counter + 1
+			wifis[counter] = {}
+			wifis[counter]["address"] = line:gsub ('.*(%w%w:%w%w:%w%w:%w%w:%w%w:%w%w).*', '%1')
+		elseif line:find('Channel') ~= nil then
+			wifis[counter]["channel"] = line:gsub( '.+Channel.-([%d]+).+', '%1')
+		elseif line:find('Signal') ~= nil then
+			wifis[counter]["signalstrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
 		end
 	end
-
-
-
+	print(inspect(wifis))
 end
 
 -- find_all_polygons()
 -- test_all_polygons()
-compose_post_string
+parse_wifis()
