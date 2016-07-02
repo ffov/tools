@@ -1,5 +1,6 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
-WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
+-- WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
+WIFI_SCAN_COMMAND = 'iwlist wlan0 scan'
 
 domains = { count = 0 }
 wifis = {}
@@ -42,8 +43,6 @@ function test_all_polygons()
 		local polygon_json = read_whole_file(file)
 		local polygon = JSON:decode(polygon_json)['features'][1]['geometry']['coordinates'][1]
 		test_polygon_contains_point({ 7.542114,51.947651}, polygon)
-		os.exit()
-
 	end
 
 end
@@ -54,15 +53,37 @@ function parse_wifis()
 		if line:find('Address') ~= nil then
 			counter = counter + 1
 			wifis[counter] = {}
-			wifis[counter]["address"] = line:gsub ('.*(%w%w:%w%w:%w%w:%w%w:%w%w:%w%w).*', '%1')
+			wifis[counter]["macAddress"] = line:gsub ('.*(%w%w:%w%w:%w%w:%w%w:%w%w:%w%w).*', '%1')
 		elseif line:find('hannel') ~= nil then
 			wifis[counter]["channel"] = line:match('%d+')
 		elseif line:find('Signal') ~= nil then
-			wifis[counter]["signalstrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
+			wifis[counter]["signalStrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
 		end
 	end
+end
+function get_coordinates()
+	post = {}
+	post["wifiAccessPoints"] = wifis
+	poststring = JSON:encode(post)
+	local http = require("socket.http")
+	local ltn12 = require("ltn12")
+
+	local path = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA4-TkuE0b2XJC0s4z2TyObyTNHtQgb9Wg"
+	local response_body = { }
+	local res, code, response_headers, status = http.request {
+		url = path,
+		method = "POST",
+		headers = {
+			["Content-Type"] = "application/json",
+			["Content-Length"] = poststring:len()
+		},
+		source = ltn12.source.string(poststring),
+		sink = ltn12.sink.table(response_body)
+	}
+	luup.task('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
 end
 
 -- find_all_polygons()
 -- test_all_polygons()
 parse_wifis()
+get_coordinates()
