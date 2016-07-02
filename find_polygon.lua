@@ -45,7 +45,36 @@ function test_all_polygons()
 	end
 
 end
+function compose_post_string()
+	local file = assert(io.popen('iwinfo client0 scan'))
+	while true do
+		local line = file.read()
+		if (line == nil) then
+			break
+		end
+		if line:find( 'Address' ) ~= nil do
+			local address = line:gsub( 'Cell %d%d %- Address: ', '')
+			local channel
+			local signalstrength
+			print(address)
+			while true do
+				local blockline = file.read()
+				if blockline == '' then
+					break
+				elseif blockline:find('Channel') ~= nil then
+					local channel = blockline:gsub( '.+Channel: ', '')
+				elseif blockline:find('Signal') ~= nil then
+					local signalstrength = blockline:gsub( '.+Signal: ', '')
+					local signalstrength = signalstrength:gsub( '%s.+', '')
+				end
+			end
+		end
+	end
 
-find_all_polygons()
-test_all_polygons()
--- test_polygon_contains_point({ -1, 0.25 }, {{0,0},{0,1},{1,0}})
+
+
+end
+
+-- find_all_polygons()
+-- test_all_polygons()
+compose_post_string
