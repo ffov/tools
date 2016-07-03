@@ -10,7 +10,6 @@ JSON = (loadfile "JSON.lua")()
 Url_encode_from = { '%{', '"', '%:', '%[', ',', '%]', '%}' }
 Url_encode_to = { '%%7B', '%%22', '%%3A', '%%5B', '%%2C', '%%5D', '%%7D' }
 
-
 function find_all_polygons()
 	local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL, 'r'))
 	for line in file:lines() do
@@ -23,7 +22,7 @@ function find_all_polygons()
 	end
 end
 function report_polygon_match(count)
-	print("Dieser Knoten liegt im Polygon" .. domains[count] ..".")
+	print("Dieser Knoten liegt im Polygon " .. domains[count] ..".")
 end
 function read_whole_file(file)
         local content = file:read("*all")
@@ -39,17 +38,20 @@ function test_polygon_contains_point(own_coordinates, polygon)
 		end
 		j=i
 	end
-	print(c)
 	return c
 end
 function test_all_polygons()
-	for i = 2, domains["count"] do
-		local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL .. '/' .. domains[i], 'r'))
-		local polygon_json = read_whole_file(file)
-		local polygon = JSON:decode(polygon_json)['features'][1]['geometry']['coordinates'][1]
-		test_polygon_contains_point({ 7.542114,51.947651}, polygon)
+	for i = 1, domains["count"] do
+		if i ~= 6 then
+			local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL .. '/' .. domains[i], 'r'))
+			local polygon_json = read_whole_file(file)
+			local polygon = JSON:decode(polygon_json)['features'][1]['geometry']['coordinates'][1]
+			local contains = test_polygon_contains_point({ lng,lat}, polygon)
+			if contains then
+				report_polygon_match(i)
+			end
+		end
 	end
-
 end
 function parse_wifis()
 	local file = assert(io.popen(WIFI_SCAN_COMMAND))
@@ -65,7 +67,6 @@ function parse_wifis()
 			wifis[counter]["signalStrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
 		end
 	end
-	print(JSON:encode(wifis))
 end
 function get_coordinates()
 	post = {}
@@ -75,14 +76,19 @@ function get_coordinates()
 		poststring=poststring:gsub(Url_encode_from[i], Url_encode_to[i])
 	end
 
-	print(poststring)
 	local file = assert(io.popen('wget -qO - ' .. HTTP_TO_HTTPS_PROXY .. poststring, 'r'))
+	reply = ""
 	for line in file:lines() do
-		print(line)
+		reply = reply .. line
 	end
+	json_reply = JSON:decode(reply)
+	lat = json_reply["location"]["lat"]
+	lng = json_reply["location"]["lng"]
+	print(lat)
+	print(lng)
 end
 
--- find_all_polygons()
--- test_all_polygons()
 parse_wifis()
 get_coordinates()
+find_all_polygons()
+test_all_polygons()
