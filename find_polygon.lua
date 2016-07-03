@@ -1,10 +1,15 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
+HTTP_TO_HTTPS_PROXY= 'http://firmware.freifunk-muensterland.de/approxy.php?aps='
 -- WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
 WIFI_SCAN_COMMAND = 'iwlist wlan0 scan'
 
 domains = { count = 0 }
 wifis = {}
 JSON = (loadfile "JSON.lua")()
+
+Url_encode_from = { '%{', '"', '%:', '%[', ',', '%]', '%}' }
+Url_encode_to = { '%%7B', '%%22', '%%3A', '%%5B', '%%2C', '%%5D', '%%7D' }
+
 
 function find_all_polygons()
 	local file = assert(io.popen('wget -qO - ' .. POLYGONS_BASE_URL, 'r'))
@@ -60,30 +65,21 @@ function parse_wifis()
 			wifis[counter]["signalStrength"] = line:gsub( '.+Signal.+%-(%d%d).*', '%-%1')
 		end
 	end
+	print(JSON:encode(wifis))
 end
 function get_coordinates()
 	post = {}
 	post["wifiAccessPoints"] = wifis
 	poststring = JSON:encode(post)
-	package.path = package.path .. ";/usr/local/?.lua"
-	local http = require("socket.http")
-	local ltn12 = require("ltn12")
+	for i=1,#Url_encode_from do
+		poststring=poststring:gsub(Url_encode_from[i], Url_encode_to[i])
+	end
 
-	local path = "https://www.googleapis.com/geolocation/v1/geolocate?key=AIzaSyA4-TkuE0b2XJC0s4z2TyObyTNHtQgb9Wg"
-	local response_body = { }
-	local res, code, response_headers, status = http.request {
-		url = path,
-		method = "POST",
-		headers = {
-			["Content-Type"] = "application/json",
-			["Content-Length"] = poststring:len()
-		},
-		source = ltn12.source.string(poststring),
-		sink = ltn12.sink.table(response_body)
-	}
-	print(ltn12.source.string(poststring));
-	-- luup.task('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
-	print('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
+	print(poststring)
+	local file = assert(io.popen('wget -qO - ' .. HTTP_TO_HTTPS_PROXY .. poststring, 'r'))
+	for line in file:lines() do
+		print(line)
+	end
 end
 
 -- find_all_polygons()
