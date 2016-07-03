@@ -65,6 +65,7 @@ function get_coordinates()
 	post = {}
 	post["wifiAccessPoints"] = wifis
 	poststring = JSON:encode(post)
+	package.path = package.path .. ";/usr/local/?.lua"
 	local http = require("socket.http")
 	local ltn12 = require("ltn12")
 
@@ -80,7 +81,9 @@ function get_coordinates()
 		source = ltn12.source.string(poststring),
 		sink = ltn12.sink.table(response_body)
 	}
-	luup.task('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
+	print(ltn12.source.string(poststring));
+	-- luup.task('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
+	print('Response: = ' .. table.concat(response_body) .. ' code = ' .. code .. '   status = ' .. status,1,'Sample POST request with JSON data',-1)
 end
 
 -- find_all_polygons()
