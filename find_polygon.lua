@@ -1,7 +1,8 @@
 POLYGONS_BASE_URL = "http://firmware.freifunk-muensterland.de/md-fw-dl/shapes"
 HTTP_TO_HTTPS_PROXY= 'http://firmware.freifunk-muensterland.de/approxy.php?aps='
--- WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
-WIFI_SCAN_COMMAND = 'iwlist wlan0 scan'
+WIFI_SCAN_COMMAND = 'iwinfo client0 scan'
+-- WIFI_SCAN_COMMAND = 'iwlist wlan0 scan'
+RUECKMELDUNGS_URL = 'http://firmware.freifunk-muensterland.de/knoten.php?dom='
 
 domains = { count = 0 }
 wifis = {}
@@ -22,7 +23,10 @@ function find_all_polygons()
 	end
 end
 function report_polygon_match(count)
-	print("Dieser Knoten liegt im Polygon " .. domains[count] ..".")
+	domaene = domains[count]:gsub('^.-(%d+).-$', '%1')
+	print("Dieser Knoten liegt im Polygon " .. domaene ..".")
+	assert(io.popen('wget -qO - ' .. RUECKMELDUNGS_URL .. domaene, 'r'))
+	print ('wget -qO - ' .. RUECKMELDUNGS_URL .. domaene)
 end
 function read_whole_file(file)
         local content = file:read("*all")
