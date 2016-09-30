@@ -19,6 +19,10 @@ RETRIES=""
 SKIP_GLUON_PREBUILD_ACTIONS=""
 imagedir=""
 
+function expand_relativ_path () {
+	echo ${1/../$(dirname $(pwd))}
+}
+
 function set_arguments_not_passed () {
 	GLUON_DIR=${GLUON_DIR:-$DEFAULT_GLUON_DIR}
 	GLUON_SITEDIR=${GLUON_SITEDIR:-$DEFAULT_GLUON_SITEDIR}
@@ -28,6 +32,10 @@ function set_arguments_not_passed () {
 	GLUON_URL=${GLUON_URL:-$DEFAULT_GLUON_URL}
 	RETRIES=${RETRIES:-1}
 	SKIP_GLUON_PREBUILD_ACTIONS=${SKIP_GLUON_PREBUILD_ACTIONS:-0}
+
+	GLUON_DIR=$(expand_relativ_path "$GLUON_DIR")
+	GLUON_SITEDIR=$(expand_relativ_path "$GLUON_SITEDIR")
+	GLUON_IMAGEDIR=$(expand_relativ_path "$GLUON_IMAGEDIR")
 }
 
 function split_value_from_argument () {
