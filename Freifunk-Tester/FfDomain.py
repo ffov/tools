@@ -1,5 +1,8 @@
 import libvirt
 import xml.etree.ElementTree as ET
+import serial
+
+SERIAL_TIMEOUT=2
 
 class FfDomain(libvirt.virDomain):
     def __init__(self, virConnect, vmName):
@@ -13,4 +16,5 @@ class FfDomain(libvirt.virDomain):
         xml_root = ET.fromstring(domain_xml) 
         devices = xml_root.find('devices')
         console = devices.find('console')
-        return console.get('tty')
+        serialPath = console.get('tty')
+        return serial.Serial(serialPath, timeout=SERIAL_TIMEOUT)

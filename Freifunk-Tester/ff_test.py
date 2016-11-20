@@ -1,20 +1,28 @@
 #!/bin/python
 
 import serial
-import subprocess
-import os
 import re
+from FfDomain import FfDomain
+import libvirt
 
-SERIAL_TIMEOUT=2
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
+LIBVIRT_SYSTEM_PATH='qemu:///system'
+
+testmachine = None
+conn = None
+
+def initialize_libvirt():
+    global conn
+    conn = libvirt.open(LIBVIRT_SYSTEM_PATH)
 
 def open_serial_to_vmname(name):
-    p1 = subprocess.Popen(["virsh ttyconsole " + name], stdout=subprocess.PIPE, shell=True)
-    output, stderr = p1.communicate()
-    for line in output.split(os.linesep):
-        if "/dev/pts" in line:
-            return serial.Serial(line, timeout=SERIAL_TIMEOUT)
+    global conn
+    global testmachine
+    if conn is None:
+        initialize_libvirt()
+    testmachine = FfDomain(conn, NAME_OF_DEBIAN_TESTMACHINE)
+    return testmachine.getSerial()
 
 def execute_command(serial, command_string):
     serial.write(command_string.encode('utf-8'))
