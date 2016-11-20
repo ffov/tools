@@ -10,18 +10,18 @@ NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
 LIBVIRT_SYSTEM_PATH='qemu:///system'
 
 testmachine = None
-conn = None
+libvirt_connection = None
 
 def initialize_libvirt():
-    global conn
-    conn = libvirt.open(LIBVIRT_SYSTEM_PATH)
+    global libvirt_connection
+    libvirt_connection = libvirt.open(LIBVIRT_SYSTEM_PATH)
 
 def open_serial_to_vmname(name):
-    global conn
+    global libvirt_connection
     global testmachine
-    if conn is None:
+    if libvirt_connection is None:
         initialize_libvirt()
-    testmachine = FfDomain(conn, NAME_OF_DEBIAN_TESTMACHINE)
+    testmachine = FfDomain(libvirt_connection, NAME_OF_DEBIAN_TESTMACHINE)
     return testmachine.getSerial()
 
 def execute_command(serial, command_string):
