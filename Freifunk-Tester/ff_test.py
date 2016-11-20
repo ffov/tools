@@ -29,9 +29,10 @@ def execute_command(serial, command_string):
     return serial.readlines()
 
 def parse_ping_loss(outputlines):
-    for line in outputlines:
+    for byteline in outputlines:
+        line = byteline.decode('utf-8')
         if "received" in line:
-	    packet_loss = re.compile(r", \d+% packet loss")
+            packet_loss = re.compile(r", \d+% packet loss")
             result = packet_loss.findall(line)
             return result[0][2:result[0].index('%')]
     return -1
@@ -57,7 +58,8 @@ def get_default_gateway_v6(serial):
     return parse_default_gateway(output)
 
 def parse_default_gateway(outputlines):
-    for line in outputlines:
+    for byteline in outputlines:
+        line = byteline.decode('utf-8')
         if "default" in line:
             line = line[12:]
             return line[:line.index(' ')]
