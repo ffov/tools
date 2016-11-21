@@ -7,16 +7,16 @@ class TestResult(object):
         self.__optionalStuff = optionalStuff 
 
     def passed(self):
-        return __passed
+        return self.__passed
 
     def benchmark(self):
-        return __benchmark_number
+        return self.__benchmark_number
 
     def testDescription(self):
-        return __testDescription
+        return self.__testDescription
 
     def getRawOutput(self):
-        return __rawOutput
+        return self.__rawOutput
 
     def getOptionalStuff(self):
-        return __optionalStuff
+        return self.__optionalStuff

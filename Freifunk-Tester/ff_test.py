@@ -4,6 +4,8 @@ import serial
 import re
 from FfDomain import FfDomain
 import libvirt
+from tests import TestResult
+from tests.PingTest import PingTest
 
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
@@ -66,11 +68,19 @@ def parse_default_gateway(outputlines):
 
 def standard_test(serial):
     print ("V4 default gateway: " + get_default_gateway_v4(serial))
-    print ("V4 loss to 8.8.8.8: " + str(perform_ping_v4_test(serial, "8.8.8.8")) + "%")
-    print ("V4 loss to google.de: " + str(perform_ping_v4_test(serial, "google.de")) + "%")
+    deb_ping_test = PingTest(deb, "8.8.8.8", protocol=4)
+    deb_ping_test_result = deb_ping_test.execute()
+    print ("V4 loss to 8.8.8.8: " + str(deb_ping_test_result.benchmark()) + "%, passed: " + str(deb_ping_test_result.passed()))
+    deb_ping_test = PingTest(deb, "google.de", protocol=4)
+    deb_ping_test_result = deb_ping_test.execute()
+    print ("V4 loss to google.de: " + str(deb_ping_test_result.benchmark()) + "%, passed: " + str(deb_ping_test_result.passed()))
     print ("V6 default gateway: " + get_default_gateway_v6(serial))
-    print ("V6 loss to google.de: " + str(perform_ping_v6_test(serial, "google.de")) + "%")
-    print ("V6 loss to 2a00:1450:4001:804::2003: " + str(perform_ping_v6_test(serial, "2a00:1450:4001:804::2003")) + "%")
+    deb_ping_test = PingTest(deb, "2a00:1450:4001:804::2003")
+    deb_ping_test_result = deb_ping_test.execute()
+    print ("V6 loss to 2a00:1450:4001:804::2003: " + str(deb_ping_test_result.benchmark()) + "%, passed: " + str(deb_ping_test_result.passed()))
+    deb_ping_test = PingTest(deb, "google.de")
+    deb_ping_test_result = deb_ping_test.execute()
+    print ("V6 loss to google.de: " + str(deb_ping_test_result.benchmark()) + "%, passed: " + str(deb_ping_test_result.passed()))
 
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
 standard_test(deb)
