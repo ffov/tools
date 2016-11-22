@@ -30,5 +30,6 @@ class HasDefaultGatewayTest(AbstractTest):
                 if "default" in line:
                     line = line[12:]
                     return line[:line.index(' ')]
+                return int(0)
         except:
             return int(0)

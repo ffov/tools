@@ -14,7 +14,7 @@ class PingTest(AbstractTest):
         else:
             raise ValueError('IP protocol version must be 4 or 6.')
 
-        self._testDescription = 'PingTest performs a standard, four packet ping test with the given destination. The benchmark it the procentual loss.'
+        self._testDescription = 'PingTest performs a standard, four packet ping test with the given destination. The benchmark is the procentual loss.'
         self._benchmark_description = 'procental loss of packets'
 
     def validate(self, result):

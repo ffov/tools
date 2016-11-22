@@ -27,7 +27,7 @@ class TestResult(object):
         if self.passed():
             return '[passed] ' + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number)
         else:
-            return '[failed] ' + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number) + ', test description: ' + self.__testDescription + ', raw output: ' + self.__rawOutput.decode('utf-8')
+            return '[failed] ' + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number) + ', test description: ' + self.__testDescription + ', raw output: ' + bytes.join(b'', self.__rawOutput).decode('utf-8')
 
     def print_report(self):
         print(self.report())
