@@ -6,7 +6,9 @@ class AbstractTest(ABC):
     def __init__(self, serial):
         self._serial = serial
         self._command_string = "echo 'This is a test command.'"
-        self.__testDescription = "This is the AbstractTest class."
+        self._testDescription = "This is the AbstractTest class."
+        self._benchmark_description = "Your test lacks a benchmark description."
+        self._short_description = "Your test lacks a short description."
 
     def _runCommand(self):
         self._serial.write(self._command_string.encode('utf-8'))
@@ -14,7 +16,7 @@ class AbstractTest(ABC):
 
     def execute(self):
         rawOutput = self._runCommand()
-        return TestResult(self.validate(rawOutput), self.benchmark(rawOutput), self.__testDescription, rawOutput)
+        return TestResult(self.validate(rawOutput), self._short_description, self._benchmark_description, self.benchmark(rawOutput), self._testDescription, rawOutput)
 
     @abstractmethod
     def validate(self, result):
@@ -25,5 +27,5 @@ class AbstractTest(ABC):
         pass
 
     def getDescription(self):
-        return __testDescription
+        return _testDescription
 

@@ -7,11 +7,15 @@ class PingTest(AbstractTest):
         super(PingTest, self).__init__(serial)
         if protocol == 4:
             self._command_string = "ping -c4 " + destination + "\r"
+            self._short_description = 'IPv4 ping test to ' + destination
         elif protocol == 6:
             self._command_string = "ping6 -c4 " + destination + "\r"
+            self._short_description = 'IPv6 ping test to ' + destination
         else:
             raise ValueError('IP protocol version must be 4 or 6.')
-        self.__testDescription = 'PingTest performs a standard, four packet ping test with the given destination. The benchmark it the procentual loss.'
+
+        self._testDescription = 'PingTest performs a standard, four packet ping test with the given destination. The benchmark it the procentual loss.'
+        self._benchmark_description = 'procental loss of packets'
 
     def validate(self, result):
         if self.benchmark(result) == 0:
