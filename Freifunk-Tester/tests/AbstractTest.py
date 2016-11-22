@@ -3,10 +3,10 @@ from tests.TestResult import TestResult
 
 class AbstractTest(ABC):
 
-    def __init__(self, serial, command_string, testDescription):
+    def __init__(self, serial):
         self._serial = serial
-        self._command_string = command_string
-        self.__testDescription = testDescription
+        self._command_string = "echo 'This is a test command.'"
+        self.__testDescription = "This is the AbstractTest class."
 
     def _runCommand(self):
         self._serial.write(self._command_string.encode('utf-8'))
