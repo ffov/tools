@@ -7,6 +7,7 @@ import libvirt
 from tests import TestResult
 from tests.PingTest import PingTest
 from tests.HasDefaultGatewayTest import HasDefaultGatewayTest
+import time
 
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
@@ -39,5 +40,27 @@ def standard_test(serial):
     PingTest(deb, '2a00:1450:4001:804::2003').execute().print_report()
     PingTest(deb, 'google.de').execute().print_report()
 
+def tests_for_all_networks():
+    global testmachine
+    if libvirt_connection is None:
+        initialize_libvirt()
+    for net in sorted(libvirt_connection.listNetworks()):
+        if "Clientnetz" in net:
+            print ("Bearbeite " + net)
+            gluonname = net.replace("Clientnetz-", "Gluon-", 1)
+            gluon = libvirt_connection.lookupByName(gluonname)
+            if not gluon.isActive():
+                print(gluonname + " läuft nicht. Wird nun gestartet. Warte 120 Sekunden.")
+                gluon.create()    
+                time.sleep(120)
+
+            if gluon.isActive():
+                testmachine.setNetwork(net)
+                testmachine.restartNetwork()
+                standard_test(testmachine.getSerial())
+ 
+
+
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
-standard_test(deb)
+#standard_test(deb)
+tests_for_all_networks()
