@@ -15,6 +15,7 @@ LIBVIRT_SYSTEM_PATH='qemu:///system'
 
 testmachine = None
 libvirt_connection = None
+one_failed = False
 
 def initialize_libvirt():
     global libvirt_connection
@@ -32,13 +33,31 @@ def execute_command(serial, command_string):
     serial.write(command_string.encode('utf-8'))
     return serial.readlines()
 
+def report_if_failed(result):
+    global one_failed
+    if not result.passed():
+        curl_command = """curl -d '{"color":"red","message":"""" + result.print_report() + """","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'"""
+        os.system(curl_command)
+        one_failed = True
+
+def run_test(test):
+    result = test.execute()
+    result.print_report()
+    report_if_failed(result)
+
+def report_if_none_failed():
+    global one_failed
+    if not one_failed:
+        curl_command = """curl -d '{"color":"green","message":"Testzyklus komplett, alles funktioniert, wie es soll.","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'"""
+        os.system(curl_command)
+
 def standard_test(serial):
-    HasDefaultGatewayTest(deb, protocol=4).execute().print_report()
-    PingTest(deb, '8.8.8.8', protocol=4).execute().print_report()
-    PingTest(deb, 'google.de', protocol=4).execute().print_report()
-    HasDefaultGatewayTest(deb).execute().print_report()
-    PingTest(deb, '2a00:1450:4001:804::2003').execute().print_report()
-    PingTest(deb, 'google.de').execute().print_report()
+    run_test(HasDefaultGatewayTest(deb, protocol=4))
+    run_test(PingTest(deb, '8.8.8.8', protocol=4))
+    run_test(PingTest(deb, 'google.de', protocol=4))
+    run_test(HasDefaultGatewayTest(deb))
+    run_test(PingTest(deb, '2a00:1450:4001:804::2003'))
+    run_test(PingTest(deb, 'google.de'))
 
 def tests_for_all_networks():
     global testmachine
@@ -58,6 +77,8 @@ def tests_for_all_networks():
                 testmachine.setNetwork(net)
                 testmachine.restartNetwork()
                 standard_test(testmachine.getSerial())
+
+            gluon.destroy()
  
 
 
