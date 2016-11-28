@@ -8,6 +8,7 @@ from tests import TestResult
 from tests.PingTest import PingTest
 from tests.HasDefaultGatewayTest import HasDefaultGatewayTest
 import time
+import os
 
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
@@ -36,7 +37,7 @@ def execute_command(serial, command_string):
 def report_if_failed(result):
     global one_failed
     if not result.passed():
-        curl_command = """curl -d '{"color":"red","message":"""" + result.print_report() + """","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'"""
+        curl_command = '''curl -d '{"color":"red","message":"''' + result.print_report() + '''","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'''
         os.system(curl_command)
         one_failed = True
 
@@ -48,7 +49,8 @@ def run_test(test):
 def report_if_none_failed():
     global one_failed
     if not one_failed:
-        curl_command = """curl -d '{"color":"green","message":"Testzyklus komplett, alles funktioniert, wie es soll.","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'"""
+        curl_command = """curl -d '{"color":"green","message":"Testzyklus komplett, alles funktioniert, wie es soll.","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV"""
+        print(curl_command)
         os.system(curl_command)
 
 def standard_test(serial):
@@ -84,4 +86,7 @@ def tests_for_all_networks():
 
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
 #standard_test(deb)
-tests_for_all_networks()
+while (True):
+    tests_for_all_networks()
+    report_if_none_failed()
+    one_failed = False
