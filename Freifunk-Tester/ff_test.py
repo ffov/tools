@@ -37,8 +37,7 @@ def execute_command(serial, command_string):
 def report_if_failed(result):
     global one_failed
     if not result.passed():
-        curl_command = '''curl -d '{"color":"red","message":"''' + result.report().replace('\r', ' ').replace('\n', ' ').replace('"', '\\"').replace("'", "\\'") + '''","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV'''
-        print(curl_command)
+        curl_command = '''curl -d '{"color":"red","message":"''' + result.report().replace('\r', ' ').replace('\n', ' ').replace('"', '\\"').replace("'", "\\'") + '''","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/13/notification?auth_token=HeoSTcIvLsm8MXD4WefcEVfbXKXKemLtTFxbWoxj'''
         os.system(curl_command)
         one_failed = True
 
@@ -50,16 +49,16 @@ def run_test(test):
 def report_if_none_failed():
     global one_failed
     if not one_failed:
-        curl_command = """curl -d '{"color":"green","message":"Testzyklus komplett, alles funktioniert, wie es soll.","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/1/notification?auth_token=kXlUiwKTdVc8IPrN2knT18P8QjhOteBi9YcSUCDV"""
+        curl_command = """curl -d '{"color":"green","message":"Testzyklus komplett, alles funktioniert, wie es soll.","notify":false,"message_format":"text"}' -H 'Content-Type: application/json' https://hc.infrastruktur.ms/v2/room/13/notification?auth_token=HeoSTcIvLsm8MXD4WefcEVfbXKXKemLtTFxbWoxj"""
         os.system(curl_command)
 
-def standard_test(serial):
-    run_test(HasDefaultGatewayTest(deb, protocol=4))
-    run_test(PingTest(deb, '8.8.8.8', protocol=4))
-    run_test(PingTest(deb, 'google.de', protocol=4))
-    run_test(HasDefaultGatewayTest(deb))
-    run_test(PingTest(deb, '2a00:1450:4001:804::2003'))
-    run_test(PingTest(deb, 'google.de'))
+def standard_test(serial, domain="unknown", gateway="random"):
+    run_test(HasDefaultGatewayTest(deb, protocol=4, domain=domain, gateway=gateway))
+    run_test(PingTest(deb, '8.8.8.8', protocol=4, domain=domain, gateway=gateway))
+    run_test(PingTest(deb, 'google.de', protocol=4, domain=domain, gateway=gateway))
+    run_test(HasDefaultGatewayTest(deb, domain=domain, gateway=gateway))
+    run_test(PingTest(deb, '2a00:1450:4001:804::2003', domain=domain, gateway=gateway))
+    run_test(PingTest(deb, 'google.de', domain=domain, gateway=gateway))
 
 def tests_for_all_networks():
     global testmachine
@@ -69,6 +68,7 @@ def tests_for_all_networks():
         if "Clientnetz" in net:
             print ("Bearbeite " + net)
             gluonname = net.replace("Clientnetz-", "Gluon-", 1)
+            domain = net.replace("Clientnetz-", "", 1)
             gluon = libvirt_connection.lookupByName(gluonname)
             if not gluon.isActive():
                 print(gluonname + " läuft nicht. Wird nun gestartet. Warte 120 Sekunden.")
@@ -78,8 +78,8 @@ def tests_for_all_networks():
             if gluon.isActive():
                 testmachine.setNetwork(net)
                 testmachine.restartNetwork()
-                time.sleep(20)
-                standard_test(testmachine.getSerial())
+                time.sleep(60)
+                standard_test(testmachine.getSerial(), domain=domain)
 
             gluon.destroy()
  

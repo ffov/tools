@@ -1,5 +1,5 @@
 class TestResult(object):
-    def __init__(self, passed, short_description, benchmark_description, benchmark_number, testDescription, rawOutput, optionalStuff=None):
+    def __init__(self, passed, short_description, benchmark_description, benchmark_number, testDescription, rawOutput, domain="unknown", gateway="random", optionalStuff=None):
         self.__passed = passed
         self.__benchmark_number = benchmark_number
         self.__testDescription = testDescription
@@ -7,6 +7,8 @@ class TestResult(object):
         self.__optionalStuff = optionalStuff 
         self.__benchmark_description = benchmark_description
         self.__short_description = short_description
+        self.__domain=domain
+        self.__gateway=gateway
 
     def passed(self):
         return self.__passed
@@ -25,9 +27,9 @@ class TestResult(object):
 
     def report(self):
         if self.passed():
-            return '[passed] ' + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number)
+            return '[passed] Domain: ' + self.__domain + ', Gateway: ' + self.__gateway + ", " + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number)
         else:
-            return '[failed] ' + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number) + ', test description: ' + self.__testDescription + ', raw output: ' + bytes.join(b'', self.__rawOutput).decode('utf-8')
+            return '[failed] Domain: ' + self.__domain + ', Gateway: ' + self.__gateway + ", " + self.__short_description + ', ' + self.__benchmark_description + ': ' + str(self.__benchmark_number) + ', test description: ' + self.__testDescription + ', raw output: ' + bytes.join(b'', self.__rawOutput).decode('utf-8')
 
     def print_report(self):
         print(self.report())
