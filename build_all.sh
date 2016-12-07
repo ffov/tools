@@ -5,6 +5,7 @@ DEFAULT_GLUON_SITEDIR=`dirname \`pwd\``'/site/'
 DEFAULT_SITE_URL="https://github.com/FreiFunkMuenster/site-ffms.git"
 DEFAULT_GLUON_URL="https://github.com/freifunk-gluon/gluon.git"
 DEFAULT_GLUON_DIR='../gluon'
+HIPCHAT_NOTIFY_URL="https://hc.infrastruktur.ms/v2/room/5/notification?auth_token=$(cat HIPCHAT_AUTH_TOKEN)" # HIPCHAT_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken für HipChat enthalten.
 GLUON_VERSION=""
 VERSION=""
 TARGETS=""
@@ -59,9 +60,19 @@ function split_value_from_argument () {
 	fi
 	return 0
 }
+
+function hc_notify () {
+	COLOR=$1
+	MESSAGE=$2
+	NOTIFY=$3
+	
+	curl -d '{"color":"'"$COLOR"'","message":"'"$MESSAGE"'","notify":"'"$NOTIFY"'","message_format":"text"}' -H 'Content-Type: application/json' $HIPCHAT_NOTIFY_URL
+}
+
 function enable_debugging () {
 	set -x
 }
+
 function add_domain_to_buildprocess () {
 	DOMAINS_TO_BUILD="$DOMAINS_TO_BUILD $1"
 }
@@ -284,6 +295,7 @@ function try_execution_x_times () {
 	done
 	if [[ ! $return_value == 0 ]]
 	then
+		hc_notify "red" "Build abgebrochen." true
 		echo "Something went wrong. Aborting."
 		exit 1
 	fi
@@ -317,11 +329,14 @@ function build_selected_targets_for_domaene () {
 function build_selected_domains_and_selected_targets () {
 	for i in $DOMAINS_TO_BUILD
 	do
+		hc_notify "yellow" "$i gestartet." false
 		build_selected_targets_for_domaene $i
+		hc_notify "yellow" "$i fertig." false
 	done
 }
 
 process_arguments "$@"
+hc_notify "green" "Build $GLUON_VERSION+$VERSION gestartet." true
 build_make_opts
 prepare_repo "$GLUON_SITEDIR" $SITE_URL
 prepare_repo "$GLUON_DIR" $GLUON_URL
@@ -333,3 +348,4 @@ then
 	gluon_prepare_buildprocess
 fi
 build_selected_domains_and_selected_targets
+hc_notify "green" "Build $GLUON_VERSION+$VERSION abgeschlossen." true
