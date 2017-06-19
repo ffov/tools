@@ -87,9 +87,9 @@ function set_out_file () {
 }
 
 function copy_old_config_till_reference () {
-	while IFS='' read -r line
+	while IFS='' read -r line || [[ -n "$line" ]];
 	do
-		echo $line >> "$OUTPUT_FILE"
+		echo "$line" >> "$OUTPUT_FILE"
 		if [[ $line =~ "$REFERENCE" ]]
 		then
 			return 0
@@ -100,7 +100,7 @@ function copy_old_config_till_reference () {
 
 function copy_rest_of_old_config_file () {
 	section=0
-	while IFS='' read -r line
+	while IFS='' read -r line || [[ -n "$line" ]];
 	do
 		if [[ $section == "0" ]]
 		then
@@ -113,10 +113,10 @@ function copy_rest_of_old_config_file () {
 			if [[ -z $line || ${line:0:1} != " " ]]
 			then
 				section=2
-				echo $line >> $OUTPUT_FILE
+				echo "$line" >> $OUTPUT_FILE
 			fi
 		else
-			echo $line >> $OUTPUT_FILE
+			echo "$line" >> $OUTPUT_FILE
 		fi
 	done < ${HOSTS_FILE:0:(-1)}_vars/$1
 }
@@ -208,6 +208,7 @@ function write_config_in_gateway_hosts_file () {
 	copy_old_config_till_reference $1
 	generate_config_for_gateway >> $OUTPUT_FILE
 	copy_rest_of_old_config_file $1
+	mv $OUTPUT_FILE ${OUTPUT_FILE:0:(-4)}
 }
 
 
