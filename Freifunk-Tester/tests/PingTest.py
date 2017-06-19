@@ -3,8 +3,8 @@ import re
 
 class PingTest(AbstractTest):
 
-    def __init__(self, serial, destination, protocol=6):
-        super(PingTest, self).__init__(serial)
+    def __init__(self, serial, destination, protocol=6, **kw):
+        super(PingTest, self).__init__(serial, **kw)
         if protocol == 4:
             self._command_string = "ping -c4 " + destination + "\r"
             self._short_description = 'IPv4 ping test to ' + destination

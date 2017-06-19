@@ -3,8 +3,8 @@ import re
 
 class HasDefaultGatewayTest(AbstractTest):
 
-    def __init__(self, serial, protocol=6):
-        super(HasDefaultGatewayTest, self).__init__(serial)
+    def __init__(self, serial, protocol=6, **kw):
+        super(HasDefaultGatewayTest, self).__init__(serial, **kw)
         if protocol == 4:
             self._command_string = "ip r s\r"
             self._short_description = 'Has IPv4 default gateway'
@@ -30,6 +30,7 @@ class HasDefaultGatewayTest(AbstractTest):
                 if "default" in line:
                     line = line[12:]
                     return line[:line.index(' ')]
-                return int(0)
+
+            return int(0)
         except:
             return int(0)
