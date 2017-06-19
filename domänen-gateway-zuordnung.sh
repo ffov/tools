@@ -5,8 +5,8 @@ REFERENCE="domaenenliste:"
 HOSTS_FILE=""
 CONFIG_TABLE_FILE=""
 
-GATEWAY_DOMAIN_LIST=""
-GATEWAY_DOMAIN_ID=""
+GATEWAY_DOMAIN_LIST=()
+GATEWAY_DOMAIN_ID=()
 
 OUTPUT_FILE=""
 
@@ -71,8 +71,8 @@ function read_config_table_file_and_set_gateway_domain_array () {
 			else
 				GATEWAY_DOMAIN_ID[$count]=3
 			fi
+			count=$((count + 1))
 		fi
-		count=$((count + 1))
 
 	done < "$CONFIG_TABLE_FILE"
 }
@@ -121,14 +121,92 @@ function copy_rest_of_old_config_file () {
 	done < ${HOSTS_FILE:0:(-1)}_vars/$1
 }
 
+function remove_leading_zero_if_necessary () {
+	if [[ ${1:0:1} == "0" ]]
+	then
+		echo ${1:(-1)}
+	else
+		echo $1
+	fi
+}
+
+
+function calculate_dhcp_start () {
+	domain=$(remove_leading_zero_if_necessary $1)
+	id=$2
+	if [[ $domain == 65 ]]
+	then
+		if [[ $id == 2 ]]
+		then
+			echo "10.255.248.26"
+		else
+			echo "10.255.252.0"
+		fi
+	elif [[ $domain -le 31 ]]
+	then
+		if [[ $id == 2 ]]
+		then
+			echo "10.43.$(($domain * 8)).26"
+		else
+			echo "10.43.$(($domain * 8 + 4)).0"
+		fi
+	else 
+		if [[ $id == 2 ]]
+		then
+			echo "10.48.$((($domain-32) * 8)).26"
+		else
+			echo "10.43.$((($domain-32) * 8 + 4)).0"
+		fi
+	fi
+}
+
+function calculate_dhcp_ende () {
+	domain=$(remove_leading_zero_if_necessary $1)
+	id=$2
+	if [[ $domain == 65 ]]
+	then
+		if [[ $id == 2 ]]
+		then
+			echo "10.255.251.255"
+		else
+			echo "10.255.255.254"
+		fi
+	elif [[ $domain -le 31 ]]
+	then
+		if [[ $id == 2 ]]
+		then
+			echo "10.43.$(($domain * 8 + 3)).255"
+		else
+			echo "10.43.$(($domain * 8 + 7)).254"
+		fi
+	else 
+		if [[ $id == 2 ]]
+		then
+			echo "10.48.$((($domain-32) * 8 + 3)).255"
+		else
+			echo "10.43.$((($domain-32) * 8 + 7)).254"
+		fi
+	fi
+}
+
 function generate_config_for_gateway () {
-	echo ">>> HIER KOMMT DER NEUE BLOCK REIN <<< " >> $OUTPUT_FILE
+	count=0
+	for i in ${GATEWAY_DOMAIN_LIST[@]}
+	do
+		start=$(calculate_dhcp_start ${GATEWAY_DOMAIN_LIST[$count]} ${GATEWAY_DOMAIN_ID[$count]})
+		stop=$(calculate_dhcp_ende ${GATEWAY_DOMAIN_LIST[$count]} ${GATEWAY_DOMAIN_ID[$count]})
+		echo "   \"${GATEWAY_DOMAIN_LIST[$count]}\":"
+		echo "      dhcp_start: $start"
+		echo "      dhcp_ende: $stop"
+		echo "      server_id: ${GATEWAY_DOMAIN_ID[$count]}"
+		count=$((count + 1))
+	done
 }
 
 function write_config_in_gateway_hosts_file () {
 	set_out_file $1
 	copy_old_config_till_reference $1
-	generate_config_for_gateway $1
+	generate_config_for_gateway >> $OUTPUT_FILE
 	copy_rest_of_old_config_file $1
 }
 
@@ -145,9 +223,3 @@ do
 	write_config_in_gateway_hosts_file $gateway
 
 done
-	
-
-
-
-
-
