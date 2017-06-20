@@ -203,6 +203,13 @@ function generate_config_for_gateway () {
 	done
 }
 
+function clear_temporary_variables () {
+	GATEWAY_DOMAIN_LIST=()
+	GATEWAY_DOMAIN_ID=()
+	count=0
+
+}
+
 function write_config_in_gateway_hosts_file () {
 	set_out_file $1
 	copy_old_config_till_reference $1
@@ -222,5 +229,5 @@ for gateway in $gateways
 do
 	read_config_table_file_and_set_gateway_domain_array $gateway
 	write_config_in_gateway_hosts_file $gateway
-
+	clear_temporary_variables
 done
