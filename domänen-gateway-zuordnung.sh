@@ -155,7 +155,7 @@ function calculate_dhcp_start () {
 		then
 			echo "10.48.$((($domain-32) * 8)).26"
 		else
-			echo "10.43.$((($domain-32) * 8 + 4)).0"
+			echo "10.48.$((($domain-32) * 8 + 4)).0"
 		fi
 	fi
 }
@@ -184,7 +184,7 @@ function calculate_dhcp_ende () {
 		then
 			echo "10.48.$((($domain-32) * 8 + 3)).255"
 		else
-			echo "10.43.$((($domain-32) * 8 + 7)).254"
+			echo "10.48.$((($domain-32) * 8 + 7)).254"
 		fi
 	fi
 }
