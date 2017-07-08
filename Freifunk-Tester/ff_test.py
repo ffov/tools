@@ -7,6 +7,7 @@ import libvirt
 from tests import TestResult
 from tests.PingTest import PingTest
 from tests.HasDefaultGatewayTest import HasDefaultGatewayTest
+from tests.SerialHasPrompt import SerialHasPrompt
 import time
 import os
 
@@ -53,12 +54,23 @@ def report_if_none_failed():
         os.system(curl_command)
 
 def standard_test(serial, domain="unknown", gateway="random"):
-    run_test(HasDefaultGatewayTest(deb, protocol=4, domain=domain, gateway=gateway))
+    wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain, gateway=gateway))
     run_test(PingTest(deb, '8.8.8.8', protocol=4, domain=domain, gateway=gateway))
     run_test(PingTest(deb, 'google.de', protocol=4, domain=domain, gateway=gateway))
-    run_test(HasDefaultGatewayTest(deb, domain=domain, gateway=gateway))
+    wait_for_test_to_pass(HasDefaultGatewayTest(deb, domain=domain, gateway=gateway))
     run_test(PingTest(deb, '2a00:1450:4001:804::2003', domain=domain, gateway=gateway))
     run_test(PingTest(deb, 'google.de', domain=domain, gateway=gateway))
+
+def wait_for_test_to_pass(test, maxtime=int(120)):
+    result = None
+    start_time = time.time()
+    while ((time.time() - start_time) < int(maxtime)):
+        result = test.execute()
+        result.print_report()
+        if result.passed():
+            return
+    report_if_failed(result)
+    raise Exception("End of time")
 
 def tests_for_all_networks():
     global testmachine
@@ -76,10 +88,22 @@ def tests_for_all_networks():
                 time.sleep(120)
 
             if gluon.isActive():
-                testmachine.setNetwork(net)
-                testmachine.restartNetwork()
-                time.sleep(60)
-                standard_test(testmachine.getSerial(), domain=domain)
+                try: 
+                    testmachine.setNetwork(net)
+                    testmachine.restartNetwork()
+                    #time.sleep(60)
+                    try:
+                        wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
+                        wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain), maxtime=20)
+                    except Exception as e:
+                        testmachine.renew_dhcp_v4()
+                        wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
+                        wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain), maxtime=120)
+                        
+                    standard_test(testmachine.getSerial(), domain=domain)
+                except Exception as e:
+                    print('An Exception occured in Domain ' + domain)
+                    print(str(e))
 
             gluon.destroy()
  
