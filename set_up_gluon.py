@@ -1,12 +1,15 @@
-#!/usr/bin/python3.4
+#!/usr/bin/python3.6
 
 import sys
 import urllib.request
 import urllib.parse
 import gzip
 import os
+import libvirt
 
 DEFAULT_DESTINATION_PATH="/var/lib/libvirt/images"
+
+LIBVIRT_SYSTEM_PATH='qemu:///system'
 
 def download_image_file(link):
    splits = sys.argv[1].split('/')
@@ -20,6 +23,8 @@ def download_image_file(link):
    inF.close()
    outF.close()
    os.remove(name)
+
+
 
 
 download_image_file(sys.argv[1])
