@@ -1,4 +1,4 @@
-#!/usr/bin/python3.6
+#!/usr/bin/python3
 
 import sys
 import urllib.request
@@ -126,18 +126,19 @@ def download_image_file(link):
    resultFilePath, responseHeaders = urllib.request.urlretrieve(sys.argv[1], name)
 
    inF = gzip.open(name, 'rb')
-   outF = open(name.replace(".gz", ""), 'wb')
+   outF = open(DEFAULT_DESTINATION_PATH + '/' + name.replace(".gz", ""), 'wb')
    outF.write( inF.read() )
    inF.close()
    outF.close()
    os.remove(name)
 
 def install_vm():
+    global TEMPLATE
     global name
     global libvirt_connection
-    xml = TEMPLATE.replace('$vmName', 'Test').replace('$imagePath', DEFAULT_DESTINATION_PATH).replace('$vmIMG', name)
+    xml = TEMPLATE.replace('$vmName', 'Test').replace('$imagePath', DEFAULT_DESTINATION_PATH).replace('$vmIMG', name.replace(".gz",""))
     libvirt_connection = libvirt.open(LIBVIRT_SYSTEM_PATH) 
-    libvirt_connection.create(xml)
+    libvirt_connection.createXML(xml)
 
    
 
@@ -145,5 +146,5 @@ def install_vm():
 
 
 download_image_file(sys.argv[1])
-install_vm
+install_vm()
    
