@@ -11,9 +11,11 @@ DEFAULT_DESTINATION_PATH="/var/lib/libvirt/images"
 
 LIBVIRT_SYSTEM_PATH='qemu:///system'
 
-TEMPLATE ="""<domain type='kvm' id='3087'>
+name = None
+libvirt_connection = None
+
+TEMPLATE ="""<domain type='kvm'>
   <name>$vmName</name>
-  <uuid>$vmUUID</uuid>
   <memory unit='KiB'>65536</memory>
   <currentMemory unit='KiB'>65536</currentMemory>
   <vcpu placement='static'>1</vcpu>
@@ -48,7 +50,7 @@ TEMPLATE ="""<domain type='kvm' id='3087'>
     <emulator>/usr/bin/kvm</emulator>
     <disk type='file' device='disk'>
       <driver name='qemu' type='raw'/>
-      <source file='/var/lib/libvirt/images/$vmIMG'/>
+      <source file='$imagePath/$vmIMG'/>
       <backingStore/>
       <target dev='vda' bus='virtio'/>
       <alias name='virtio-disk0'/>
@@ -117,6 +119,7 @@ TEMPLATE ="""<domain type='kvm' id='3087'>
 </domain>"""
 
 def download_image_file(link):
+   global name
    splits = sys.argv[1].split('/')
    n = len(splits)
    name = urllib.parse.unquote(splits[n-1])
@@ -130,10 +133,17 @@ def download_image_file(link):
    os.remove(name)
 
 def install_vm():
+    global name
+    global libvirt_connection
+    xml = TEMPLATE.replace('$vmName', 'Test').replace('$imagePath', DEFAULT_DESTINATION_PATH).replace('$vmIMG', name)
+    libvirt_connection = libvirt.open(LIBVIRT_SYSTEM_PATH) 
+    libvirt_connection.create(xml)
+
    
 
 
 
 
 download_image_file(sys.argv[1])
+install_vm
    
