@@ -118,6 +118,12 @@ TEMPLATE ="""<domain type='kvm'>
   </devices>
 </domain>"""
 
+TEMPLATE_NETZ="""<network connections='1'>
+  <name>$netName</name>
+  <bridge stp='on' delay='0'/>
+  <domain name='$netName'/>
+</network>"""
+
 def download_image_file(link):
    global name
    splits = sys.argv[1].split('/')
