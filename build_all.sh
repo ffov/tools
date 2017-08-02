@@ -335,6 +335,12 @@ function build_selected_domains_and_selected_targets () {
 	done
 }
 
+function delete_unwanted_firmwares () {
+	find $GLUON_IMAGEDIR -name '*-m5*' -exec rm {} \;
+	find $GLUON_IMAGEDIR -name '*cpe5*' -exec rm {} \;
+}
+
+
 process_arguments "$@"
 hc_notify "green" "Build $GLUON_VERSION+$VERSION gestartet." true
 build_make_opts
@@ -348,4 +354,5 @@ then
 	gluon_prepare_buildprocess
 fi
 build_selected_domains_and_selected_targets
+delete_unwanted_firmwares
 hc_notify "green" "Build $GLUON_VERSION+$VERSION abgeschlossen." true
