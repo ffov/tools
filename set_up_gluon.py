@@ -6,6 +6,9 @@ import urllib.parse
 import gzip
 import os
 import libvirt
+import xml.etree.ElementTree as ET
+import serial
+import time
 
 DEFAULT_DESTINATION_PATH="/var/lib/libvirt/images"
 
@@ -14,6 +17,7 @@ LIBVIRT_SYSTEM_PATH='qemu:///system'
 name = None
 domain = None
 gluon_domain = None
+serielle_console = None
 libvirt_connection = None
 
 TEMPLATE ="""<domain type='kvm'>
@@ -153,7 +157,7 @@ def open_libvirt_connection():
     global libvirt_connection
     libvirt_connection = libvirt.open(LIBVIRT_SYSTEM_PATH) 
 
-def install_vm():
+def define_and_start_vm():
     global TEMPLATE
     global name, domain, gluon_domain
     global libvirt_connection
@@ -187,11 +191,34 @@ def __getSerialPath():
     serialPath = console.get('tty')
     return serialPath
 
+def send_command(command_string):
+    global serielle_console
+    serielle_console.write(command_string.encode('utf-8'))
+    return serielle_console.readlines()
+
+def establish_serial_connection():
+    global serielle_console    
+    print(__getSerialPath())
+    serielle_console = serial.Serial(__getSerialPath(), timeout=5)
+    time.sleep(10)
+    output = send_command('\r')
+    print(output[len(output)-1])
+    while output[len(output)-1].find(b'root@freifunk') == -1:
+        time.sleep(1)
+        output = send_command('\r')
+        print(output[len(output)-1])
+
+def configure_gluon():
+    global domain
+    command = "uci set gluon-setup-mode.@setup_mode[0].configured='1';uci set tunneldigger.@broker[0].enabled='1';uci set system.@system[0].hostname='"+domain+"-virtueller-Testknoten';uci set network.mesh_lan.auto=0;for ifname in $(cat /lib/gluon/core/sysconfig/lan_ifname); do uci add_list network.client.ifname=$ifname;done;uci commit;reboot\r"
+    send_command(command)
+
 
 
 download_image_file_and_unzip_it(sys.argv[1])
 open_libvirt_connection()
 extract_domain()
 setup_clientnetz()
-install_vm()
-
+define_and_start_vm()
+establish_serial_connection()
+configure_gluon()
