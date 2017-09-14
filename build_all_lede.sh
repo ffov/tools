@@ -38,7 +38,7 @@ function set_arguments_not_passed () {
 	GLUON_DIR=$(expand_relativ_path "$GLUON_DIR")
 	GLUON_SITEDIR=$(expand_relativ_path "$GLUON_SITEDIR")
 	GLUON_IMAGEDIR=$(expand_relativ_path "$GLUON_IMAGEDIR")
-	FORCE_DIR_CLEAN=$(FORCE_DIR_CLEAN:-0}
+	FORCE_DIR_CLEAN=${FORCE_DIR_CLEAN:-0}
 }
 
 function split_value_from_argument () {
