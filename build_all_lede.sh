@@ -19,6 +19,7 @@ BROKEN=""
 RETRIES=""
 SKIP_GLUON_PREBUILD_ACTIONS=""
 imagedir=""
+FORCE_DIR_CLEAN=""
 
 function expand_relativ_path () {
 	echo ${1/../$(dirname $(pwd))}
@@ -37,6 +38,7 @@ function set_arguments_not_passed () {
 	GLUON_DIR=$(expand_relativ_path "$GLUON_DIR")
 	GLUON_SITEDIR=$(expand_relativ_path "$GLUON_SITEDIR")
 	GLUON_IMAGEDIR=$(expand_relativ_path "$GLUON_IMAGEDIR")
+	FORCE_DIR_CLEAN=$(FORCE_DIR_CLEAN:-0}
 }
 
 function split_value_from_argument () {
@@ -130,6 +132,9 @@ function process_arguments () {
 			-D|--enable-debugging)
 				enable_debugging
 				;;
+			-f|--force-dir-clean)
+				FORCE_DIR_CLEAN=1
+				;;
 			-B|--enable-broken)
 				BROKEN="BROKEN=1"
 				;;
@@ -208,9 +213,10 @@ All parameters can be set in one of the following ways: -e <value>, -e<value>, -
 	--site-url: URL to the site configuration. Default is site-ffms of Freifunk Münsterland.
 	-D --enable-debugging: Enables debugging by setting "set -x". This must be the first parameter, if you want to debug the parameter parsing.
 	-B --enable-broken: Enable the building of broken targets and broken images.
-	-S --skip-gluon-prebuilds: Skript make dirclean of Gluon folder. But openwrt/dl-folder is cached anway, just speeds up build process if you did not changes to packages.
+	-S --skip-gluon-prebuilds: Skip make dirclean of Gluon folder. 
 	-d --domain: Branches of your site-Git-repository to build. If left empty, all Domäne-XX will be build. This parameter can be used multiple times or you can set multiple branches at once, seperated by space and in quotes: "branch1 branch2 branch3".
 	-t*|--target: Targets to build. If left empty, all targets will be build. If broken is set, even those will be build. This parameter can be used multiple times or you can set multiple targets at once, seperated by space and in quotes: "target1 target2 target3".
+	-f --force-dire-clean: Force a make dir clean after each target.
 
 
 Please report issues here: https://github.com/FreiFunkMuenster/tools/issues
@@ -245,15 +251,18 @@ function prepare_repo () {
 	fi
 }
 
+function force_dir_clean () {
+	command="make dirclean $MAKE_OPTS"
+	try_execution_x_times $RETRIES "$command"
+}
+
 function gluon_prepare_buildprocess () {
 	command="make update ${MAKE_OPTS/-j* /-j1 }"
 	try_execution_x_times $RETRIES "$command"
-	rm $GLUON_IMAGEDIR/lede/dl
-	mkdir -p ../lede-dl
-	mkdir -p $GLUON_IMAGEDIR/lede
-	ln -s ../lede-dl $GLUON_IMAGEDIR/lede/dl
-	command="make dirclean $MAKE_OPTS"
-	try_execution_x_times $RETRIES "$command"
+	if [[ $FORCE_DIR_CLEAN=="1" ]]
+	then
+		force_dir_clean
+	fi
 	check_targets
 	for target in $TARGETS
 	do
