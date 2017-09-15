@@ -321,7 +321,9 @@ function build_selected_targets_for_domaene () {
 	git_pull "$GLUON_SITEDIR"
 	for j in $TARGETS
 	do
+		hc_notify "yellow" "$i Target $j gestartet." false
 		build_target_for_domaene $j
+		hc_notify "yellow" "$i Target $j fertig." false
 	done
 	make_manifests
 }
@@ -329,9 +331,9 @@ function build_selected_targets_for_domaene () {
 function build_selected_domains_and_selected_targets () {
 	for i in $DOMAINS_TO_BUILD
 	do
-		hc_notify "yellow" "$i gestartet." false
+		hc_notify "purple" "$i gestartet." false
 		build_selected_targets_for_domaene $i
-		hc_notify "yellow" "$i fertig." false
+		hc_notify "purple" "$i fertig." false
 	done
 }
 
