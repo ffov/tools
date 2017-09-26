@@ -33,3 +33,12 @@ class TestResult(object):
 
     def print_report(self):
         print(self.report())
+
+    def output_to_file(self, filename):
+        fileobject = open(filename, 'w')
+        if self.passed():
+             fileobject.write('0\n')
+        else:
+             fileobject.write('1\n')
+        fileobject.write(self.report())
+        fileobject.close()

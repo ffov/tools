@@ -14,6 +14,7 @@ import os
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
 LIBVIRT_SYSTEM_PATH='qemu:///system'
+PATH_FOR_REPORTS='/root/testresults'
 
 testmachine = None
 libvirt_connection = None
@@ -43,9 +44,12 @@ def report_if_failed(result):
         one_failed = True
 
 def run_test(test):
+    global PATH_FOR_REPORTS
     result = test.execute()
     result.print_report()
-    report_if_failed(result)
+    result.output_to_file(PATH_FOR_REPORTS + '/' + test._domain + '_' + test._short_description.replace(' ', '-') + '_' + test._gateway)
+    #report_if_failed(result)
+    
 
 def report_if_none_failed():
     global one_failed
@@ -67,7 +71,7 @@ def wait_for_test_to_pass(test, maxtime=int(120)):
         result.print_report()
         if result.passed():
             return
-    report_if_failed(result)
+    #report_if_failed(result)
     raise Exception("End of time")
 
 def tests_for_all_networks():
@@ -99,6 +103,7 @@ def tests_for_all_networks():
                 except Exception as e:
                     print('An Exception occured in Domain ' + domain)
                     print(str(e))
+                    print(format_exception(e))
 
             gluon.destroy()
  
