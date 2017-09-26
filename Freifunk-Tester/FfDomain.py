@@ -10,7 +10,7 @@ SERIAL_TIMEOUT=5
 GLUON_URL="http://firmware.freifunk-muensterland.org/domaene01/stable/sysupgrade/gluon-ffmsd01-v2016.2.1%2B2.1.0-x86-64-sysupgrade.img.gz"
 
 class FfDomain():
-    def __init__(self, virConnect, vmName, domID):
+    def __init__(self, virConnect, vmName, domID=None):
         self.domID = domID
         try:
            self.domain = virConnect.lookupByName(vmName)

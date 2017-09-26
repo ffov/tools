@@ -55,10 +55,8 @@ def report_if_none_failed():
 
 def standard_test(serial, domain="unknown", gateway="random"):
     wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain, gateway=gateway))
-    run_test(PingTest(deb, '8.8.8.8', protocol=4, domain=domain, gateway=gateway))
     run_test(PingTest(deb, 'google.de', protocol=4, domain=domain, gateway=gateway))
     wait_for_test_to_pass(HasDefaultGatewayTest(deb, domain=domain, gateway=gateway))
-    run_test(PingTest(deb, '2a00:1450:4001:804::2003', domain=domain, gateway=gateway))
     run_test(PingTest(deb, 'google.de', domain=domain, gateway=gateway))
 
 def wait_for_test_to_pass(test, maxtime=int(120)):
@@ -79,26 +77,23 @@ def tests_for_all_networks():
     for net in sorted(libvirt_connection.listNetworks()):
         if "Clientnetz" in net:
             print ("Bearbeite " + net)
-            gluonname = net.replace("Clientnetz-", "Gluon-", 1)
+            gluonname = net.replace("Clientnetz-", "", 1)
             domain = net.replace("Clientnetz-", "", 1)
             gluon = libvirt_connection.lookupByName(gluonname)
             if not gluon.isActive():
-                print(gluonname + " läuft nicht. Wird nun gestartet. Warte 120 Sekunden.")
+                print(gluonname + " läuft nicht. Wird nun gestartet. Warte 100 Sekunden.")
                 gluon.create()    
-                time.sleep(120)
+                time.sleep(100)
 
             if gluon.isActive():
                 try: 
                     testmachine.setNetwork(net)
                     testmachine.restartNetwork()
-                    #time.sleep(60)
-                    try:
-                        wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
-                        wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain), maxtime=20)
-                    except Exception as e:
-                        testmachine.renew_dhcp_v4()
-                        wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
-                        wait_for_test_to_pass(HasDefaultGatewayTest(deb, protocol=4, domain=domain), maxtime=120)
+                    time.sleep(10)
+                    while not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
+                         wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
+                         testmachine.renew_dhcp_v4()
+                         wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
                         
                     standard_test(testmachine.getSerial(), domain=domain)
                 except Exception as e:
