@@ -66,7 +66,7 @@ function hc_notify () {
 	MESSAGE=$2
 	NOTIFY=$3
 	
-	curl -d '{"color":"'"$COLOR"'","message":"'"$MESSAGE"'","notify":"'"$NOTIFY"'","message_format":"text"}' -H 'Content-Type: application/json' $HIPCHAT_NOTIFY_URL
+	curl -d '{"color":"'"$COLOR"'","message":"'"$(hostname) --> $MESSAGE"'","notify":"'"$NOTIFY"'","message_format":"text"}' -H 'Content-Type: application/json' $HIPCHAT_NOTIFY_URL
 }
 
 function enable_debugging () {
