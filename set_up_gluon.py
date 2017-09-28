@@ -203,7 +203,7 @@ def establish_serial_connection():
     time.sleep(10)
     output = send_command('\r')
     print(output[len(output)-1])
-    while output[len(output)-1].find(b'root@freifunk') == -1:
+    while output[len(output)-1].find(b'root@') == -1:
         time.sleep(1)
         output = send_command('\r')
         print(output[len(output)-1])
