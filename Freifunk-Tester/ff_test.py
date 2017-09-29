@@ -106,7 +106,7 @@ def tests_for_all_networks():
                     print(str(e))
                     print(format_exception(e))
 
-    #        gluon.destroy()
+            gluon.destroy()
  
 
 

@@ -8,7 +8,7 @@ FILENAME="$DATA_PATH/$1_$2_$3"
 tail -n-1 $FILENAME
 time=$(date -r $FILENAME +%s)
 now=$(date +%s)
-diff=$(( $time - $now ))
+diff=$(( $now - $time ))
 if [[ $diff -gt $MAX_AGE ]]
 then
 	exit 3
