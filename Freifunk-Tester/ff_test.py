@@ -80,35 +80,34 @@ def tests_for_all_networks():
     if libvirt_connection is None:
         initialize_libvirt()
     for net in sorted(libvirt_connection.listNetworks()):
-        if "Clientnetz" in net:
-            print ("Bearbeite " + net)
-            gluonname = net.replace("Clientnetz-", "", 1)
-            domain = net.replace("Clientnetz-", "", 1)
-            gluon = libvirt_connection.lookupByName(gluonname)
-            if not gluon.isActive():
-                print(gluonname + " läuft nicht. Wird nun gestartet. Warte 100 Sekunden.")
-                gluon.create()    
-                time.sleep(100)
-
-            if gluon.isActive():
-                try: 
-                    testmachine.setNetwork(net)
-                    testmachine.restartNetwork()
-                    time.sleep(10)
-                    while not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
-                         wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
-                         testmachine.renew_dhcp_v4()
-                         wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
-                        
-                    standard_test(testmachine.getSerial(), domain=domain)
-                except Exception as e:
-                    print('An Exception occured in Domain ' + domain)
-                    print(str(e))
-                    print(format_exception(e))
-
-            gluon.destroy()
- 
-
+        try:
+            if "Clientnetz" in net:
+                print ("Bearbeite " + net)
+                gluonname = net.replace("Clientnetz-", "", 1)
+                domain = net.replace("Clientnetz-", "", 1)
+                gluon = libvirt_connection.lookupByName(gluonname)
+                if not gluon.isActive():
+                    print(gluonname + " läuft nicht. Wird nun gestartet. Warte 100 Sekunden.")
+                    gluon.create()    
+                    time.sleep(100)
+    
+                if gluon.isActive():
+                    try: 
+                        testmachine.setNetwork(net)
+                        testmachine.restartNetwork()
+                        time.sleep(10)
+                        while not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
+                            testmachine.renew_dhcp_v4()
+                            time.sleep(10)
+                            wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
+                        standard_test(testmachine.getSerial(), domain=domain)
+                    except Exception as e:
+                        print('An Exception occured in Domain ' + domain)
+                        print(str(e))
+    
+                gluon.destroy()
+        except: 
+            print(str(e))
 
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
 #standard_test(deb)

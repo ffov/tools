@@ -64,5 +64,5 @@ class FfDomain():
         self.execute_command("ifdown eth0; ifup eth0\r")
 
     def renew_dhcp_v4(self):
-        self.execute_command("dhclient eth0\r")
+        print(self.execute_command("dhclient eth0\r"))
 
