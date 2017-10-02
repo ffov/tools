@@ -10,6 +10,7 @@ from tests.HasDefaultGatewayTest import HasDefaultGatewayTest
 from tests.SerialHasPrompt import SerialHasPrompt
 import time
 import os
+import sys
 
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
@@ -75,43 +76,58 @@ def wait_for_test_to_pass(test, maxtime=int(120)):
     #raise Exception("End of time")
     print("End of time, continue anyway")
 
-def tests_for_all_networks():
+def test_one_network(net):
     global testmachine
+    global libvirt_connection
+    try:
+        if "Clientnetz" in net:
+            print ("Bearbeite " + net)
+            gluonname = net.replace("Clientnetz-", "", 1)
+            domain = net.replace("Clientnetz-", "", 1)
+            gluon = libvirt_connection.lookupByName(gluonname)
+            if not gluon.isActive():
+                print(gluonname + " läuft nicht. Wird nun gestartet. Warte 100 Sekunden.")
+                gluon.create()    
+                time.sleep(100)
+
+            if gluon.isActive():
+                try: 
+                    testmachine.setNetwork(net)
+                    testmachine.restartNetwork()
+                    time.sleep(10)
+                    retries=10
+                    while retries == 0 or not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
+                        testmachine.renew_dhcp_v4()
+                        time.sleep(10)
+                        wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
+                        retries-=1
+                    standard_test(testmachine.getSerial(), domain=domain)
+                except Exception as e:
+                    print('An Exception occured in Domain ' + domain)
+                    print(str(e))
+
+            gluon.destroy()
+    except: 
+        print(str(e))
+
+def tests_for_all_networks():
+    for net in sorted(libvirt_connection.listNetworks()):
+         test_one_network(net)
+
+def initiate_libvirt_connection():
+    global libvirt_connection
     if libvirt_connection is None:
         initialize_libvirt()
-    for net in sorted(libvirt_connection.listNetworks()):
-        try:
-            if "Clientnetz" in net:
-                print ("Bearbeite " + net)
-                gluonname = net.replace("Clientnetz-", "", 1)
-                domain = net.replace("Clientnetz-", "", 1)
-                gluon = libvirt_connection.lookupByName(gluonname)
-                if not gluon.isActive():
-                    print(gluonname + " läuft nicht. Wird nun gestartet. Warte 100 Sekunden.")
-                    gluon.create()    
-                    time.sleep(100)
     
-                if gluon.isActive():
-                    try: 
-                        testmachine.setNetwork(net)
-                        testmachine.restartNetwork()
-                        time.sleep(10)
-                        while not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
-                            testmachine.renew_dhcp_v4()
-                            time.sleep(10)
-                            wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
-                        standard_test(testmachine.getSerial(), domain=domain)
-                    except Exception as e:
-                        print('An Exception occured in Domain ' + domain)
-                        print(str(e))
-    
-                gluon.destroy()
-        except: 
-            print(str(e))
 
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
+initiate_libvirt_connection()
 #standard_test(deb)
-while (True):
-    tests_for_all_networks()
-    report_if_none_failed()
-    one_failed = False
+if len(sys.argv) > 1:
+    print("Bearbeite Argument " + sys.argv[1])
+    test_one_network(sys.argv[1])
+else:
+    while (True):
+        tests_for_all_networks()
+        report_if_none_failed()
+        one_failed = False
