@@ -124,8 +124,9 @@ deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
 initiate_libvirt_connection()
 #standard_test(deb)
 if len(sys.argv) > 1:
-    print("Bearbeite Argument " + sys.argv[1])
-    test_one_network(sys.argv[1])
+    for i in range(1,len(sys.argv)):
+        print("Bearbeite Argument " + sys.argv[i])
+        test_one_network(sys.argv[i])
 else:
     while (True):
         tests_for_all_networks()
