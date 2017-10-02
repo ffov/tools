@@ -11,6 +11,7 @@ from tests.SerialHasPrompt import SerialHasPrompt
 import time
 import os
 import sys
+import traceback
 
 PING_COUNT=4
 NAME_OF_DEBIAN_TESTMACHINE="Testdebian"
@@ -104,7 +105,7 @@ def test_one_network(net):
                     standard_test(testmachine.getSerial(), domain=domain)
                 except Exception as e:
                     print('An Exception occured in Domain ' + domain)
-                    print(str(e))
+                    traceback.print_exc()
 
             gluon.destroy()
     except: 
@@ -123,7 +124,7 @@ def initiate_libvirt_connection():
 deb = open_serial_to_vmname(NAME_OF_DEBIAN_TESTMACHINE)
 initiate_libvirt_connection()
 #standard_test(deb)
-if len(sys.argv) > 1:
+if len(sys.argv) > 2:
     for i in range(1,len(sys.argv)):
         print("Bearbeite Argument " + sys.argv[i])
         test_one_network(sys.argv[i])

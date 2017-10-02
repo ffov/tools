@@ -1,6 +1,7 @@
 import libvirt
 import xml.etree.ElementTree as ET
 import serial
+import sys
 
 from urllib import request 
 from urllib.request import urlretrieve
@@ -44,17 +45,14 @@ class FfDomain():
         return self.serial
 
     def setNetwork(self, network_name):
-        xml_template = """    <interface type='network'>
-      <mac address='52:54:00:85:59:2c'/>
-      <source network='Clientnetz-Dom01'/>
-      <target dev='vnet18'/>
-      <model type='virtio'/>
-      <alias name='net0'/>
-      <address type='pci' domain='0x0000' bus='0x00' slot='0x03' function='0x0'/>
-    </interface>""".replace('\n',' ')
-        xml = xml_template.replace('Clientnetz-Dom01', network_name, 1)
-
-        self.domain.updateDeviceFlags(xml) 
+        domain_xml = self.domain.XMLDesc()
+        xml_root = ET.fromstring(domain_xml) 
+        devices = xml_root.find('devices')
+        interface = devices.find('interface')
+        network = interface.find('source')
+        network.set("network", network_name)
+        changed_xml = ET.tostring(interface, method='xml').decode('utf-8')
+        self.domain.updateDeviceFlags(changed_xml) 
 
     def execute_command(self, command_string):
         self.serial.write(command_string.encode('utf-8'))
