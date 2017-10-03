@@ -97,7 +97,7 @@ def test_one_network(net):
                     testmachine.restartNetwork()
                     time.sleep(10)
                     retries=10
-                    while retries == 0 or not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
+                    while retries >= 0 and not HasDefaultGatewayTest(deb, protocol=4, domain=domain).execute().passed():
                         testmachine.renew_dhcp_v4()
                         time.sleep(10)
                         wait_for_test_to_pass(SerialHasPrompt(testmachine.getSerial(), domain=domain))
