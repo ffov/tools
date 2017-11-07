@@ -107,7 +107,11 @@ def test_one_network(net):
                     print('An Exception occured in Domain ' + domain)
                     traceback.print_exc()
 
-            gluon.destroy()
+            try:
+                gluon.destroy()
+            except Exception as e:
+                print('An Exception occured in Domain ' + domain)
+                traceback.print_exc()
     except: 
         print(str(e))
 
