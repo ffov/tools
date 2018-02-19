@@ -1,11 +1,21 @@
 #!/bin/bash
 
-DEFAULT_GLUON_IMAGEDIR_PREFIX='/var/www/html/'
+DEFAULT_GLUON_IMAGEDIR_PREFIX='/home/ffov/firmware/openwrt/'
 DEFAULT_GLUON_SITEDIR=`dirname \`pwd\``'/site/'
-DEFAULT_SITE_URL="https://github.com/FreiFunkMuenster/site-ffms.git"
+DEFAULT_SITE_URL="https://github.com/ffov/site-ffov-l2tp.git"
 DEFAULT_GLUON_URL="https://github.com/freifunk-gluon/gluon.git"
 DEFAULT_GLUON_DIR='../gluon'
-HIPCHAT_NOTIFY_URL="https://hc.infrastruktur.ms/v2/room/5/notification?auth_token=$(cat HIPCHAT_AUTH_TOKEN)" # HIPCHAT_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken für HipChat enthalten.
+if [ -f HIPCHAT_AUTH_TOKEN ]; then
+	HIPCHAT_NOTIFY_URL="https://hc.infrastruktur.ms/v2/room/33/notification?auth_token=$(cat HIPCHAT_AUTH_TOKEN)" # HIPCHAT_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken fÃ¼r HipChat enthalten.
+else
+	HIPCHAT_NOTIFY_URL=""
+fi
+if [ -f TELEGRAM_AUTH_TOKEN ]; then
+	TELEGRAM_NOTIFY_URL="https://api.telegram.org/bot$(cat TELEGRAM_AUTH_TOKEN)/sendMessage" #TELEGRAM_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken fÃ¼r Telegram enthalten.
+else
+	TELEGRAM_NOTIFY_URL=""
+fi
+TELEGRAM_NOTIFY_CHATID="-300248924"
 GLUON_VERSION=""
 VERSION=""
 TARGETS=""
@@ -61,12 +71,16 @@ function split_value_from_argument () {
 	return 0
 }
 
-function hc_notify () {
+function notify () {
 	COLOR=$1
 	MESSAGE=$2
 	NOTIFY=$3
-	
-	curl -d '{"color":"'"$COLOR"'","message":"'"$(hostname) --> $MESSAGE"'","notify":"'"$NOTIFY"'","message_format":"text"}' -H 'Content-Type: application/json' $HIPCHAT_NOTIFY_URL
+	if [ ! -z "$HIPCHAT_NOTIFY_URL" ]; then
+		curl -d '{"color":"'"$COLOR"'","message":"'"$(hostname) --> $MESSAGE"'","notify":"'"$NOTIFY"'","message_format":"text"}' -H 'Content-Type: application/json' $HIPCHAT_NOTIFY_URL
+	fi
+        if [ ! -z "$TELEGRAM_NOTIFY_URL" ]; then
+                curl --max-time 10 -d "chat_id=$TELEGRAM_NOTIFY_CHATID&text=$MESSAGE" $TELEGRAM_NOTIFY_URL
+        fi
 }
 
 function enable_debugging () {
@@ -295,7 +309,7 @@ function try_execution_x_times () {
 	done
 	if [[ ! $return_value == 0 ]]
 	then
-		hc_notify "red" "Build abgebrochen." true
+		notify "red" "Build abgebrochen." true
 		echo "Something went wrong. Aborting."
 		exit 1
 	fi
@@ -321,9 +335,9 @@ function build_selected_targets_for_domaene () {
 	git_pull "$GLUON_SITEDIR"
 	for j in $TARGETS
 	do
-		hc_notify "yellow" "$i Target $j gestartet." false
+		notify "yellow" "$i Target $j gestartet." false
 		build_target_for_domaene $j
-		hc_notify "yellow" "$i Target $j fertig." false
+		notify "yellow" "$i Target $j fertig." false
 	done
 	make_manifests
 }
@@ -331,9 +345,9 @@ function build_selected_targets_for_domaene () {
 function build_selected_domains_and_selected_targets () {
 	for i in $DOMAINS_TO_BUILD
 	do
-		hc_notify "purple" "$i gestartet." false
+		notify "purple" "$i gestartet." false
 		build_selected_targets_for_domaene $i
-		hc_notify "purple" "$i fertig." false
+		notify "purple" "$i fertig." false
 	done
 }
 
@@ -344,7 +358,7 @@ function delete_unwanted_firmwares () {
 
 
 process_arguments "$@"
-hc_notify "green" "Build $GLUON_VERSION+$VERSION gestartet." true
+notify "green" "Build $GLUON_VERSION+$VERSION gestartet." true
 build_make_opts
 prepare_repo "$GLUON_SITEDIR" $SITE_URL
 prepare_repo "$GLUON_DIR" $GLUON_URL
@@ -357,4 +371,4 @@ then
 fi
 build_selected_domains_and_selected_targets
 delete_unwanted_firmwares
-hc_notify "green" "Build $GLUON_VERSION+$VERSION abgeschlossen." true
+notify "green" "Build $GLUON_VERSION+$VERSION abgeschlossen." true
