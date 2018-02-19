@@ -1,12 +1,12 @@
 #!/bin/bash
 
-DEFAULT_GLUON_IMAGEDIR_PREFIX='/var/www/html/'
+DEFAULT_GLUON_IMAGEDIR_PREFIX='/home/ffov/firmware/lede/'
 DEFAULT_GLUON_SITEDIR=`dirname \`pwd\``'/site/'
-DEFAULT_SITE_URL="https://github.com/FreiFunkMuenster/site-ffms.git"
+DEFAULT_SITE_URL="https://github.com/ffov/ffov-site-lede-l2tp.git"
 DEFAULT_GLUON_URL="https://github.com/freifunk-gluon/gluon.git"
 DEFAULT_GLUON_DIR='../gluon'
 if [ -f HIPCHAT_AUTH_TOKEN ]; then
-	HIPCHAT_NOTIFY_URL="https://hc.infrastruktur.ms/v2/room/5/notification?auth_token=$(cat HIPCHAT_AUTH_TOKEN)" # HIPCHAT_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken für HipChat enthalten.
+	HIPCHAT_NOTIFY_URL="https://hc.infrastruktur.ms/v2/room/33/notification?auth_token=$(cat HIPCHAT_AUTH_TOKEN)" # HIPCHAT_AUTH_TOKEN Muss als Datei im gleichen Ordner wie build_all.sh liegen und den AuthToken für HipChat enthalten.
 else
 	HIPCHAT_NOTIFY_URL=""
 fi
@@ -15,7 +15,7 @@ if [ -f TELEGRAM_AUTH_TOKEN ]; then
 else
 	TELEGRAM_NOTIFY_URL=""
 fi
-TELEGRAM_NOTIFY_CHATID=""
+TELEGRAM_NOTIFY_CHATID="-300248924"
 GLUON_VERSION=""
 VERSION=""
 TARGETS=""
